@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi primera web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Hola 👋</h1>
+  <p>Esta es mi primera web subida a internet</p>
+
+  <button onclick="saludar()">Hacé click</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
