@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault Transfer DS — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0D1B3E;
+      --navy2:  #152650;
+      --teal:   #00BCD4;
+      --teal2:  #00E5FF;
+      --white:  #FFFFFF;
+      --off:    #F4F6FA;
+      --muted:  #7A8599;
+      --border: rgba(13,27,62,0.1);
+      --card-bg: #FFFFFF;
+      --text:   #0D1B3E;
+      --text2:  #4A5568;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 64px;
+      background: rgba(244,246,250,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 15px;
+      color: var(--navy); text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal); font-size: 14px; font-weight: 800;
+    }
+
+    .nav-pill {
+      font-size: 11px; font-weight: 500;
+      background: rgba(0,188,212,0.12);
+      color: #007B8A;
+      padding: 4px 10px; border-radius: 99px;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px; color: var(--text2);
+      text-decoration: none; font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 120px clamp(1.5rem, 6vw, 5rem) 80px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,188,212,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(13,27,62,0.06) 0%, transparent 50%),
+        var(--off);
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(13,27,62,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,27,62,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #007B8A;
+      background: rgba(0,188,212,0.1);
+      border: 1px solid rgba(0,188,212,0.25);
+      padding: 6px 14px; border-radius: 99px;
+      margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800; line-height: 1.0;
+      color: var(--navy);
+      max-width: 900px;
+      opacity: 0; animation: fadeUp 0.7s 0.35s ease forwards;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--teal);
+      position: relative;
+    }
+
+    .hero-title em::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      border-radius: 2px;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300; line-height: 1.7;
+      color: var(--text2);
+      max-width: 600px;
+      margin: 1.75rem auto 0;
+      opacity: 0; animation: fadeUp 0.7s 0.5s ease forwards;
+    }
+
+    .hero-cta-row {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      align-items: center; justify-content: center;
+      margin-top: 2.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.65s ease forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,27,62,0.2); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text2);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 400;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      text-decoration: none; border: 1.5px solid var(--border);
+      cursor: pointer; transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
+
+    .hero-stats {
+      display: flex; gap: clamp(1.5rem, 4vw, 3.5rem);
+      flex-wrap: wrap; justify-content: center;
+      margin-top: 4rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      width: 100%; max-width: 700px;
+      opacity: 0; animation: fadeUp 0.7s 0.8s ease forwards;
+    }
+
+    .hero-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 700; color: var(--navy);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 12px; color: var(--muted); margin-top: 4px;
+      font-weight: 400; letter-spacing: 0.02em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── INTRO ── */
+    .section {
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #007B8A;
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .section-eyebrow::before {
+      content: ''; display: block;
+      width: 24px; height: 2px;
+      background: var(--teal); border-radius: 1px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; color: var(--navy);
+      line-height: 1.15; max-width: 560px;
+    }
+
+    .section-body {
+      font-size: 1rem; line-height: 1.75;
+      color: var(--text2); max-width: 620px;
+      margin-top: 1rem; font-weight: 300;
+    }
+
+    /* ── INTRO 2-COL ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .intro-visual {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .intro-visual-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 120% 80% at 80% -20%, rgba(0,188,212,0.2) 0%, transparent 60%);
+    }
+
+    .flow-steps {
+      display: flex; flex-direction: column; gap: 1rem;
+      position: relative; z-index: 1;
+    }
+
+    .flow-step {
+      display: flex; align-items: flex-start; gap: 14px;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .flow-step.visible {
+      opacity: 1; transform: translateX(0);
+    }
+
+    .flow-step:nth-child(1) { transition-delay: 0.05s; }
+    .flow-step:nth-child(2) { transition-delay: 0.15s; }
+    .flow-step:nth-child(3) { transition-delay: 0.25s; }
+    .flow-step:nth-child(4) { transition-delay: 0.35s; }
+    .flow-step:nth-child(5) { transition-delay: 0.45s; }
+
+    .flow-step-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(0,188,212,0.15);
+      border: 1px solid rgba(0,188,212,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+
+    .flow-step-text {}
+    .flow-step-title { font-size: 13px; font-weight: 500; color: #fff; }
+    .flow-step-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    /* ── ATOM CARD GRID ── */
+    .atoms-section { background: var(--white); }
+
+    .atoms-wrap {
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .atoms-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .component-card {
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      cursor: default;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.4s, transform 0.4s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .component-card.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    .component-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,188,212,0.4);
+      box-shadow: 0 8px 24px rgba(0,188,212,0.08);
+    }
+
+    .component-card-tag {
+      display: inline-flex; align-items: center;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.05em;
+      text-transform: uppercase; padding: 3px 8px;
+      border-radius: 99px; margin-bottom: 0.75rem;
+    }
+
+    .tag-atom { background: rgba(0,188,212,0.1); color: #007B8A; }
+    .tag-molecule { background: rgba(99,153,34,0.1); color: #3B6D11; }
+    .tag-organism { background: rgba(127,119,221,0.1); color: #534AB7; }
+
+    .component-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px; font-weight: 600; color: var(--navy);
+    }
+
+    .component-card-meta {
+      font-size: 12px; color: var(--muted); margin-top: 4px;
+    }
+
+    .component-card-variants {
+      display: inline-flex; align-items: center;
+      margin-top: 12px;
+      font-size: 11px; font-weight: 500;
+      color: var(--navy); background: rgba(13,27,62,0.06);
+      padding: 3px 8px; border-radius: 6px;
+    }
+
+    /* ── KPI STRIP ── */
+    .kpi-strip {
+      background: var(--navy);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem);
+      overflow: hidden; position: relative;
+    }
+
+    .kpi-strip-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 100% at 100% 50%, rgba(0,188,212,0.12) 0%, transparent 60%);
+    }
+
+    .kpi-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem; position: relative; z-index: 1;
+    }
+
+    .kpi-item {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .kpi-item.visible { opacity: 1; transform: translateY(0); }
+
+    .kpi-item:nth-child(1) { transition-delay: 0.0s; }
+    .kpi-item:nth-child(2) { transition-delay: 0.08s; }
+    .kpi-item:nth-child(3) { transition-delay: 0.16s; }
+    .kpi-item:nth-child(4) { transition-delay: 0.24s; }
+    .kpi-item:nth-child(5) { transition-delay: 0.32s; }
+    .kpi-item:nth-child(6) { transition-delay: 0.40s; }
+
+    .kpi-num {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 800; color: var(--teal); line-height: 1;
+    }
+
+    .kpi-label {
+      font-size: 13px; color: rgba(255,255,255,0.6);
+      margin-top: 6px; line-height: 1.4;
+    }
+
+    .kpi-sub {
+      font-size: 11px; color: rgba(255,255,255,0.35);
+      margin-top: 3px;
+    }
+
+    /* ── SCREENS ── */
+    .screens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+
+    .screen-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s, box-shadow 0.2s;
+    }
+
+    .screen-card.visible { opacity: 1; transform: translateY(0); }
+    .screen-card:hover { box-shadow: 0 8px 32px rgba(13,27,62,0.1); }
+
+    .screen-card:nth-child(1) { transition-delay: 0.0s; }
+    .screen-card:nth-child(2) { transition-delay: 0.08s; }
+    .screen-card:nth-child(3) { transition-delay: 0.16s; }
+    .screen-card:nth-child(4) { transition-delay: 0.24s; }
+    .screen-card:nth-child(5) { transition-delay: 0.32s; }
+
+    .screen-mock {
+      background: var(--navy);
+      height: 140px; position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      gap: 6px; padding: 14px 12px;
+    }
+
+    .mock-bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.15); }
+    .mock-bar.teal { background: rgba(0,188,212,0.5); }
+    .mock-bar.w60 { width: 60%; }
+    .mock-bar.w80 { width: 80%; }
+    .mock-bar.w45 { width: 45%; }
+    .mock-bar.w70 { width: 70%; }
+    .mock-bar.w30 { width: 30%; }
+
+    .mock-circle {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(0,188,212,0.25);
+      border: 1.5px solid rgba(0,188,212,0.5);
+    }
+
+    .mock-row {
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .mock-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px;
+      height: 28px; flex: 1;
+    }
+
+    .screen-info {
+      padding: 1rem 1.25rem;
+    }
+
+    .screen-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px; font-weight: 600; color: var(--navy);
+    }
+
+    .screen-comps {
+      font-size: 11px; color: var(--muted); margin-top: 3px;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap-phases {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+
+    .phase-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .phase-card.visible { opacity: 1; transform: translateY(0); }
+    .phase-card:nth-child(1) { transition-delay: 0.0s; }
+    .phase-card:nth-child(2) { transition-delay: 0.1s; }
+    .phase-card:nth-child(3) { transition-delay: 0.2s; }
+    .phase-card:nth-child(4) { transition-delay: 0.3s; }
+
+    .phase-card-accent {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+
+    .phase-done .phase-card-accent { background: var(--teal); }
+    .phase-wip  .phase-card-accent { background: #7F77DD; }
+    .phase-next .phase-card-accent { background: #F59E0B; }
+    .phase-future .phase-card-accent { background: #CBD5E0; }
+
+    .phase-badge {
+      display: inline-flex; font-size: 10px; font-weight: 500;
+      padding: 3px 8px; border-radius: 99px; margin-bottom: 0.75rem;
+    }
+
+    .phase-done   .phase-badge { background: rgba(0,188,212,0.1); color: #007B8A; }
+    .phase-wip    .phase-badge { background: rgba(127,119,221,0.12); color: #534AB7; }
+    .phase-next   .phase-badge { background: rgba(245,158,11,0.1); color: #854F0B; }
+    .phase-future .phase-badge { background: rgba(0,0,0,0.06); color: #888; }
+
+    .phase-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px; font-weight: 700; color: var(--navy);
+    }
+
+    .phase-items {
+      list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 6px;
+    }
+
+    .phase-items li {
+      font-size: 12px; color: var(--text2);
+      display: flex; align-items: flex-start; gap: 6px; line-height: 1.4;
+    }
+
+    .phase-items li::before {
+      content: ''; display: block; flex-shrink: 0;
+      width: 5px; height: 5px; border-radius: 50%;
+      margin-top: 5px;
+    }
+
+    .phase-done   .phase-items li::before { background: var(--teal); }
+    .phase-wip    .phase-items li::before { background: #7F77DD; }
+    .phase-next   .phase-items li::before { background: #F59E0B; }
+    .phase-future .phase-items li::before { background: #CBD5E0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.5);
+      padding: 3rem clamp(1.5rem, 6vw, 5rem);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 13px;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; color: var(--white); font-size: 15px;
+    }
+
+    /* ── SCROLL ANIMATION BASE ── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── DIVIDER ── */
+    .full-divider {
+      width: 100%; height: 1px;
+      background: var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">V</div>
+      Vault Transfer DS
+    </a>
+    <ul class="nav-links">
+      <li><a href="#intro">Qué es</a></li>
+      <li><a href="#components">Componentes</a></li>
+      <li><a href="#screens">Pantallas</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+    <span class="nav-pill">Abril 2026</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Design System · Banca Digital
+    </div>
+
+    <h1 class="hero-title">
+      Un sistema de diseño para <em>transferencias</em> bancarias
+    </h1>
+
+    <p class="hero-desc">
+      Vault Transfer DS es una librería de componentes construida desde cero para
+      una app de transferencias entre personas. Átomos, moléculas y organismos
+      pensados para flujos bancarios reales: seguridad, velocidad y claridad.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#components" class="btn-primary">Ver componentes →</a>
+      <a href="#intro" class="btn-ghost">¿Qué es un DS?</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">25</div>
+        <div class="hero-stat-label">Componentes</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">~312</div>
+        <div class="hero-stat-label">Variantes</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Pantallas</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Fase 1 completa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section" id="intro">
+    <div class="intro-grid">
+      <div>
+        <div class="section-eyebrow reveal">Contexto</div>
+        <h2 class="section-title reveal">¿Qué es el Vault Transfer DS?</h2>
+        <p class="section-body reveal">
+          Un <strong>Design System</strong> es el lenguaje visual compartido entre diseño e ingeniería.
+          En lugar de rediseñar cada botón o cada campo de formulario en cada pantalla,
+          el DS define los componentes una sola vez y los reutiliza en toda la app.
+        </p>
+        <p class="section-body reveal" style="margin-top: 0.75rem;">
+          Vault Transfer DS nació para resolver los flujos de una app de
+          <strong>agenda de transferencias bancarias</strong>: cómo mostrar contactos,
+          cómo confirmar una transferencia, cómo informar el estado. Cada componente
+          responde a una necesidad real de esos flujos.
+        </p>
+      </div>
+      <div class="intro-visual">
+        <div class="intro-visual-bg"></div>
+        <div class="flow-steps" id="flowSteps">
+          <div class="flow-step">
+            <div class="flow-step-icon">📋</div>
+            <div class="flow-step-text">
+              <div class="flow-step-title">Tokens de color y tipografía</div>
+              <div class="flow-step-sub">navy-900, teal-400, Plus Jakarta Sans</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-icon">⚛️</div>
+            <div class="flow-step-text">
+              <div class="flow-step-title">Átomos — 11 componentes</div>
+              <div class="flow-step-sub">Button, Input, Status Pill, Loader…</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-icon">🧬</div>
+            <div class="flow-step-text">
+              <div class="flow-step-title">Moléculas — 2 componentes</div>
+              <div class="flow-step-sub">BDC / Content Block, Profile Avatar</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-icon">🦠</div>
+            <div class="flow-step-text">
+              <div class="flow-step-title">Organismos — 6 componentes</div>
+              <div class="flow-step-sub">Bank Detail Card, Hero Section, Contact List…</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-icon">📱</div>
+            <div class="flow-step-text">
+              <div class="flow-step-title">5 pantallas cubiertas</div>
+              <div class="flow-step-sub">Agenda → Detalle → Nuevo → Confirmar → Estado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- KPI STRIP -->
+  <section class="kpi-strip" id="kpis">
+    <div class="kpi-strip-bg"></div>
+    <div class="kpi-inner">
+      <div class="kpi-item">
+        <div class="kpi-num">25</div>
+        <div class="kpi-label">Componentes mapeados</div>
+        <div class="kpi-sub">en 5 pantallas</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-num">11</div>
+        <div class="kpi-label">Átomos</div>
+        <div class="kpi-sub">base del sistema</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-num">2</div>
+        <div class="kpi-label">Moléculas</div>
+        <div class="kpi-sub">combinaciones</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-num">6</div>
+        <div class="kpi-label">Organismos</div>
+        <div class="kpi-sub">bloques completos</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-num">~312</div>
+        <div class="kpi-label">Variantes</div>
+        <div class="kpi-sub">estado × tipo × tamaño</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-num">100%</div>
+        <div class="kpi-label">Cobertura Fase 1</div>
+        <div class="kpi-sub">completada Abril 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="atoms-section" id="components">
+    <div class="atoms-wrap">
+      <div class="atoms-header">
+        <div>
+          <div class="section-eyebrow reveal">Inventario</div>
+          <h2 class="section-title reveal">Todos los componentes</h2>
+        </div>
+      </div>
+      <div class="component-grid">
+
+        <!-- ATOMS -->
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Button</div><div class="component-card-meta">Primary / Secondary / Ghost</div><div class="component-card-variants">63 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Loader</div><div class="component-card-meta">Dark / Light / Teal / NavyTeal</div><div class="component-card-variants">8 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">BDC / Icon Slot</div><div class="component-card-meta">Monograma / Imagen / Ícono</div><div class="component-card-variants">6 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">BDC / Copy Action</div><div class="component-card-meta">Copy / Share / External</div><div class="component-card-variants">9 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">CLi / Avatar</div><div class="component-card-meta">Foto / Monograma / Placeholder</div><div class="component-card-variants">6 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">CLi / Bank Badge</div><div class="component-card-meta">Chase / Wells / ING / Standard</div><div class="component-card-variants">10 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">CLi / Action Icon</div><div class="component-card-meta">Swap instance · 16×16px</div><div class="component-card-variants">12 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Status Pill</div><div class="component-card-meta">Success / Warning / Info / Neutral</div><div class="component-card-variants">4 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Search Input</div><div class="component-card-meta">Default / Focused / Filled / Disabled</div><div class="component-card-variants">4 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Text Input</div><div class="component-card-meta">Label + Input + Helper</div><div class="component-card-variants">5 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Transaction Badge</div><div class="component-card-meta">Fee · Speed</div><div class="component-card-variants">4 variantes</div></div>
+
+        <!-- MOLECULES -->
+        <div class="component-card"><span class="component-card-tag tag-molecule">Molécula</span><div class="component-card-name">BDC / Content Block</div><div class="component-card-meta">Lines=2 / Lines=3</div><div class="component-card-variants">4 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-molecule">Molécula</span><div class="component-card-name">Profile Avatar</div><div class="component-card-meta">AvatarType × ShowBadge × ShowPill</div><div class="component-card-variants">36 variantes</div></div>
+
+        <!-- ORGANISMS -->
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Bank Detail Card</div><div class="component-card-meta">Auto Layout HUG altura</div><div class="component-card-variants">36 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Contact List Item</div><div class="component-card-meta">Swap instance · Show Secondary</div><div class="component-card-variants">72 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Hero Section: Profile Header</div><div class="component-card-meta">342×220px · ShowPill explícito</div><div class="component-card-variants">12 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Top App Bar</div><div class="component-card-meta">Home / Detail / Modal</div><div class="component-card-variants">3 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Bottom Nav Bar</div><div class="component-card-meta">Dashboard / Transfers / Profile</div><div class="component-card-variants">3 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Vault Summary Card</div><div class="component-card-meta">Gradiente navy → teal</div><div class="component-card-variants">2 variantes</div></div>
+
+        <!-- NEW — APR 2026 -->
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Amount Display</div><div class="component-card-meta">Large / Compact</div><div class="component-card-variants">2 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-atom">Átomo</span><div class="component-card-name">Section Label</div><div class="component-card-meta">Align Left / Center</div><div class="component-card-variants">2 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-molecule">Molécula</span><div class="component-card-name">Recipient Row</div><div class="component-card-meta">Default / Selected</div><div class="component-card-variants">2 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Origin Account Card</div><div class="component-card-meta">Default / Selected · gradiente dark</div><div class="component-card-variants">2 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Verified ID Card</div><div class="component-card-meta">Unverified / Verified</div><div class="component-card-variants">2 variantes</div></div>
+        <div class="component-card"><span class="component-card-tag tag-organism">Organismo</span><div class="component-card-name">Promo Banner</div><div class="component-card-meta">Theme Dark / Teal</div><div class="component-card-variants">2 variantes</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENS -->
+  <section class="section" id="screens">
+    <div class="section-eyebrow reveal">Cobertura</div>
+    <h2 class="section-title reveal">Las 5 pantallas del flujo</h2>
+    <p class="section-body reveal">Cada pantalla tiene su inventario de componentes. El DS garantiza coherencia visual entre todas ellas.</p>
+
+    <div class="screens-grid">
+      <div class="screen-card">
+        <div class="screen-mock">
+          <div class="mock-row"><div class="mock-circle"></div><div style="flex:1"></div></div>
+          <div class="mock-bar teal w60" style="margin-top:4px"></div>
+          <div class="mock-bar w80"></div>
+          <div class="mock-bar w45"></div>
+          <div class="mock-bar w80"></div>
+          <div class="mock-bar w45"></div>
+        </div>
+        <div class="screen-info">
+          <div class="screen-name">Agenda Contactos</div>
+          <div class="screen-comps">10 componentes</div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-mock">
+          <div class="mock-row"><div class="mock-circle"></div><div style="flex:1"><div class="mock-bar teal w60" style="margin-bottom:4px"></div><div class="mock-bar w45"></div></div></div>
+          <div style="margin-top:8px"><div class="mock-card"></div></div>
+          <div style="margin-top:6px"><div class="mock-bar w70"></div></div>
+        </div>
+        <div class="screen-info">
+          <div class="screen-name">Detalle Contacto</div>
+          <div class="screen-comps">8 componentes</div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-mock">
+          <div class="mock-bar teal w45"></div>
+          <div class="mock-card" style="height:36px;margin-top:6px"></div>
+          <div class="mock-card" style="height:36px;margin-top:6px"></div>
+          <div class="mock-bar w30" style="margin-top:6px"></div>
+        </div>
+        <div class="screen-info">
+          <div class="screen-name">Nuevo Contacto</div>
+          <div class="screen-comps">8 componentes</div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-mock">
+          <div class="mock-bar teal w45"></div>
+          <div class="mock-bar w80" style="margin-top:4px"></div>
+          <div class="mock-card" style="height:44px;margin-top:8px"></div>
+          <div class="mock-row" style="margin-top:6px"><div class="mock-bar w30"></div><div class="mock-bar w30"></div></div>
+        </div>
+        <div class="screen-info">
+          <div class="screen-name">Confirmación</div>
+          <div class="screen-comps">10 componentes</div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-mock" style="align-items:center;justify-content:center;gap:8px">
+          <div style="width:40px;height:40px;border-radius:50%;border:2px solid rgba(0,188,212,0.7);display:flex;align-items:center;justify-content:center">
+            <div style="width:16px;height:16px;border-radius:50%;background:rgba(0,188,212,0.5)"></div>
+          </div>
+          <div style="width:100%;display:flex;flex-direction:column;gap:5px;align-items:center">
+            <div class="mock-bar teal w45"></div>
+            <div class="mock-bar w60"></div>
+          </div>
+        </div>
+        <div class="screen-info">
+          <div class="screen-name">Transfer Status</div>
+          <div class="screen-comps">9 componentes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="section-eyebrow reveal">Roadmap</div>
+    <h2 class="section-title reveal">Fases de construcción</h2>
+    <p class="section-body reveal">El DS se construyó en cuatro fases. La Fase 1 está completada. Las siguientes fases iterarán sobre cobertura de pantallas, dark mode y documentación de código.</p>
+
+    <div class="roadmap-phases">
+      <div class="phase-card phase-done">
+        <div class="phase-card-accent"></div>
+        <div class="phase-badge">✓ Completada</div>
+        <div class="phase-title">Fase 1 — Tokens & Átomos</div>
+        <ul class="phase-items">
+          <li>Paleta de color (navy, teal, semánticos)</li>
+          <li>Tipografía: Plus Jakarta Sans</li>
+          <li>Button, Input, Loader, Status Pill</li>
+          <li>BDC y CLi atoms</li>
+          <li>Transaction Badge</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-done">
+        <div class="phase-card-accent"></div>
+        <div class="phase-badge">✓ Completada</div>
+        <div class="phase-title">Fase 2 — Moléculas & Organismos</div>
+        <ul class="phase-items">
+          <li>Profile Avatar (36 variantes)</li>
+          <li>Bank Detail Card</li>
+          <li>Contact List Item</li>
+          <li>Hero Section: Profile Header</li>
+          <li>Top App Bar, Bottom Nav Bar</li>
+          <li>Vault Summary Card</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-done">
+        <div class="phase-card-accent"></div>
+        <div class="phase-badge">✓ Completada Apr 2026</div>
+        <div class="phase-title">Fase 3 — Transfer Flow</div>
+        <ul class="phase-items">
+          <li>Amount Display</li>
+          <li>Section Label</li>
+          <li>Recipient Row</li>
+          <li>Origin Account Card</li>
+          <li>Verified ID Card</li>
+          <li>Promo Banner</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-next">
+        <div class="phase-card-accent"></div>
+        <div class="phase-badge">Próxima fase</div>
+        <div class="phase-title">Fase 4 — Cobertura de Screens</div>
+        <ul class="phase-items">
+          <li>Instanciar componentes en Screens</li>
+          <li>Dark mode tokens</li>
+          <li>Documentación en código</li>
+          <li>Prototyping interactivo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Vault Transfer DS</div>
+      <div style="margin-top:4px">Diseñado con Figma · Abril 2026</div>
+    </div>
+    <div style="font-size:12px;text-align:right">
+      <div>25 componentes · ~312 variantes</div>
+      <div style="margin-top:3px">Plus Jakarta Sans · navy-900 · teal-400</div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Intersection Observer: scroll reveals ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(
+      '.reveal, .component-card, .screen-card, .phase-card, .kpi-item'
+    ).forEach(el => observer.observe(el));
+
+    // ── Flow steps in intro visual ──
+    const flowObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.flow-step').forEach(s => s.classList.add('visible'));
+          flowObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const flowEl = document.getElementById('flowSteps');
+    if (flowEl) flowObserver.observe(flowEl.closest('.intro-visual'));
+
+    // ── Stagger delays for component cards ──
+    document.querySelectorAll('.component-card').forEach((card, i) => {
+      card.style.transitionDelay = `${(i % 8) * 0.05}s`;
+    });
+  </script>
+
+</body>
+</html>
