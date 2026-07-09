@@ -16,7 +16,7 @@
 <div class="min-h-screen bg-white">
 
   <!-- NAV -->
-  <nav class="px-6 border-b border-gray-200">
+  <nav id="top" class="px-6 border-b border-gray-200">
     <div class="max-w-4xl mx-auto py-4 flex items-center justify-between">
       <a href="index.html" class="text-sm font-medium text-black hover:underline">← Volver al inicio</a>
       <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
@@ -57,16 +57,14 @@
         disfrutar de sus series o películas favoritas directamente desde el navegador.
       </p>
       <p class="text-gray-700 leading-relaxed mb-4">Teniendo en claro estos principios:</p>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Simple</div>
         <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Escalable</div>
         <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Perdurable</div>
         <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Personalizada</div>
         <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Consistente</div>
       </div>
-      <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 max-w-md">
-        <img src="img/flow/instalacion.jpg" alt="Pantalla de instalación del reproductor de video de Flow" class="w-full h-auto rounded-md">
-      </div>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
@@ -84,6 +82,7 @@
         También surgieron nuevas funcionalidades a resolver: acceso a los canales anteriores, posibilidad de ver la
         grilla sin que tape el contenido, distintos perfiles y un mini reproductor.
       </p>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
@@ -93,31 +92,51 @@
       <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">VALIDACIÓN</p>
       <h2 class="text-4xl font-bold text-black mb-6">Prueba de usabilidad</h2>
       <p class="text-gray-700 leading-relaxed mb-8">
-        Hicimos pruebas de usabilidad de la aplicación para entender cómo estaban funcionando nuestros prototipos.
-        Con mapas de calor identificamos, entre otros, estos hallazgos:
+        Hicimos pruebas de usabilidad con <strong>6 personas usuarias</strong> —tamaño de muestra habitual en tests
+        de usabilidad, ya que a partir de la quinta o sexta persona los patrones de comportamiento empiezan a
+        repetirse—. Con mapas de calor identificamos, entre el grupo, estos hallazgos:
       </p>
       <div class="space-y-4 mb-12">
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">01</span>
-          <p class="text-gray-900 flex-1">Algunos usuarios utilizan el ícono de mostrar la contraseña, en especial cuando el navegador guarda una contraseña desactualizada.</p>
+          <p class="text-gray-900 flex-1">Parte del grupo utilizó el ícono de mostrar la contraseña, en especial cuando el navegador guardaba una contraseña desactualizada.</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">02</span>
-          <p class="text-gray-900 flex-1">Los usuarios suelen hacer más clicks en el espacio de los CTA donde se muestra el texto, específicamente sobre el copy "Ingresar".</p>
+          <p class="text-gray-900 flex-1">El mapa de calor mostró mayor concentración de clicks en el espacio de los CTA donde se muestra el texto, específicamente sobre el copy "Ingresar".</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">03</span>
-          <p class="text-gray-900 flex-1">Muchos usuarios prefieren volver a guiarse con el elemento del menú "Guía de TV" antes que con el botón "Ocultar Guía".</p>
+          <p class="text-gray-900 flex-1">Buena parte del grupo prefirió volver a guiarse con el elemento del menú "Guía de TV" antes que con el botón "Ocultar Guía".</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">04</span>
-          <p class="text-gray-900 flex-1">Algunos usuarios esperan que el logo de Flow los devuelva a un estado previo, o lo usan para recargar la página de inicio.</p>
+          <p class="text-gray-900 flex-1">Una parte del grupo esperaba que el logo de Flow los devolviera a un estado previo, o lo usó para recargar la página de inicio.</p>
         </div>
       </div>
-      <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/flow/heatmaps-usabilidad.jpg" alt="Mapas de calor de la pantalla de login, la guía de TV y el banner destacado" class="w-full h-auto rounded-md">
+
+      <p class="text-xs uppercase tracking-wider text-gray-500 mb-6">Mapas de calor</p>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+            <img src="img/flow/heatmap-login.png" alt="Mapa de calor de la pantalla de login" class="w-full h-auto rounded-md">
+          </div>
+          <p class="text-sm text-gray-600 mt-3">Login — clicks concentrados en el CTA "Ingresar" y en el ícono de mostrar contraseña.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+            <img src="img/flow/heatmap-guia.png" alt="Mapa de calor de la navegación superior y guía de TV" class="w-full h-auto rounded-md">
+          </div>
+          <p class="text-sm text-gray-600 mt-3">Navegación superior — concentración de clicks en el logo y en "Guía de TV".</p>
+        </div>
       </div>
-      <p class="text-sm text-gray-600 mt-4">Mapas de calor sobre login, navegación superior y banner destacado de contenido.</p>
+      <div class="max-w-md">
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <img src="img/flow/heatmap-banner.png" alt="Mapa de calor del banner destacado y la grilla de TV en vivo" class="w-full h-auto rounded-md">
+        </div>
+        <p class="text-sm text-gray-600 mt-3">Banner destacado — clicks distribuidos entre el CTA principal y los thumbnails de TV en vivo.</p>
+      </div>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
@@ -138,6 +157,7 @@
       <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 max-w-md mx-auto">
         <img src="img/flow/arquitectura-flujo.jpg" alt="Diagrama de arquitectura de información y flujo de pantallas de Flow" class="w-full h-auto rounded-md">
       </div>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
@@ -152,9 +172,15 @@
         creamos los conceptos básicos de un producto en el sistema de diseño y luego los completamos paso a paso en
         las pantallas.
       </p>
-      <div class="bg-black rounded-lg p-4">
+      <div class="bg-black rounded-lg p-4 mb-4">
         <img src="img/flow/sistema-diseno.jpg" alt="Paleta cromática, perfiles, iconografía y estilos de botones del sistema de diseño de Flow" class="w-full h-auto rounded-md">
       </div>
+      <p class="text-sm text-gray-600 mb-8">Fundamentos: paleta cromática, perfiles, iconografía y estilos de botones.</p>
+      <div class="bg-black rounded-lg p-4 mb-4">
+        <img src="img/flow/sistema-diseno-2.jpg" alt="Botones DIP, compartir en RRSS, alquileres, grabaciones, filtros, guía EPG, cast y reproductor" class="w-full h-auto rounded-md">
+      </div>
+      <p class="text-sm text-gray-600">Componentes de producto: botones DIP, compartir en RRSS, alquileres, grabaciones, filtros, EPG, cast y reproductor.</p>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
@@ -170,18 +196,19 @@
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
         <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-          <img src="img/flow/perfil-selector.jpg" alt="Pantalla de selección de perfil: ¿Quién está viendo ahora?" class="w-full h-auto rounded-md">
+          <img src="img/flow/perfil-selector.png" alt="Pantalla de selección de perfil: ¿Quién está viendo ahora?" class="w-full h-auto rounded-md">
         </div>
         <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-          <img src="img/flow/guia-tv.jpg" alt="Guía de TV con grilla de programación por horario" class="w-full h-auto rounded-md">
+          <img src="img/flow/guia-tv.png" alt="Guía de TV con grilla de programación por horario" class="w-full h-auto rounded-md">
         </div>
       </div>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-6">
-        <img src="img/flow/reproductor-vivo.jpg" alt="Reproductor de TV en vivo con lista de canales" class="w-full h-auto rounded-md">
+        <img src="img/flow/reproductor-vivo.png" alt="Reproductor de TV en vivo con lista de canales" class="w-full h-auto rounded-md">
       </div>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/flow/home-detalle.jpg" alt="Home con contenido destacado y pantalla de detalle de una serie" class="w-full h-auto rounded-md">
+        <img src="img/flow/home-detalle.png" alt="Home con contenido destacado y pantalla de detalle de una serie" class="w-full h-auto rounded-md">
       </div>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
@@ -196,6 +223,7 @@
         la menor cantidad de características posibles, para aprender y extraer información relevante de ese período
         de prueba —a través de una serie de métricas de interacción— y luego actuar en base a esos datos.
       </p>
+      <a href="#top" class="inline-block mt-12 text-sm text-gray-500 hover:text-black">↑ Volver arriba</a>
     </div>
   </section>
 
