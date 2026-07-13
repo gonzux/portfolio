@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Flow Webclient — Caso de estudio UX/UI</title>
 <meta name="description" content="Diseño del cliente web de Flow (Telecom): investigación de usuarios, pruebas de usabilidad y sistema de diseño para ver TV en vivo y on demand desde el navegador.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Flow Webclient — Caso de estudio UX/UI", "en": "Flow Webclient — UX/UI Case Study" },
+  "description": {
+    "es": "Diseño del cliente web de Flow (Telecom): investigación de usuarios, pruebas de usabilidad y sistema de diseño para ver TV en vivo y on demand desde el navegador.",
+    "en": "Design of the Flow web client (Telecom): user research, usability testing, and a design system for watching live and on-demand TV from the browser."
+  }
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -18,25 +27,53 @@
   <!-- NAV -->
   <nav id="top" class="px-6 border-b border-gray-200">
     <div class="max-w-4xl mx-auto py-4 flex items-center justify-between">
-      <a href="index.html" class="text-sm font-medium text-black hover:underline">← Volver al inicio</a>
-      <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+      <a href="index.html" class="text-sm font-medium text-black hover:underline">
+        <span data-lang="es">← Volver al inicio</span>
+        <span data-lang="en" class="hidden">← Back to home</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+        <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
+          <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
+          <span class="text-gray-300">/</span>
+          <button data-lang-btn="en" class="lang-btn px-2 py-1 rounded-full transition-colors">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="py-32 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">UX/UI CASE STUDY</p>
       <h1 class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Flow Webclient</h1>
       <p class="mb-4 text-xl text-gray-600 leading-relaxed">Telecom — Flow, Argentina</p>
-      <p class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+      <p data-lang="es" class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
         Diseño del cliente web de Flow: ver TV en vivo, guía de programación y contenido on demand desde cualquier
         computadora, sin instalar nada.
       </p>
+      <p data-lang="en" class="hidden mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        Design of the Flow web client: watch live TV, browse the programming guide, and stream on-demand content
+        from any computer, without installing anything.
+      </p>
       <div class="grid md:grid-cols-3 gap-8 text-sm">
-        <div><p class="text-gray-500 mb-1">Rol</p><p class="text-black">UX/UI Designer</p></div>
-        <div><p class="text-gray-500 mb-1">Duración</p><p class="text-black">6 meses</p></div>
-        <div><p class="text-gray-500 mb-1">Herramientas</p><p class="text-black">Adobe XD</p></div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Rol</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Role</p>
+          <p class="text-black">UX/UI Designer</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Duración</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Duration</p>
+          <p data-lang="es" class="text-black">6 meses</p>
+          <p data-lang="en" class="hidden text-black">6 months</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Herramientas</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Tools</p>
+          <p class="text-black">Adobe XD</p>
+        </div>
       </div>
     </div>
   </section>
@@ -50,19 +87,38 @@
   <!-- CONTEXTO -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">CONTEXTO</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Ver Flow desde cualquier computadora</h2>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">CONTEXTO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">CONTEXT</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Ver Flow desde cualquier computadora</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Watching Flow from any computer</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Las personas usuarias pueden acceder desde cualquier computadora sin necesidad de instalar ningún archivo, y
         disfrutar de sus series o películas favoritas directamente desde el navegador.
       </p>
-      <p class="text-gray-700 leading-relaxed mb-4">Teniendo en claro estos principios:</p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        People can access it from any computer without installing a single file, and enjoy their favorite shows and
+        movies directly from the browser.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-4">Teniendo en claro estos principios:</p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-4">With these principles in mind:</p>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Simple</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Escalable</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Perdurable</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Personalizada</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">Consistente</div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">
+          <span data-lang="es">Escalable</span>
+          <span data-lang="en" class="hidden">Scalable</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">
+          <span data-lang="es">Perdurable</span>
+          <span data-lang="en" class="hidden">Durable</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">
+          <span data-lang="es">Personalizada</span>
+          <span data-lang="en" class="hidden">Personalized</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 text-center">
+          <span data-lang="es">Consistente</span>
+          <span data-lang="en" class="hidden">Consistent</span>
+        </div>
       </div>    </div>
   </section>
 
@@ -70,83 +126,118 @@
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
       <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">DISCOVERY</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Investigación de usuarios</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Investigación de usuarios</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">User research</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Comenzamos con una entrevista y una encuesta para obtener información de las personas usuarias. De acuerdo
         con nuestras hipótesis, quienes utilizaban algún tipo de reproductor en web estaban acostumbrados a tener un
         menú horizontal en la parte superior que agilizara la navegación.
       </p>
-      <p class="text-gray-700 leading-relaxed">
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        We started with an interview and a survey to gather information from users. According to our hypotheses,
+        people who used some kind of web player were used to having a horizontal menu at the top that sped up
+        navigation.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed">
         También surgieron nuevas funcionalidades a resolver: acceso a los canales anteriores, posibilidad de ver la
         grilla sin que tape el contenido, distintos perfiles y un mini reproductor.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+        New features to address also emerged: access to previously watched channels, the ability to view the guide
+        without it covering the content, multiple profiles, and a mini player.
       </p>    </div>
   </section>
 
   <!-- PRUEBA DE USABILIDAD -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">VALIDACIÓN</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Prueba de usabilidad</h2>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">VALIDACIÓN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">VALIDATION</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Prueba de usabilidad</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Usability testing</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Hicimos pruebas de usabilidad con <strong>6 personas usuarias</strong> —tamaño de muestra habitual en tests
         de usabilidad, ya que a partir de la quinta o sexta persona los patrones de comportamiento empiezan a
         repetirse—. Con mapas de calor identificamos, entre el grupo, estos hallazgos:
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        We ran usability tests with <strong>6 users</strong> — a typical sample size for usability testing, since
+        behavior patterns tend to start repeating from the fifth or sixth person onward. Using heatmaps, we
+        identified these findings across the group:
+      </p>
       <div class="space-y-4 mb-12">
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">01</span>
-          <p class="text-gray-900 flex-1">Parte del grupo utilizó el ícono de mostrar la contraseña, en especial cuando el navegador guardaba una contraseña desactualizada.</p>
+          <p data-lang="es" class="text-gray-900 flex-1">Parte del grupo utilizó el ícono de mostrar la contraseña, en especial cuando el navegador guardaba una contraseña desactualizada.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">Part of the group used the show-password icon, especially when the browser had an outdated saved password.</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">02</span>
-          <p class="text-gray-900 flex-1">El mapa de calor mostró mayor concentración de clicks en el espacio de los CTA donde se muestra el texto, específicamente sobre el copy "Ingresar".</p>
+          <p data-lang="es" class="text-gray-900 flex-1">El mapa de calor mostró mayor concentración de clicks en el espacio de los CTA donde se muestra el texto, específicamente sobre el copy "Ingresar".</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">The heatmap showed a higher concentration of clicks on the text area of the CTAs, specifically on the "Ingresar" (Sign in) copy.</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">03</span>
-          <p class="text-gray-900 flex-1">Buena parte del grupo prefirió volver a guiarse con el elemento del menú "Guía de TV" antes que con el botón "Ocultar Guía".</p>
+          <p data-lang="es" class="text-gray-900 flex-1">Buena parte del grupo prefirió volver a guiarse con el elemento del menú "Guía de TV" antes que con el botón "Ocultar Guía".</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">Most of the group preferred to navigate back using the "Guía de TV" (TV Guide) menu item rather than the "Ocultar Guía" (Hide Guide) button.</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">04</span>
-          <p class="text-gray-900 flex-1">Una parte del grupo esperaba que el logo de Flow los devolviera a un estado previo, o lo usó para recargar la página de inicio.</p>
+          <p data-lang="es" class="text-gray-900 flex-1">Una parte del grupo esperaba que el logo de Flow los devolviera a un estado previo, o lo usó para recargar la página de inicio.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">Some of the group expected the Flow logo to take them back to a previous state, or used it to reload the home page.</p>
         </div>
       </div>
 
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-6">Mapas de calor</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-6">Mapas de calor</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-6">Heatmaps</p>
       <div class="grid md:grid-cols-2 gap-6 mb-6">
         <div>
           <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
             <img src="img/flow/heatmap-login.png" alt="Mapa de calor de la pantalla de login" class="w-full h-auto rounded-md">
           </div>
-          <p class="text-sm text-gray-600 mt-3">Login — clicks concentrados en el CTA "Ingresar" y en el ícono de mostrar contraseña.</p>
+          <p data-lang="es" class="text-sm text-gray-600 mt-3">Login — clicks concentrados en el CTA "Ingresar" y en el ícono de mostrar contraseña.</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 mt-3">Login — clicks concentrated on the "Ingresar" (Sign in) CTA and the show-password icon.</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
             <img src="img/flow/heatmap-guia.png" alt="Mapa de calor de la navegación superior y guía de TV" class="w-full h-auto rounded-md">
           </div>
-          <p class="text-sm text-gray-600 mt-3">Navegación superior — concentración de clicks en el logo y en "Guía de TV".</p>
+          <p data-lang="es" class="text-sm text-gray-600 mt-3">Navegación superior — concentración de clicks en el logo y en "Guía de TV".</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 mt-3">Top navigation — clicks concentrated on the logo and on "Guía de TV" (TV Guide).</p>
         </div>
       </div>
       <div class="max-w-md">
         <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
           <img src="img/flow/heatmap-banner.png" alt="Mapa de calor del banner destacado y la grilla de TV en vivo" class="w-full h-auto rounded-md">
         </div>
-        <p class="text-sm text-gray-600 mt-3">Banner destacado — clicks distribuidos entre el CTA principal y los thumbnails de TV en vivo.</p>
+        <p data-lang="es" class="text-sm text-gray-600 mt-3">Banner destacado — clicks distribuidos entre el CTA principal y los thumbnails de TV en vivo.</p>
+        <p data-lang="en" class="hidden text-sm text-gray-600 mt-3">Featured banner — clicks distributed between the main CTA and the live TV thumbnails.</p>
       </div>    </div>
   </section>
 
   <!-- PUNTOS DÉBILES -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">ARQUITECTURA DE INFORMACIÓN</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Puntos débiles</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">ARQUITECTURA DE INFORMACIÓN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">INFORMATION ARCHITECTURE</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Puntos débiles</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Weak points</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         De acuerdo con los datos obtenidos, encontramos puntos débiles que necesitaban una atención especial.
         Optimizamos la arquitectura de información para ayudar a los usuarios a navegar y encontrar lo que
         necesitan.
       </p>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        Based on the data we gathered, we found weak points that needed special attention. We optimized the
+        information architecture to help users navigate and find what they need.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Al representar todo el proceso pudimos identificar cómo navega el usuario y si eso satisface sus
         necesidades. Crear el flujo de usuario nos ayudó a dejar un camino claro para que logre su objetivo.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        By mapping out the entire process, we were able to identify how users navigate and whether that met their
+        needs. Building the user flow helped us leave a clear path for them to reach their goal.
       </p>
       <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 max-w-md mx-auto">
         <img src="img/flow/arquitectura-flujo.jpg" alt="Diagrama de arquitectura de información y flujo de pantallas de Flow" class="w-full h-auto rounded-md">
@@ -156,32 +247,46 @@
   <!-- SISTEMA DE DISEÑO -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">SISTEMA DE DISEÑO</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Consistencia para escalar</h2>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">SISTEMA DE DISEÑO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">DESIGN SYSTEM</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Consistencia para escalar</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Consistency to scale</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         El principal beneficio de un sistema de diseño es ahorrar tiempo en las iteraciones y los cambios mediante
         el uso de componentes prefabricados, manteniendo la consistencia del conjunto del producto. Siempre
         creamos los conceptos básicos de un producto en el sistema de diseño y luego los completamos paso a paso en
         las pantallas.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        The main benefit of a design system is saving time on iterations and changes by using prebuilt components,
+        while keeping the whole product consistent. We always build the basic concepts of a product in the design
+        system first, then complete them step by step on the actual screens.
+      </p>
       <div class="bg-black rounded-lg p-4 mb-4">
         <img src="img/flow/sistema-diseno.jpg" alt="Paleta cromática, perfiles, iconografía y estilos de botones del sistema de diseño de Flow" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-sm text-gray-600 mb-8">Fundamentos: paleta cromática, perfiles, iconografía y estilos de botones.</p>
+      <p data-lang="es" class="text-sm text-gray-600 mb-8">Fundamentos: paleta cromática, perfiles, iconografía y estilos de botones.</p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mb-8">Foundations: color palette, profiles, iconography, and button styles.</p>
       <div class="bg-black rounded-lg p-4 mb-4">
         <img src="img/flow/sistema-diseno-2.jpg" alt="Botones DIP, compartir en RRSS, alquileres, grabaciones, filtros, guía EPG, cast y reproductor" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-sm text-gray-600">Componentes de producto: botones DIP, compartir en RRSS, alquileres, grabaciones, filtros, EPG, cast y reproductor.</p>    </div>
+      <p data-lang="es" class="text-sm text-gray-600">Componentes de producto: botones DIP, compartir en RRSS, alquileres, grabaciones, filtros, EPG, cast y reproductor.</p>
+      <p data-lang="en" class="hidden text-sm text-gray-600">Product components: PIP buttons, social sharing, rentals, recordings, filters, EPG, cast, and the player.</p>    </div>
   </section>
 
   <!-- INTERFAZ -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">LA INTERFAZ PARA LA PERSONA USUARIA</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Simple, mínima y consistente</h2>
-      <p class="text-gray-700 leading-relaxed mb-12">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">LA INTERFAZ PARA LA PERSONA USUARIA</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE INTERFACE FOR THE USER</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Simple, mínima y consistente</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Simple, minimal, and consistent</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12">
         La clave principal para diseñar la interfaz fue la consistencia, manteniéndola simple, mínima y sencilla de
         utilizar.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12">
+        The main key to designing the interface was consistency, keeping it simple, minimal, and easy to use.
       </p>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -203,32 +308,45 @@
   <!-- APRENDIZAJES -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">¿QUÉ APRENDÍ DE ESTE PROYECTO?</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Un MVP para aprender rápido</h2>
-      <p class="text-gray-700 leading-relaxed">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">¿QUÉ APRENDÍ DE ESTE PROYECTO?</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">WHAT DID I LEARN FROM THIS PROJECT?</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Un MVP para aprender rápido</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">An MVP to learn fast</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed">
         Uno de los primeros trabajos 100% in-house, con un equipo que se estaba armando, poniendo foco en el
         producto y con un objetivo bien claro como propósito: tener un MVP en 6 meses que nos permitiera lanzar con
         la menor cantidad de características posibles, para aprender y extraer información relevante de ese período
         de prueba —a través de una serie de métricas de interacción— y luego actuar en base a esos datos.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+        One of the first 100% in-house projects, with a team that was still being formed, focused on the product
+        and with a clear purpose in mind: to have an MVP within 6 months that would let us launch with the smallest
+        possible feature set, learn and extract relevant information from that trial period — through a set of
+        interaction metrics — and then act on that data.
       </p>    </div>
   </section>
 
   <!-- RECORRÉ LOS CASOS -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">BROWSE THE CASE STUDIES</p>
       <div class="grid md:grid-cols-2 gap-6">
         <a href="MarketplaceEmbebido.html" class="group flex items-center gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors">
           <span class="text-xl group-hover:-translate-x-1 transition-transform">←</span>
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
-            <h3 class="text-lg font-bold text-black">Un Marketplace embebido en Personal Pay</h3>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Previous case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Un Marketplace embebido en Personal Pay</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">An embedded Marketplace within Personal Pay</h3>
           </div>
         </a>
         <a href="IBMHSBC.html" class="group flex items-center justify-between gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors text-right">
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
-            <h3 class="text-lg font-bold text-black">Modificando paradigmas en base al diseño centrado en el usuario</h3>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Next case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Modificando paradigmas en base al diseño centrado en el usuario</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">Shifting paradigms through user-centered design</h3>
           </div>
           <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
         </a>
@@ -240,26 +358,46 @@
   <footer class="py-16 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-        <p class="text-sm text-gray-500">Caso de Estudio</p>
-        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">Volver arriba ↑</a>
+        <p data-lang="es" class="text-sm text-gray-500">Caso de Estudio</p>
+        <p data-lang="en" class="hidden text-sm text-gray-500">Case Study</p>
+        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">
+          <span data-lang="es">Volver arriba ↑</span>
+          <span data-lang="en" class="hidden">Back to top ↑</span>
+        </a>
       </div>
       <div class="grid md:grid-cols-2 gap-12 mb-12">
         <div>
           <h3 class="text-xl font-bold text-black mb-3">Flow — Telecom</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Flow Webclient</p>
+          <p data-lang="es" class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Flow Webclient</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 leading-relaxed">Case study — Flow Webclient</p>
         </div>
         <div class="space-y-3 text-sm">
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">Rol</span><span class="text-black">UX/UI Designer</span></div>
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">Duración</span><span class="text-black">6 meses</span></div>
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">País</span><span class="text-black">Argentina</span></div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Rol</span>
+            <span data-lang="en" class="hidden text-gray-600">Role</span>
+            <span class="text-black">UX/UI Designer</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Duración</span>
+            <span data-lang="en" class="hidden text-gray-600">Duration</span>
+            <span data-lang="es" class="text-black">6 meses</span>
+            <span data-lang="en" class="hidden text-black">6 months</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">País</span>
+            <span data-lang="en" class="hidden text-gray-600">Country</span>
+            <span class="text-black">Argentina</span>
+          </div>
         </div>
       </div>
       <div class="pt-8 border-t border-gray-200">
-        <p class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="es" class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="en" class="hidden text-xs text-gray-500">© 2026 — Case study designed to demonstrate a complete UX/UI process</p>
       </div>
     </div>
   </footer>
 
 </div>
+<script src="js/i18n.js"></script>
 </body>
 </html>

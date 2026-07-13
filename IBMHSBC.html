@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IBM · HSBC — Caso de estudio UX/UI</title>
 <meta name="description" content="Rediseño de la Banca Empresas de HSBC Argentina junto a IBM: investigación, arquitectura de información y sistema de diseño centrado en el usuario.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "IBM · HSBC — Caso de estudio UX/UI", "en": "IBM · HSBC — UX/UI Case Study" },
+  "description": {
+    "es": "Rediseño de la Banca Empresas de HSBC Argentina junto a IBM: investigación, arquitectura de información y sistema de diseño centrado en el usuario.",
+    "en": "Redesign of HSBC Argentina's Corporate Banking alongside IBM: research, information architecture, and a user-centered design system."
+  }
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -18,25 +27,55 @@
   <!-- NAV -->
   <nav id="top" class="px-6 border-b border-gray-200">
     <div class="max-w-4xl mx-auto py-4 flex items-center justify-between">
-      <a href="index.html" class="text-sm font-medium text-black hover:underline">← Volver al inicio</a>
-      <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+      <a href="index.html" class="text-sm font-medium text-black hover:underline">
+        <span data-lang="es">← Volver al inicio</span>
+        <span data-lang="en" class="hidden">← Back to home</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+        <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
+          <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
+          <span class="text-gray-300">/</span>
+          <button data-lang-btn="en" class="lang-btn px-2 py-1 rounded-full transition-colors">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="py-32 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
-      <h1 class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Modificando paradigmas en base al diseño centrado en el usuario</h1>
-      <p class="mb-4 text-xl text-gray-600 leading-relaxed">IBM · HSBC — Banca Empresas, Argentina</p>
-      <p class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">UX/UI CASE STUDY</p>
+      <h1 data-lang="es" class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Modificando paradigmas en base al diseño centrado en el usuario</h1>
+      <h1 data-lang="en" class="hidden mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Shifting paradigms through user-centered design</h1>
+      <p data-lang="es" class="mb-4 text-xl text-gray-600 leading-relaxed">IBM · HSBC — Banca Empresas, Argentina</p>
+      <p data-lang="en" class="hidden mb-4 text-xl text-gray-600 leading-relaxed">IBM · HSBC — Corporate Banking, Argentina</p>
+      <p data-lang="es" class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
         Rediseño de la Banca Empresas de HSBC Argentina en conjunto con IBM: investigación con usuarios, arquitectura
         de información y sistema de diseño para digitalizar operaciones bancarias corporativas.
       </p>
+      <p data-lang="en" class="hidden mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        Redesign of HSBC Argentina's Corporate Banking alongside IBM: user research, information architecture, and a
+        design system to digitize corporate banking operations.
+      </p>
       <div class="grid md:grid-cols-3 gap-8 text-sm">
-        <div><p class="text-gray-500 mb-1">Rol</p><p class="text-black">UX Designer</p></div>
-        <div><p class="text-gray-500 mb-1">Duración</p><p class="text-black">2 años</p></div>
-        <div><p class="text-gray-500 mb-1">Año</p><p class="text-black">2015</p></div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Rol</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Role</p>
+          <p class="text-black">UX Designer</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Duración</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Duration</p>
+          <p data-lang="es" class="text-black">2 años</p>
+          <p data-lang="en" class="hidden text-black">2 years</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Año</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Year</p>
+          <p class="text-black">2015</p>
+        </div>
       </div>
     </div>
   </section>
@@ -44,33 +83,65 @@
   <!-- CONTEXTO -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">CONTEXTO</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Reinventar un banco desde adentro</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">CONTEXTO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">CONTEXT</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Reinventar un banco desde adentro</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Reinventing a bank from within</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Reinventarse es difícil, más cuando se trata de una organización como los bancos. A través de la
         utilización de distintos métodos, como el diseño centrado en el usuario y metodologías ágiles, empezamos a
         mejorar la forma en que se trabajaban los proyectos —incrementando la capacidad de desarrollo para
         responder de manera ágil a los cambios tecnológicos, garantizando calidad y minimizando el impacto al
         usuario.
       </p>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        Reinventing yourself is hard — even more so for an organization like a bank. By applying different methods,
+        such as user-centered design and agile methodologies, we began improving the way projects were run —
+        increasing development capacity to respond quickly to technological change, ensuring quality, and
+        minimizing the impact on the user.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         El proyecto arrancó a fines de 2015: rediseñamos la Banca Empresas de HSBC Argentina, donde las
         transacciones que se realizan son distintas a las de banca de individuos, por ejemplo:
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        The project kicked off in late 2015: we redesigned HSBC Argentina's Corporate Banking, where the
+        transactions involved are quite different from those in retail banking, for example:
+      </p>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">Pago de sueldos</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">Pago a proveedores</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">Plazo fijo</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">Comercio Exterior</div>
-        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">Fondos comunes de inversión</div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">
+          <span data-lang="es">Pago de sueldos</span>
+          <span data-lang="en" class="hidden">Payroll payments</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">
+          <span data-lang="es">Pago a proveedores</span>
+          <span data-lang="en" class="hidden">Supplier payments</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">
+          <span data-lang="es">Plazo fijo</span>
+          <span data-lang="en" class="hidden">Fixed-term deposits</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">
+          <span data-lang="es">Comercio Exterior</span>
+          <span data-lang="en" class="hidden">Foreign Trade</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800">
+          <span data-lang="es">Fondos comunes de inversión</span>
+          <span data-lang="en" class="hidden">Mutual funds</span>
+        </div>
       </div>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Una de mis tareas diarias era la coordinación de la implementación de servicios digitales, así como la
         capacidad de asignar y reasignar tareas dentro del equipo de proyecto, asegurando la colaboración y el
         espíritu de equipo, la motivación y el desarrollo de habilidades de alto desempeño de mis colaboradores.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        One of my daily responsibilities was coordinating the implementation of digital services, as well as
+        assigning and reassigning tasks within the project team — fostering collaboration and team spirit,
+        motivation, and the development of high-performance skills among my collaborators.
+      </p>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/ibmhsbc/equipo-trabajando.jpg" alt="Equipo de trabajo revisando el proyecto en conjunto" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/equipo-trabajando.jpg" data-i18n-alt-es="Equipo de trabajo revisando el proyecto en conjunto" data-i18n-alt-en="Team reviewing the project together" alt="Equipo de trabajo revisando el proyecto en conjunto" class="w-full h-auto rounded-md">
       </div>
     </div>
   </section>
@@ -79,70 +150,107 @@
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
       <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">DISCOVERY</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Entrevistas</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Entrevistas</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Interviews</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Mediante el uso de metodologías ágiles se planteó un Discovery (Etapa 0) de 4 meses desde el inicio del
         proyecto, en el que se evaluaron las distintas funcionalidades, flujos y casos de uso junto con el equipo de
         IBM y HSBC —formado por los dueños de producto de los distintos canales y la parte técnica del banco.
       </p>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        Using agile methodologies, we set up a 4-month Discovery phase (Stage 0) at the start of the project, in
+        which we evaluated the different features, flows, and use cases together with the IBM and HSBC team — made
+        up of the product owners from the different channels and the bank's technical staff.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Todo este trabajo nos llevó a poder realizar prototipos para testear con los usuarios, ver el desarrollo de
         las historias de usuario y entender la parte técnica de los procesos burocráticos del banco.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        This work allowed us to build prototypes to test with users, follow the development of user stories, and
+        understand the technical side of the bank's bureaucratic processes.
+      </p>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/ibmhsbc/cronograma-proyecto.jpg" alt="Cronograma del proyecto Discovery" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/cronograma-proyecto.jpg" data-i18n-alt-es="Cronograma del proyecto Discovery" data-i18n-alt-en="Discovery project timeline" alt="Cronograma del proyecto Discovery" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-sm text-gray-600 mt-4">Cronograma del proyecto Discovery.</p>
+      <p data-lang="es" class="text-sm text-gray-600 mt-4">Cronograma del proyecto Discovery.</p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mt-4">Discovery project timeline.</p>
     </div>
   </section>
 
   <!-- CARD SORTING -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">ARQUITECTURA DE INFORMACIÓN</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">ARQUITECTURA DE INFORMACIÓN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">INFORMATION ARCHITECTURE</p>
       <h2 class="text-4xl font-bold text-black mb-6">Card Sorting</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Los usuarios a los que apuntamos son empresas, cuyos movimientos diarios son distintos entre sí. Nuestros
         usuarios no solo eran quienes estaban a cargo de las cuentas de la empresa, sino también los stakeholders
         dentro del banco, dueños de producto.
       </p>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        The users we targeted were businesses, whose day-to-day operations differ from one another. Our users
+        weren't just the people in charge of the company's accounts, but also the stakeholders within the bank —
+        the product owners.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Los resultados obtenidos nos dieron conocimiento del negocio, punto clave para entender los nuevos flujos
         que deberíamos construir para sortear las distintas dificultades. Mediante esta técnica se generó la
         arquitectura de información tanto de la banca empresa como de la intranet para operar la plataforma.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        The results gave us business knowledge, a key point for understanding the new flows we needed to build to
+        work around the different challenges. Through this technique, we shaped the information architecture for
+        both the corporate banking platform and the intranet used to operate it.
+      </p>
       <div class="border-l-2 border-gray-300 pl-6 py-2 mb-6">
-        <p class="text-lg text-gray-900 italic">"Descubrimos que ciertos sectores lo único que tenían era un acceso directo en el escritorio, por lo cual nunca veían la estructura general, solo lo que les interesaba a ellos; lo demás era un limbo."</p>
+        <p data-lang="es" class="text-lg text-gray-900 italic">"Descubrimos que ciertos sectores lo único que tenían era un acceso directo en el escritorio, por lo cual nunca veían la estructura general, solo lo que les interesaba a ellos; lo demás era un limbo."</p>
+        <p data-lang="en" class="hidden text-lg text-gray-900 italic">"We discovered that certain departments only had a desktop shortcut, so they never saw the overall structure — only what mattered to them; everything else was limbo."</p>
       </div>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Así fue como empezamos a entender y a construir una nueva estructura de información.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        That's how we began to understand and build a new information structure.
+      </p>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/ibmhsbc/card-sorting.jpg" alt="Card sorting con stakeholders y usuarios del banco" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/card-sorting.jpg" data-i18n-alt-es="Card sorting con stakeholders y usuarios del banco" data-i18n-alt-en="Card sorting session with stakeholders and bank users" alt="Card sorting con stakeholders y usuarios del banco" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-sm text-gray-600 mt-4">Card sorting con stakeholders y usuarios del banco.</p>
+      <p data-lang="es" class="text-sm text-gray-600 mt-4">Card sorting con stakeholders y usuarios del banco.</p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mt-4">Card sorting session with stakeholders and bank users.</p>
     </div>
   </section>
 
   <!-- SKETCHES -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">IDEACIÓN</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">IDEACIÓN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">IDEATION</p>
       <h2 class="text-4xl font-bold text-black mb-6">Sketches</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Una vez obtenidos los resultados del Card Sorting, la estructura de información encontró un nivel de
         escalabilidad: con simples post-its podíamos armar una nueva estructura como consecuencia del proceso
         anterior.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        Once we had the Card Sorting results, the information structure reached a new level of scalability: with
+        simple post-its, we could build a new structure based on the previous process.
+      </p>
       <div class="border-l-2 border-gray-300 pl-6 py-2 mb-6">
-        <p class="text-lg text-gray-900 italic">"Los prototipos me ayudaron a proponer soluciones variables y constantes, para generar conciencia de que las decisiones se tomaban buscando consistencia con toda la estructura del sitio; de esta manera la escalabilidad era aún mayor."</p>
+        <p data-lang="es" class="text-lg text-gray-900 italic">"Los prototipos me ayudaron a proponer soluciones variables y constantes, para generar conciencia de que las decisiones se tomaban buscando consistencia con toda la estructura del sitio; de esta manera la escalabilidad era aún mayor."</p>
+        <p data-lang="en" class="hidden text-lg text-gray-900 italic">"The prototypes helped me propose both variable and constant solutions, raising awareness that decisions were made in search of consistency with the site's overall structure; this way, scalability was even greater."</p>
       </div>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Al entender ese proceso, pudo fluir entre el equipo de desarrolladores el entendimiento del porqué de las
         soluciones propuestas.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        Once that process was understood, the development team could better grasp the reasoning behind the proposed
+        solutions.
+      </p>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/ibmhsbc/sketches-anotaciones.jpg" alt="Sketches y anotaciones sobre pantallas existentes del banco" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/sketches-anotaciones.jpg" data-i18n-alt-es="Sketches y anotaciones sobre pantallas existentes del banco" data-i18n-alt-en="Sketches and annotations over the bank's existing screens" alt="Sketches y anotaciones sobre pantallas existentes del banco" class="w-full h-auto rounded-md">
       </div>
     </div>
   </section>
@@ -150,21 +258,31 @@
   <!-- WIREFRAMES -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">PROTOTIPADO</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">PROTOTIPADO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">PROTOTYPING</p>
       <h2 class="text-4xl font-bold text-black mb-6">Wireframes</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Con todo el nivel de información que recabamos, se realizaron los wireframes del proyecto: los distintos
         flujos y la arquitectura de información.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        With all the information we gathered, we built the project's wireframes: the different flows and the
+        information architecture.
+      </p>
       <div class="border-l-2 border-gray-300 pl-6 py-2 mb-6">
-        <p class="text-lg text-gray-900 italic">"Los wireframes se realizaron en Axure; desde el banco ya querían subirlo a producción por la rápida efectividad de los mismos, pero hubo que aclarar que era solo un prototipo no funcional."</p>
+        <p data-lang="es" class="text-lg text-gray-900 italic">"Los wireframes se realizaron en Axure; desde el banco ya querían subirlo a producción por la rápida efectividad de los mismos, pero hubo que aclarar que era solo un prototipo no funcional."</p>
+        <p data-lang="en" class="hidden text-lg text-gray-900 italic">"The wireframes were built in Axure; the bank was already eager to push them to production because of how effective they looked, but we had to clarify that it was only a non-functional prototype."</p>
       </div>
-      <p class="text-gray-700 leading-relaxed mb-8">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8">
         Con las pruebas con usuarios pudimos entender los caminos planteados en los casos de uso, para visualizar en
         conjunto los objetivos del producto.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8">
+        Through user testing, we were able to understand the paths laid out in the use cases, visualizing the
+        product's objectives together as a team.
+      </p>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/ibmhsbc/wireframe-realizar-pago.jpg" alt="Wireframe de alta fidelidad del flujo Realizar Pago en Banca Empresas" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/wireframe-realizar-pago.jpg" data-i18n-alt-es="Wireframe de alta fidelidad del flujo Realizar Pago en Banca Empresas" data-i18n-alt-en="High-fidelity wireframe of the Make a Payment flow in Corporate Banking" alt="Wireframe de alta fidelidad del flujo Realizar Pago en Banca Empresas" class="w-full h-auto rounded-md">
       </div>
     </div>
   </section>
@@ -172,70 +290,104 @@
   <!-- UI DESIGN -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">SISTEMA DE DISEÑO</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">SISTEMA DE DISEÑO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">DESIGN SYSTEM</p>
       <h2 class="text-4xl font-bold text-black mb-6">UI Design</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Asegurar que los clientes experimenten una apariencia y una sensación consistentes cuando y dondequiera que
         interactúan con nosotros digitalmente. ¿El resultado? Interacciones positivas que tranquilizan a los
         clientes, aseguran su lealtad y apoyan la marca.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        Making sure customers experience a consistent look and feel whenever and wherever they interact with us
+        digitally. The result? Positive interactions that reassure customers, build loyalty, and support the brand.
+      </p>
       <div class="border-l-2 border-gray-300 pl-6 py-2 mb-8">
-        <p class="text-lg text-gray-900 italic">"Cada paleta desempeña un papel vital en la mejora de la experiencia y en el refuerzo de nuestra marca."</p>
+        <p data-lang="es" class="text-lg text-gray-900 italic">"Cada paleta desempeña un papel vital en la mejora de la experiencia y en el refuerzo de nuestra marca."</p>
+        <p data-lang="en" class="hidden text-lg text-gray-900 italic">"Each palette plays a vital role in enhancing the experience and reinforcing our brand."</p>
       </div>
 
-      <p class="text-gray-700 leading-relaxed mb-4">La paleta de colores primaria: rojo, blanco, negro y gris.</p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-4">La paleta de colores primaria: rojo, blanco, negro y gris.</p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-4">The primary color palette: red, white, black, and gray.</p>
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
-        <img src="img/ibmhsbc/paleta-colores.jpg" alt="Paleta de colores primaria: rojo, blanco, negro y gris" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/paleta-colores.jpg" data-i18n-alt-es="Paleta de colores primaria: rojo, blanco, negro y gris" data-i18n-alt-en="Primary color palette: red, white, black, and gray" alt="Paleta de colores primaria: rojo, blanco, negro y gris" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-gray-700 leading-relaxed mb-12">
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12">
         Negro y gris se usan principalmente en copy y líneas de trabajo, y como color de fondo de paneles. Blanco es
         el color de la página principal. El rojo se usa como color de acento, con moderación y cuidado, reservado
         para destacar áreas importantes y llamados a la acción.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12">
+        Black and gray are mainly used for copy and work lines, and as the background color for panels. White is
+        the main page color. Red is used as an accent color, applied sparingly and carefully, reserved for
+        highlighting important areas and calls to action.
+      </p>
 
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
-        <img src="img/ibmhsbc/iconografia.jpg" alt="Sistema de iconografía en estado activo y deshabilitado" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/iconografia.jpg" data-i18n-alt-es="Sistema de iconografía en estado activo y deshabilitado" data-i18n-alt-en="Iconography system in active and disabled states" alt="Sistema de iconografía en estado activo y deshabilitado" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-sm text-gray-600 mb-12">Iconografía — nuestros iconos apoyan procesos a través de las plataformas en línea.</p>
+      <p data-lang="es" class="text-sm text-gray-600 mb-12">Iconografía — nuestros iconos apoyan procesos a través de las plataformas en línea.</p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mb-12">Iconography — our icons support processes across the online platforms.</p>
 
       <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <img src="img/ibmhsbc/notificaciones-alertas.jpg" alt="Sistema de notificaciones y alertas: info, warning, error y positivas" class="w-full h-auto rounded-md">
+        <img src="img/ibmhsbc/notificaciones-alertas.jpg" data-i18n-alt-es="Sistema de notificaciones y alertas: info, warning, error y positivas" data-i18n-alt-en="Notifications and alerts system: info, warning, error, and success states" alt="Sistema de notificaciones y alertas: info, warning, error y positivas" class="w-full h-auto rounded-md">
       </div>
-      <p class="text-sm text-gray-600 mt-4">Notificaciones y alertas — mensajería clara y sucinta para cada estado del sistema.</p>
+      <p data-lang="es" class="text-sm text-gray-600 mt-4">Notificaciones y alertas — mensajería clara y sucinta para cada estado del sistema.</p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mt-4">Notifications and alerts — clear, concise messaging for every system state.</p>
     </div>
   </section>
 
   <!-- APRENDIZAJES -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">¿QUÉ APRENDÍ DE ESTE PROYECTO?</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Un cambio de visión a lo largo de dos años</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">¿QUÉ APRENDÍ DE ESTE PROYECTO?</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">WHAT DID I LEARN FROM THIS PROJECT?</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Un cambio de visión a lo largo de dos años</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">A shift in perspective over two years</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-6">
         Un resultado importante fue converger en una estructura donde una visión distinta ayuda a la organización a
         mejorar la experiencia en el desarrollo de sus productos.
       </p>
-      <p class="text-gray-700 leading-relaxed mb-12">
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-6">
+        One important outcome was converging on a structure where a different perspective helps the organization
+        improve the experience of developing its products.
+      </p>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12">
         No es una receta: es la manera en que te vas metiendo en la organización en base a resultados y concesiones
         con todos los interesados, sirviendo de nexo entre las distintas partes de la organización para poder
         hablar un mismo idioma. El proyecto tuvo una duración de 2 años, en los que se notó un cambio de visión a lo
         largo de ese camino recorrido.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12">
+        It's not a recipe: it's the way you work your way into the organization based on results and trade-offs
+        with everyone involved, acting as a bridge between the different parts of the organization so everyone can
+        speak the same language. The project ran for 2 years, during which a real shift in perspective took shape
+        along the way.
+      </p>
       <div class="space-y-8">
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">Colaborar con negocio desde el diseño</h3>
-          <p class="text-gray-700 leading-relaxed">Trabajar con stakeholders de negocio en la creación de objetivos para los nuevos productos bajo la óptica del diseño.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Colaborar con negocio desde el diseño</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Collaborating with the business side through design</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Trabajar con stakeholders de negocio en la creación de objetivos para los nuevos productos bajo la óptica del diseño.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Working with business stakeholders to define objectives for new products through a design lens.</p>
         </div>
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">Liderar una cultura de investigación</h3>
-          <p class="text-gray-700 leading-relaxed">Traer los insights de usuarios y clientes al ciclo de desarrollo de producto y a las discusiones de negocio.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Liderar una cultura de investigación</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Leading a research culture</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Traer los insights de usuarios y clientes al ciclo de desarrollo de producto y a las discusiones de negocio.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Bringing user and customer insights into the product development cycle and into business discussions.</p>
         </div>
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">Colaborar con Front-end</h3>
-          <p class="text-gray-700 leading-relaxed">Asegurar que las soluciones propuestas sean factibles y que los estándares definidos se mantengan durante la codificación.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Colaborar con Front-end</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Collaborating with Front-end</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Asegurar que las soluciones propuestas sean factibles y que los estándares definidos se mantengan durante la codificación.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Making sure proposed solutions are feasible and that defined standards are upheld throughout development.</p>
         </div>
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">Interactuar con todas las áreas</h3>
-          <p class="text-gray-700 leading-relaxed">El desarrollo de productos y soluciones requiere presencia constante en todas las áreas involucradas, no solo en diseño.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Interactuar con todas las áreas</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Engaging with every area</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">El desarrollo de productos y soluciones requiere presencia constante en todas las áreas involucradas, no solo en diseño.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Building products and solutions requires a constant presence across all areas involved, not just design.</p>
         </div>
       </div>
     </div>
@@ -244,19 +396,23 @@
   <!-- RECORRÉ LOS CASOS -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">EXPLORE MORE CASES</p>
       <div class="grid md:grid-cols-2 gap-6">
         <a href="FlowWebclient.html" class="group flex items-center gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors">
           <span class="text-xl group-hover:-translate-x-1 transition-transform">←</span>
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Previous case</p>
             <h3 class="text-lg font-bold text-black">Flow Webclient</h3>
           </div>
         </a>
         <a href="HabilitadoPagosFintech.html" class="group flex items-center justify-between gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors text-right">
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
-            <h3 class="text-lg font-bold text-black">Habilitando pagos PIX en una billetera digital</h3>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Next case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Habilitando pagos PIX en una billetera digital</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">Enabling PIX payments in a digital wallet</h3>
           </div>
           <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
         </a>
@@ -268,26 +424,46 @@
   <footer class="py-16 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-        <p class="text-sm text-gray-500">Caso de Estudio</p>
-        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">Volver arriba ↑</a>
+        <p data-lang="es" class="text-sm text-gray-500">Caso de Estudio</p>
+        <p data-lang="en" class="hidden text-sm text-gray-500">Case Study</p>
+        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">
+          <span data-lang="es">Volver arriba ↑</span>
+          <span data-lang="en" class="hidden">Back to top ↑</span>
+        </a>
       </div>
       <div class="grid md:grid-cols-2 gap-12 mb-12">
         <div>
           <h3 class="text-xl font-bold text-black mb-3">IBM · HSBC</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Banca Empresas</p>
+          <p data-lang="es" class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Banca Empresas</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 leading-relaxed">Case study — Corporate Banking</p>
         </div>
         <div class="space-y-3 text-sm">
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">Rol</span><span class="text-black">UX Designer</span></div>
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">Duración</span><span class="text-black">2 años</span></div>
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">País</span><span class="text-black">Argentina</span></div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Rol</span>
+            <span data-lang="en" class="hidden text-gray-600">Role</span>
+            <span class="text-black">UX Designer</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Duración</span>
+            <span data-lang="en" class="hidden text-gray-600">Duration</span>
+            <span data-lang="es" class="text-black">2 años</span>
+            <span data-lang="en" class="hidden text-black">2 years</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">País</span>
+            <span data-lang="en" class="hidden text-gray-600">Country</span>
+            <span class="text-black">Argentina</span>
+          </div>
         </div>
       </div>
       <div class="pt-8 border-t border-gray-200">
-        <p class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="es" class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="en" class="hidden text-xs text-gray-500">© 2026 — Case study designed to demonstrate a complete UX/UI process</p>
       </div>
     </div>
   </footer>
 
 </div>
+<script src="js/i18n.js"></script>
 </body>
 </html>

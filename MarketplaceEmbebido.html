@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marketplace Embebido — Caso de estudio UX/UI</title>
 <meta name="description" content="Discovery, research y prototipado de un Marketplace embebido en Personal Pay, pensado para llegar a usuarios no bancarizados sin fricción de login.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Marketplace Embebido — Caso de estudio UX/UI", "en": "Embedded Marketplace — UX/UI Case Study" },
+  "description": {
+    "es": "Discovery, research y prototipado de un Marketplace embebido en Personal Pay, pensado para llegar a usuarios no bancarizados sin fricción de login.",
+    "en": "Discovery, research, and prototyping of a Marketplace embedded in Personal Pay, designed to reach unbanked users without login friction."
+  }
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -18,25 +27,54 @@
   <!-- NAV -->
   <nav id="top" class="px-6 border-b border-gray-200">
     <div class="max-w-4xl mx-auto py-4 flex items-center justify-between">
-      <a href="index.html" class="text-sm font-medium text-black hover:underline">← Volver al inicio</a>
-      <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+      <a href="index.html" class="text-sm font-medium text-black hover:underline">
+        <span data-lang="es">← Volver al inicio</span>
+        <span data-lang="en" class="hidden">← Back to home</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+        <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
+          <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
+          <span class="text-gray-300">/</span>
+          <button data-lang-btn="en" class="lang-btn px-2 py-1 rounded-full transition-colors">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="py-32 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
-      <h1 class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Un Marketplace embebido en Personal Pay</h1>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">UX/UI CASE STUDY</p>
+      <h1 data-lang="es" class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Un Marketplace embebido en Personal Pay</h1>
+      <h1 data-lang="en" class="hidden mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">An embedded Marketplace within Personal Pay</h1>
       <p class="mb-4 text-xl text-gray-600 leading-relaxed">Personal Pay — Argentina</p>
-      <p class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+      <p data-lang="es" class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
         Discovery, research y prototipado de un Marketplace con acceso instantáneo dentro de la billetera —no llegó
         a producción en su momento, pero sentó las bases de lo que hoy está en producción.
       </p>
+      <p data-lang="en" class="hidden mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        Discovery, research, and prototyping of a Marketplace with instant access inside the wallet — it didn't
+        ship at the time, but it laid the groundwork for what's in production today.
+      </p>
       <div class="grid md:grid-cols-3 gap-8 text-sm">
-        <div><p class="text-gray-500 mb-1">Rol</p><p class="text-black">UX / Product Designer</p></div>
-        <div><p class="text-gray-500 mb-1">Duración</p><p class="text-black">3 meses</p></div>
-        <div><p class="text-gray-500 mb-1">Año</p><p class="text-black">2024</p></div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Rol</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Role</p>
+          <p class="text-black">UX / Product Designer</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Duración</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Duration</p>
+          <p data-lang="es" class="text-black">3 meses</p>
+          <p data-lang="en" class="hidden text-black">3 months</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Año</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Year</p>
+          <p class="text-black">2024</p>
+        </div>
       </div>
     </div>
   </section>
@@ -44,21 +82,33 @@
   <!-- RESUMEN -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">RESUMEN</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RESUMEN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">SUMMARY</p>
       <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <h2 class="text-2xl font-bold text-black mb-4">Contexto</h2>
-          <p class="text-gray-700 leading-relaxed">
+          <h2 data-lang="es" class="text-2xl font-bold text-black mb-4">Contexto</h2>
+          <h2 data-lang="en" class="hidden text-2xl font-bold text-black mb-4">Context</h2>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">
             Personal Pay buscaba traccionar a un segmento que quedaba fuera del radar del producto: personas no
             bancarizadas y sin tarjeta bancaria. La hipótesis era acercarlas al ecosistema a través de préstamos,
             y para eso se evaluó ofrecer un ecommerce propio dentro de la billetera.
           </p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+            Personal Pay wanted to gain traction with a segment that was off the product's radar: unbanked people
+            without a bank card. The hypothesis was to bring them into the ecosystem through loans, and to that
+            end the team evaluated offering an in-house ecommerce inside the wallet.
+          </p>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-black mb-4">Objetivo</h2>
-          <p class="text-gray-700 leading-relaxed">
+          <h2 data-lang="es" class="text-2xl font-bold text-black mb-4">Objetivo</h2>
+          <h2 data-lang="en" class="hidden text-2xl font-bold text-black mb-4">Objective</h2>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">
             Diseñar un Marketplace embebido en Personal Pay que aproveche que el usuario ya estaba autenticado en
             la app, eliminando por completo la necesidad de loguearse para comprar.
+          </p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+            Design a Marketplace embedded in Personal Pay that takes advantage of the user already being
+            authenticated in the app, completely removing the need to log in to shop.
           </p>
         </div>
       </div>
@@ -68,20 +118,25 @@
   <!-- OPORTUNIDAD -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">LA OPORTUNIDAD</p>
-      <h2 class="text-4xl font-bold text-black mb-12">Por qué un ecommerce dentro de la billetera</h2>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">LA OPORTUNIDAD</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE OPPORTUNITY</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Por qué un ecommerce dentro de la billetera</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">Why an ecommerce inside the wallet</h2>
       <div class="space-y-4">
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">01</span>
-          <p class="text-gray-900 flex-1">Un segmento grande de usuarios sin tarjeta bancaria quedaba fuera de las ofertas de crédito y consumo tradicionales.</p>
+          <p data-lang="es" class="text-gray-900 flex-1">Un segmento grande de usuarios sin tarjeta bancaria quedaba fuera de las ofertas de crédito y consumo tradicionales.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">A large segment of users without a bank card was left out of traditional credit and consumer offers.</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">02</span>
-          <p class="text-gray-900 flex-1">Personal Pay ya tenía a esos usuarios dentro del ecosistema, autenticados y activos en la app.</p>
+          <p data-lang="es" class="text-gray-900 flex-1">Personal Pay ya tenía a esos usuarios dentro del ecosistema, autenticados y activos en la app.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">Personal Pay already had those users inside the ecosystem, authenticated and active in the app.</p>
         </div>
         <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
           <span class="text-sm text-gray-400 font-mono">03</span>
-          <p class="text-gray-900 flex-1">Al no requerir un nuevo login, la fricción de entrada al Marketplace era prácticamente cero.</p>
+          <p data-lang="es" class="text-gray-900 flex-1">Al no requerir un nuevo login, la fricción de entrada al Marketplace era prácticamente cero.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">By not requiring a new login, the friction to enter the Marketplace was practically zero.</p>
         </div>
       </div>
     </div>
@@ -90,11 +145,17 @@
   <!-- PROCESO -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">PROCESO</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Metodología</h2>
-      <p class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">PROCESO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">PROCESS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Metodología</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Methodology</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
         Prototipo construido en paralelo con los equipos de Negocio y Producto, para validar la propuesta antes de
         comprometer desarrollo.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Prototype built in parallel with the Business and Product teams, to validate the proposal before
+        committing development resources.
       </p>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="border border-gray-200 p-6 rounded-lg">
@@ -103,20 +164,27 @@
             <h3 class="text-xl font-bold text-black">Discovery</h3>
           </div>
           <ul class="space-y-2">
-            <li class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Entender las necesidades del segmento no bancarizado</li>
-            <li class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Definir la oportunidad de negocio junto a Producto</li>
-            <li class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Evaluar el ecommerce embebido como solución</li>
+            <li data-lang="es" class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Entender las necesidades del segmento no bancarizado</li>
+            <li data-lang="en" class="hidden text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Understand the needs of the unbanked segment</li>
+            <li data-lang="es" class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Definir la oportunidad de negocio junto a Producto</li>
+            <li data-lang="en" class="hidden text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Define the business opportunity together with Product</li>
+            <li data-lang="es" class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Evaluar el ecommerce embebido como solución</li>
+            <li data-lang="en" class="hidden text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Evaluate the embedded ecommerce as a solution</li>
           </ul>
         </div>
         <div class="border border-gray-200 p-6 rounded-lg">
           <div class="flex items-baseline gap-3 mb-4">
             <span class="text-xs text-gray-400 font-mono">02</span>
-            <h3 class="text-xl font-bold text-black">Prototipado</h3>
+            <h3 data-lang="es" class="text-xl font-bold text-black">Prototipado</h3>
+            <h3 data-lang="en" class="hidden text-xl font-bold text-black">Prototyping</h3>
           </div>
           <ul class="space-y-2">
-            <li class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Diseño del sitio acorde al ecosistema de Personal Pay</li>
-            <li class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Flujo sin login, aprovechando la sesión activa del usuario</li>
-            <li class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Trabajo iterativo a la par de Negocio y Producto</li>
+            <li data-lang="es" class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Diseño del sitio acorde al ecosistema de Personal Pay</li>
+            <li data-lang="en" class="hidden text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Site design aligned with the Personal Pay ecosystem</li>
+            <li data-lang="es" class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Flujo sin login, aprovechando la sesión activa del usuario</li>
+            <li data-lang="en" class="hidden text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Login-free flow, leveraging the user's active session</li>
+            <li data-lang="es" class="text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Trabajo iterativo a la par de Negocio y Producto</li>
+            <li data-lang="en" class="hidden text-sm text-gray-700 pl-6 relative before:content-['—'] before:absolute before:left-0">Iterative work alongside Business and Product</li>
           </ul>
         </div>
       </div>
@@ -126,40 +194,54 @@
   <!-- EL PROTOTIPO -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-6xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL PROTOTIPO</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Cómo se veía la solución</h2>
-      <p class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL PROTOTIPO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE PROTOTYPE</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Cómo se veía la solución</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">What the solution looked like</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
         Acceso directo desde la home, un aviso invitando a descubrir el Marketplace, la integración de beneficios
         y el catálogo embebido dentro de la propia app.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Direct access from the home screen, an announcement inviting users to discover the Marketplace, benefits
+        integration, and the catalog embedded right inside the app.
       </p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         <div>
           <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/acceso-directo-home.jpg" alt="Acceso directo al Marketplace desde la home de Personal Pay" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/acceso-directo-home.jpg" data-i18n-alt-es="Acceso directo al Marketplace desde la home de Personal Pay" data-i18n-alt-en="Direct access to the Marketplace from the Personal Pay home screen" alt="Acceso directo al Marketplace desde la home de Personal Pay" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-sm font-medium text-black mb-1">Acceso directo — Home</p>
-          <p class="text-xs text-gray-600">Entrada al Marketplace desde la pantalla principal, sin pasos extra</p>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Acceso directo — Home</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Direct access — Home</p>
+          <p data-lang="es" class="text-xs text-gray-600">Entrada al Marketplace desde la pantalla principal, sin pasos extra</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Entry point to the Marketplace from the main screen, no extra steps</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/popup-anuncio.jpg" alt="Popup de anuncio invitando a descubrir el Marketplace" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/popup-anuncio.jpg" data-i18n-alt-es="Popup de anuncio invitando a descubrir el Marketplace" data-i18n-alt-en="Announcement popup inviting users to discover the Marketplace" alt="Popup de anuncio invitando a descubrir el Marketplace" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-sm font-medium text-black mb-1">Popup de anuncio</p>
-          <p class="text-xs text-gray-600">Descubrimiento del Marketplace dentro del flujo habitual de la app</p>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Popup de anuncio</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Announcement popup</p>
+          <p data-lang="es" class="text-xs text-gray-600">Descubrimiento del Marketplace dentro del flujo habitual de la app</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Marketplace discovery within the app's regular flow</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/integracion-beneficios.png" alt="Integración de beneficios dentro del Marketplace" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/integracion-beneficios.png" data-i18n-alt-es="Integración de beneficios dentro del Marketplace" data-i18n-alt-en="Benefits integration within the Marketplace" alt="Integración de beneficios dentro del Marketplace" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-sm font-medium text-black mb-1">Integración de beneficios</p>
-          <p class="text-xs text-gray-600">Promociones y beneficios integrados a la experiencia de compra</p>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Integración de beneficios</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Benefits integration</p>
+          <p data-lang="es" class="text-xs text-gray-600">Promociones y beneficios integrados a la experiencia de compra</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Promotions and perks integrated into the shopping experience</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/marketplace-embebido.png" alt="Vista completa del Marketplace embebido en Personal Pay" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/marketplace-embebido.png" data-i18n-alt-es="Vista completa del Marketplace embebido en Personal Pay" data-i18n-alt-en="Full view of the Marketplace embedded in Personal Pay" alt="Vista completa del Marketplace embebido en Personal Pay" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-sm font-medium text-black mb-1">Marketplace embebido</p>
-          <p class="text-xs text-gray-600">Catálogo accesible directamente dentro de la billetera, sin nuevo login</p>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Marketplace embebido</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Embedded Marketplace</p>
+          <p data-lang="es" class="text-xs text-gray-600">Catálogo accesible directamente dentro de la billetera, sin nuevo login</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Catalog accessible directly inside the wallet, no new login required</p>
         </div>
       </div>
     </div>
@@ -168,71 +250,99 @@
   <!-- EL CHECKOUT -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-6xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL CHECKOUT</p>
-      <h2 class="text-4xl font-bold text-black mb-6">Un flujo de compra pensado para reducir fricción</h2>
-      <p class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL CHECKOUT</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE CHECKOUT</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Un flujo de compra pensado para reducir fricción</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">A purchase flow designed to reduce friction</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
         Desde la revisión del producto hasta la confirmación de la compra, el checkout resuelve tres decisiones
         clave del usuario sin salir de Personal Pay: qué está comprando, a dónde y cuándo quiere recibirlo, y con
         qué medio de pago.
       </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        From reviewing the product to confirming the purchase, the checkout resolves three key user decisions
+        without leaving Personal Pay: what they're buying, where and when they want to receive it, and which
+        payment method to use.
+      </p>
       <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mb-12">
         <div>
           <div class="bg-gray-50 rounded-lg p-3 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/checkout-01-producto.png" alt="Checkout paso 1: revisión del producto y resumen de compra" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/checkout-01-producto.png" data-i18n-alt-es="Checkout paso 1: revisión del producto y resumen de compra" data-i18n-alt-en="Checkout step 1: product review and order summary" alt="Checkout paso 1: revisión del producto y resumen de compra" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-xs font-medium text-black">1. Producto</p>
+          <p data-lang="es" class="text-xs font-medium text-black">1. Producto</p>
+          <p data-lang="en" class="hidden text-xs font-medium text-black">1. Product</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-3 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/checkout-02-direcciones.png" alt="Checkout paso 2: selección de dirección de entrega" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/checkout-02-direcciones.png" data-i18n-alt-es="Checkout paso 2: selección de dirección de entrega" data-i18n-alt-en="Checkout step 2: delivery address selection" alt="Checkout paso 2: selección de dirección de entrega" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-xs font-medium text-black">2. Dirección</p>
+          <p data-lang="es" class="text-xs font-medium text-black">2. Dirección</p>
+          <p data-lang="en" class="hidden text-xs font-medium text-black">2. Address</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-3 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/checkout-03-entrega.png" alt="Checkout paso 3: selección de método y tiempo de entrega" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/checkout-03-entrega.png" data-i18n-alt-es="Checkout paso 3: selección de método y tiempo de entrega" data-i18n-alt-en="Checkout step 3: delivery method and time selection" alt="Checkout paso 3: selección de método y tiempo de entrega" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-xs font-medium text-black">3. Entrega</p>
+          <p data-lang="es" class="text-xs font-medium text-black">3. Entrega</p>
+          <p data-lang="en" class="hidden text-xs font-medium text-black">3. Delivery</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-3 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/checkout-04-confirmacion-pago.png" alt="Checkout paso 4: confirmación de pago" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/checkout-04-confirmacion-pago.png" data-i18n-alt-es="Checkout paso 4: confirmación de pago" data-i18n-alt-en="Checkout step 4: payment confirmation" alt="Checkout paso 4: confirmación de pago" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-xs font-medium text-black">4. Confirmación de pago</p>
+          <p data-lang="es" class="text-xs font-medium text-black">4. Confirmación de pago</p>
+          <p data-lang="en" class="hidden text-xs font-medium text-black">4. Payment confirmation</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-3 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/checkout-05-medio-pago.png" alt="Checkout paso 5: selección de medio de pago" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/checkout-05-medio-pago.png" data-i18n-alt-es="Checkout paso 5: selección de medio de pago" data-i18n-alt-en="Checkout step 5: payment method selection" alt="Checkout paso 5: selección de medio de pago" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-xs font-medium text-black">5. Selección de medio de pago</p>
+          <p data-lang="es" class="text-xs font-medium text-black">5. Selección de medio de pago</p>
+          <p data-lang="en" class="hidden text-xs font-medium text-black">5. Payment method selection</p>
         </div>
         <div>
           <div class="bg-gray-50 rounded-lg p-3 mb-3 aspect-[9/19] flex items-center justify-center">
-            <img src="img/marketplace/checkout-06-confirmacion.png" alt="Checkout paso 6: confirmación de compra exitosa" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+            <img src="img/marketplace/checkout-06-confirmacion.png" data-i18n-alt-es="Checkout paso 6: confirmación de compra exitosa" data-i18n-alt-en="Checkout step 6: successful purchase confirmation" alt="Checkout paso 6: confirmación de compra exitosa" class="w-full h-full object-cover object-top rounded-md shadow-sm">
           </div>
-          <p class="text-xs font-medium text-black">6. Confirmación</p>
+          <p data-lang="es" class="text-xs font-medium text-black">6. Confirmación</p>
+          <p data-lang="en" class="hidden text-xs font-medium text-black">6. Confirmation</p>
         </div>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <p class="text-sm font-semibold text-black mb-2">Revisión del producto elegido</p>
-          <p class="text-sm text-gray-700 leading-relaxed">
+          <p data-lang="es" class="text-sm font-semibold text-black mb-2">Revisión del producto elegido</p>
+          <p data-lang="en" class="hidden text-sm font-semibold text-black mb-2">Reviewing the chosen product</p>
+          <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
             El checkout abre con el resumen de compra a la vista: producto, variante, cantidad y precio, para que
             el usuario confirme qué está llevando antes de avanzar con sus datos.
           </p>
-        </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <p class="text-sm font-semibold text-black mb-2">Entrega más rápida pagando una diferencia</p>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            El paso de entrega presenta varias fechas y costos de envío en simultáneo, para que el usuario elija
-            cuándo quiere recibir su compra según cuánto esté dispuesto a pagar por eso.
+          <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+            The checkout opens with the order summary in view — product, variant, quantity, and price — so the
+            user can confirm what they're buying before moving on to their details.
           </p>
         </div>
         <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <p class="text-sm font-semibold text-black mb-2">Dirección distinta a la registrada</p>
-          <p class="text-sm text-gray-700 leading-relaxed">
+          <p data-lang="es" class="text-sm font-semibold text-black mb-2">Entrega más rápida pagando una diferencia</p>
+          <p data-lang="en" class="hidden text-sm font-semibold text-black mb-2">Faster delivery for an added fee</p>
+          <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
+            El paso de entrega presenta varias fechas y costos de envío en simultáneo, para que el usuario elija
+            cuándo quiere recibir su compra según cuánto esté dispuesto a pagar por eso.
+          </p>
+          <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+            The delivery step presents several dates and shipping costs side by side, so the user can choose when
+            to receive their order based on how much they're willing to pay for it.
+          </p>
+        </div>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <p data-lang="es" class="text-sm font-semibold text-black mb-2">Dirección distinta a la registrada</p>
+          <p data-lang="en" class="hidden text-sm font-semibold text-black mb-2">A different address than the one on file</p>
+          <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
             El usuario puede elegir entre sus direcciones guardadas o cargar una nueva dirección de entrega,
             distinta a la que ingresó por primera vez en Personal Pay.
+          </p>
+          <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+            The user can choose from their saved addresses or add a new delivery address, different from the one
+            they first entered in Personal Pay.
           </p>
         </div>
       </div>
@@ -242,13 +352,21 @@
   <!-- QUÉ PASÓ -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">QUÉ PASÓ</p>
-      <h2 class="text-4xl font-bold text-black mb-6">No llegó a producción, pero no se perdió</h2>
-      <p class="text-gray-700 leading-relaxed max-w-2xl">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">QUÉ PASÓ</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">WHAT HAPPENED</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">No llegó a producción, pero no se perdió</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">It didn't ship, but it wasn't wasted</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed max-w-2xl">
         El proyecto pasó a otra unidad de negocio dentro de la compañía: tenía más sentido que viviera bajo el
         paraguas de Personal (móvil, celulares, televisión) que como un segundo ecommerce compitiendo dentro del
         mismo grupo. Lo que armamos en este prototipo —el acceso sin fricción de login aprovechando una base de
         usuarios ya autenticada— fue el punto de partida conceptual de lo que hoy está en producción.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed max-w-2xl">
+        The project moved to a different business unit within the company: it made more sense for it to live
+        under the Personal umbrella (mobile, phones, TV) than as a second ecommerce competing within the same
+        group. What we built in this prototype — login-friction-free access leveraging an already-authenticated
+        user base — became the conceptual starting point for what's in production today.
       </p>
     </div>
   </section>
@@ -256,20 +374,28 @@
   <!-- APRENDIZAJES -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">APRENDIZAJES</p>
-      <h2 class="text-4xl font-bold text-black mb-12">Lo que me llevo</h2>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">APRENDIZAJES</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">LEARNINGS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Lo que me llevo</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">What I took away</h2>
       <div class="space-y-8">
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">La sesión ya activa es el mejor onboarding</h3>
-          <p class="text-gray-700 leading-relaxed">Diseñar aprovechando que el usuario ya estaba logueado en la app fue el insight que más valor generó, y el que terminó trascendiendo al proyecto original.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">La sesión ya activa es el mejor onboarding</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">An already-active session is the best onboarding</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Diseñar aprovechando que el usuario ya estaba logueado en la app fue el insight que más valor generó, y el que terminó trascendiendo al proyecto original.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Designing around the fact that the user was already logged into the app was the insight that generated the most value, and the one that ended up outliving the original project.</p>
         </div>
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">No todo prototipo válido se lanza donde nació</h3>
-          <p class="text-gray-700 leading-relaxed">Que el proyecto se reubicara en otra unidad de negocio no fue un fracaso: fue la decisión correcta para evitar canibalizar recursos con un ecommerce duplicado.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">No todo prototipo válido se lanza donde nació</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Not every valid prototype ships where it was born</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Que el proyecto se reubicara en otra unidad de negocio no fue un fracaso: fue la decisión correcta para evitar canibalizar recursos con un ecommerce duplicado.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Relocating the project to another business unit wasn't a failure — it was the right call to avoid cannibalizing resources with a duplicate ecommerce.</p>
         </div>
         <div class="pb-8 border-b border-gray-200 last:border-0">
-          <h3 class="text-xl font-bold text-black mb-3">Trabajar pegado a Negocio acelera la validación</h3>
-          <p class="text-gray-700 leading-relaxed">Prototipar en paralelo con Negocio y Producto permitió chequear la hipótesis de mercado sin esperar a tener una solución cerrada.</p>
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Trabajar pegado a Negocio acelera la validación</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Working closely with Business speeds up validation</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Prototipar en paralelo con Negocio y Producto permitió chequear la hipótesis de mercado sin esperar a tener una solución cerrada.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Prototyping in parallel with Business and Product allowed us to test the market hypothesis without waiting for a finished solution.</p>
         </div>
       </div>
     </div>
@@ -278,18 +404,22 @@
   <!-- RECORRÉ LOS CASOS -->
   <section class="py-20 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">BROWSE THE CASE STUDIES</p>
       <div class="grid md:grid-cols-2 gap-6">
         <a href="AgendaDeTransferencias.html" class="group flex items-center gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors">
           <span class="text-xl group-hover:-translate-x-1 transition-transform">←</span>
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
-            <h3 class="text-lg font-bold text-black">Agenda de Transferencias</h3>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Previous case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Agenda de Transferencias</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">Transfer Contacts</h3>
           </div>
         </a>
         <a href="FlowWebclient.html" class="group flex items-center justify-between gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors text-right">
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Next case</p>
             <h3 class="text-lg font-bold text-black">Flow Webclient</h3>
           </div>
           <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
@@ -302,26 +432,46 @@
   <footer class="py-16 px-6 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-        <p class="text-sm text-gray-500">Caso de Estudio</p>
-        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">Volver arriba ↑</a>
+        <p data-lang="es" class="text-sm text-gray-500">Caso de Estudio</p>
+        <p data-lang="en" class="hidden text-sm text-gray-500">Case Study</p>
+        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">
+          <span data-lang="es">Volver arriba ↑</span>
+          <span data-lang="en" class="hidden">Back to top ↑</span>
+        </a>
       </div>
       <div class="grid md:grid-cols-2 gap-12 mb-12">
         <div>
           <h3 class="text-xl font-bold text-black mb-3">Personal Pay</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Marketplace Embebido</p>
+          <p data-lang="es" class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Marketplace Embebido</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 leading-relaxed">Case study — Embedded Marketplace</p>
         </div>
         <div class="space-y-3 text-sm">
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">Rol</span><span class="text-black">UX / Product Designer</span></div>
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">Duración</span><span class="text-black">3 meses</span></div>
-          <div class="flex justify-between border-b border-gray-200 pb-2"><span class="text-gray-600">País</span><span class="text-black">Argentina</span></div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Rol</span>
+            <span data-lang="en" class="hidden text-gray-600">Role</span>
+            <span class="text-black">UX / Product Designer</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Duración</span>
+            <span data-lang="en" class="hidden text-gray-600">Duration</span>
+            <span data-lang="es" class="text-black">3 meses</span>
+            <span data-lang="en" class="hidden text-black">3 months</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">País</span>
+            <span data-lang="en" class="hidden text-gray-600">Country</span>
+            <span class="text-black">Argentina</span>
+          </div>
         </div>
       </div>
       <div class="pt-8 border-t border-gray-200">
-        <p class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="es" class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="en" class="hidden text-xs text-gray-500">© 2026 — Case study designed to demonstrate a complete UX/UI process</p>
       </div>
     </div>
   </footer>
 
 </div>
+<script src="js/i18n.js"></script>
 </body>
 </html>
