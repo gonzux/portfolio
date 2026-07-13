@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gonzalo Felis — Product Designer</title>
 <meta name="description" content="Gonzalo Felis, Product Designer y UX Lead en Buenos Aires, Argentina. Portfolio de casos de estudio en diseño de producto fintech.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Gonzalo Felis — Product Designer", "en": "Gonzalo Felis — Product Designer" },
+  "description": {
+    "es": "Gonzalo Felis, Product Designer y UX Lead en Buenos Aires, Argentina. Portfolio de casos de estudio en diseño de producto fintech.",
+    "en": "Gonzalo Felis, Product Designer and UX Lead based in Buenos Aires, Argentina. Portfolio of fintech product design case studies."
+  }
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -17,41 +26,68 @@
 </head>
 <body class="bg-white text-black">
 
+  <!-- NAV -->
+  <nav class="px-6 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto py-4 flex items-center justify-end">
+      <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
+        <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
+        <span class="text-gray-300">/</span>
+        <button data-lang-btn="en" class="lang-btn px-2 py-1 rounded-full transition-colors">EN</button>
+      </div>
+    </div>
+  </nav>
+
   <!-- HERO -->
-  <section class="px-6 pt-28 pb-20 md:pt-36 md:pb-28">
+  <section class="px-6 pt-20 pb-20 md:pt-28 md:pb-28">
     <div class="max-w-4xl mx-auto">
       <div class="md:flex md:items-start md:justify-between md:gap-12">
         <div class="flex-1">
-          <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">Product Designer — Buenos Aires, Argentina</p>
+          <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">Product Designer — Buenos Aires, Argentina</p>
+          <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">Product Designer — Buenos Aires, Argentina</p>
           <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black mb-8">Gonzalo Felis</h1>
         </div>
         <div class="mt-8 md:mt-2 mb-[10px] md:self-end shrink-0">
-          <img src="img/profile/gonzalo-felis-bw.jpg" alt="Retrato de Gonzalo Felis" class="w-32 h-32 md:w-44 md:h-44 rounded-full object-cover grayscale shadow-md">
+          <img src="img/profile/gonzalo-felis-bw.jpg" data-i18n-alt-es="Retrato de Gonzalo Felis" data-i18n-alt-en="Portrait of Gonzalo Felis" alt="Retrato de Gonzalo Felis" class="w-32 h-32 md:w-44 md:h-44 rounded-full object-cover grayscale shadow-md">
         </div>
       </div>
 
       <div class="border-t border-gray-200 pt-8 md:flex md:gap-12">
-        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 md:mb-0 md:w-40 shrink-0">
+        <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-4 md:mb-0 md:w-40 shrink-0">
           Product Designer · UX Lead · Estrategia y experiencia digital
         </p>
+        <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-4 md:mb-0 md:w-40 shrink-0">
+          Product Designer · UX Lead · Digital Strategy &amp; Experience
+        </p>
         <div class="flex-1">
-          <p class="text-xl md:text-2xl text-gray-800 leading-relaxed max-w-2xl mb-6">
+          <p data-lang="es" class="text-xl md:text-2xl text-gray-800 leading-relaxed max-w-2xl mb-6">
             Diseño experiencias que simplifican lo complejo, conectando tecnología y empatía para generar impacto real.
           </p>
-          <p class="text-base text-gray-600 leading-relaxed mb-12">
+          <p data-lang="en" class="hidden text-xl md:text-2xl text-gray-800 leading-relaxed max-w-2xl mb-6">
+            I design experiences that simplify complexity, connecting technology and empathy to drive real impact.
+          </p>
+          <p data-lang="es" class="text-base text-gray-600 leading-relaxed mb-12">
             Diseñador de producto con más de 10 años de experiencia creando productos digitales centrados en las personas.
             Me especializo en el cruce entre diseño, tecnología y negocio, transformando procesos complejos en
             experiencias simples, escalables y orientadas a resultados.
           </p>
+          <p data-lang="en" class="hidden text-base text-gray-600 leading-relaxed mb-12">
+            Product designer with 10+ years of experience building human-centered digital products. I specialize in
+            the intersection of design, technology, and business — turning complex processes into simple, scalable,
+            results-driven experiences.
+          </p>
 
           <div class="grid sm:grid-cols-2 gap-8 text-sm max-w-2xl">
             <div>
-              <p class="text-gray-500 mb-1">Experiencia</p>
-              <p class="text-black">+10 años</p>
+              <p data-lang="es" class="text-gray-500 mb-1">Experiencia</p>
+              <p data-lang="en" class="hidden text-gray-500 mb-1">Experience</p>
+              <p data-lang="es" class="text-black">+10 años</p>
+              <p data-lang="en" class="hidden text-black">10+ years</p>
             </div>
             <div>
-              <p class="text-gray-500 mb-1">Foco</p>
-              <p class="text-black">Producto fintech</p>
+              <p data-lang="es" class="text-gray-500 mb-1">Foco</p>
+              <p data-lang="en" class="hidden text-gray-500 mb-1">Focus</p>
+              <p data-lang="es" class="text-black">Producto fintech</p>
+              <p data-lang="en" class="hidden text-black">Fintech product</p>
             </div>
           </div>
         </div>
@@ -63,10 +99,15 @@
   <section class="px-6 py-16 border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
       <div class="border-l-2 border-black pl-6">
-        <p class="text-2xl font-medium text-black leading-snug">
+        <p data-lang="es" class="text-2xl font-medium text-black leading-snug">
           Más de 10 años diseñando productos digitales que conectan tecnología, negocio y personas — liderando
           billeteras digitales y plataformas transaccionales en Telecom (Personal Pay y Flow), y liderando en IBM
           el rediseño de Banca Empresas para partners corporativos como HSBC.
+        </p>
+        <p data-lang="en" class="hidden text-2xl font-medium text-black leading-snug">
+          10+ years designing digital products that connect technology, business, and people — leading digital
+          wallets and transactional platforms at Telecom (Personal Pay and Flow), and leading the redesign of
+          Corporate Banking at IBM for corporate partners like HSBC.
         </p>
       </div>
     </div>
@@ -75,8 +116,10 @@
   <!-- CASOS DE ESTUDIO -->
   <section id="casos" class="px-6 py-20 border-t border-gray-200">
     <div class="max-w-4xl mx-auto">
-      <p class="text-xs uppercase tracking-wider text-gray-500 mb-8">Trabajo seleccionado</p>
-      <h2 class="text-4xl font-bold text-black mb-12">Casos de estudio</h2>
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">Trabajo seleccionado</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">Selected work</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Casos de estudio</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">Case studies</h2>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -88,20 +131,40 @@
               <span class="text-xs text-gray-400 font-mono">01</span>
               <span class="text-xs uppercase tracking-wider text-gray-500">Personal Pay — Fintech</span>
             </div>
-            <h3 class="text-2xl font-bold text-black mb-3">Habilitando pagos PIX en una billetera digital</h3>
-            <p class="text-sm text-gray-700 leading-relaxed mb-8">
+            <h3 data-lang="es" class="text-2xl font-bold text-black mb-3">Habilitando pagos PIX en una billetera digital</h3>
+            <h3 data-lang="en" class="hidden text-2xl font-bold text-black mb-3">Enabling PIX payments in a digital wallet</h3>
+            <p data-lang="es" class="text-sm text-gray-700 leading-relaxed mb-8">
               Diseño de un flujo confiable y sin fricciones para pagos internacionales con QR en Brasil —desde
               la hipótesis hasta el impacto medible.
+            </p>
+            <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed mb-8">
+              Designing a reliable, frictionless flow for international QR payments in Brazil — from hypothesis
+              to measurable impact.
             </p>
           </div>
           <div>
             <div class="grid grid-cols-3 gap-4 text-xs text-gray-600 mb-6 pt-6 border-t border-gray-100">
-              <div><p class="text-gray-400 mb-1">Rol</p><p class="text-black">Product / UX Designer</p></div>
-              <div><p class="text-gray-400 mb-1">Duración</p><p class="text-black">8 semanas</p></div>
-              <div><p class="text-gray-400 mb-1">Plataforma</p><p class="text-black">App Mobile</p></div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Rol</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Role</p>
+                <p class="text-black">Product / UX Designer</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Duración</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Duration</p>
+                <p data-lang="es" class="text-black">8 semanas</p>
+                <p data-lang="en" class="hidden text-black">8 weeks</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Plataforma</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Platform</p>
+                <p data-lang="es" class="text-black">App Mobile</p>
+                <p data-lang="en" class="hidden text-black">Mobile App</p>
+              </div>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-medium text-black">
-              Ver caso completo
+              <span data-lang="es">Ver caso completo</span>
+              <span data-lang="en" class="hidden">View full case</span>
               <span class="case-arrow transition-transform duration-200">→</span>
             </span>
           </div>
@@ -115,20 +178,38 @@
               <span class="text-xs text-gray-400 font-mono">02</span>
               <span class="text-xs uppercase tracking-wider text-gray-500">Personal Pay — Fintech</span>
             </div>
-            <h3 class="text-2xl font-bold text-black mb-3">Agenda de Transferencias</h3>
-            <p class="text-sm text-gray-700 leading-relaxed mb-8">
+            <h3 data-lang="es" class="text-2xl font-bold text-black mb-3">Agenda de Transferencias</h3>
+            <h3 data-lang="en" class="hidden text-2xl font-bold text-black mb-3">Transfer Contacts</h3>
+            <p data-lang="es" class="text-sm text-gray-700 leading-relaxed mb-8">
               Rediseño del flujo de gestión de contactos y transferencias para reducir la fricción en
               operaciones frecuentes.
+            </p>
+            <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed mb-8">
+              Redesign of the contact and transfer management flow to reduce friction in frequent operations.
             </p>
           </div>
           <div>
             <div class="grid grid-cols-3 gap-4 text-xs text-gray-600 mb-6 pt-6 border-t border-gray-100">
-              <div><p class="text-gray-400 mb-1">Rol</p><p class="text-black">UX Lead</p></div>
-              <div><p class="text-gray-400 mb-1">Duración</p><p class="text-black">3 meses</p></div>
-              <div><p class="text-gray-400 mb-1">Año</p><p class="text-black">2025</p></div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Rol</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Role</p>
+                <p class="text-black">UX Lead</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Duración</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Duration</p>
+                <p data-lang="es" class="text-black">3 meses</p>
+                <p data-lang="en" class="hidden text-black">3 months</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Año</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Year</p>
+                <p class="text-black">2025</p>
+              </div>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-medium text-black">
-              Ver caso completo
+              <span data-lang="es">Ver caso completo</span>
+              <span data-lang="en" class="hidden">View full case</span>
               <span class="case-arrow transition-transform duration-200">→</span>
             </span>
           </div>
@@ -142,20 +223,39 @@
               <span class="text-xs text-gray-400 font-mono">03</span>
               <span class="text-xs uppercase tracking-wider text-gray-500">Personal Pay — Fintech</span>
             </div>
-            <h3 class="text-2xl font-bold text-black mb-3">Un Marketplace embebido en Personal Pay</h3>
-            <p class="text-sm text-gray-700 leading-relaxed mb-8">
+            <h3 data-lang="es" class="text-2xl font-bold text-black mb-3">Un Marketplace embebido en Personal Pay</h3>
+            <h3 data-lang="en" class="hidden text-2xl font-bold text-black mb-3">An embedded Marketplace within Personal Pay</h3>
+            <p data-lang="es" class="text-sm text-gray-700 leading-relaxed mb-8">
               Discovery, research y prototipado de un Marketplace con acceso instantáneo dentro de la billetera
               —no llegó a producción en su momento, pero sentó las bases de lo que hoy está en producción.
+            </p>
+            <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed mb-8">
+              Discovery, research, and prototyping of a Marketplace with instant access inside the wallet — it
+              didn't ship at the time, but it laid the groundwork for what's in production today.
             </p>
           </div>
           <div>
             <div class="grid grid-cols-3 gap-4 text-xs text-gray-600 mb-6 pt-6 border-t border-gray-100">
-              <div><p class="text-gray-400 mb-1">Rol</p><p class="text-black">UX / Product Designer</p></div>
-              <div><p class="text-gray-400 mb-1">Duración</p><p class="text-black">3 meses</p></div>
-              <div><p class="text-gray-400 mb-1">Año</p><p class="text-black">2024</p></div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Rol</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Role</p>
+                <p class="text-black">UX / Product Designer</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Duración</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Duration</p>
+                <p data-lang="es" class="text-black">3 meses</p>
+                <p data-lang="en" class="hidden text-black">3 months</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Año</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Year</p>
+                <p class="text-black">2024</p>
+              </div>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-medium text-black">
-              Ver caso completo
+              <span data-lang="es">Ver caso completo</span>
+              <span data-lang="en" class="hidden">View full case</span>
               <span class="case-arrow transition-transform duration-200">→</span>
             </span>
           </div>
@@ -170,19 +270,37 @@
               <span class="text-xs uppercase tracking-wider text-gray-500">Telecom — Flow</span>
             </div>
             <h3 class="text-2xl font-bold text-black mb-3">Flow Webclient</h3>
-            <p class="text-sm text-gray-700 leading-relaxed mb-8">
+            <p data-lang="es" class="text-sm text-gray-700 leading-relaxed mb-8">
               Diseño del cliente web de Flow: investigación de usuarios, pruebas de usabilidad y sistema de diseño
               para ver TV en vivo y on demand desde el navegador.
+            </p>
+            <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed mb-8">
+              Design of the Flow web client: user research, usability testing, and a design system for watching
+              live and on-demand TV from the browser.
             </p>
           </div>
           <div>
             <div class="grid grid-cols-3 gap-4 text-xs text-gray-600 mb-6 pt-6 border-t border-gray-100">
-              <div><p class="text-gray-400 mb-1">Rol</p><p class="text-black">UX/UI Designer</p></div>
-              <div><p class="text-gray-400 mb-1">Duración</p><p class="text-black">6 meses</p></div>
-              <div><p class="text-gray-400 mb-1">Herramientas</p><p class="text-black">Adobe XD</p></div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Rol</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Role</p>
+                <p class="text-black">UX/UI Designer</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Duración</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Duration</p>
+                <p data-lang="es" class="text-black">6 meses</p>
+                <p data-lang="en" class="hidden text-black">6 months</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Herramientas</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Tools</p>
+                <p class="text-black">Adobe XD</p>
+              </div>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-medium text-black">
-              Ver caso completo
+              <span data-lang="es">Ver caso completo</span>
+              <span data-lang="en" class="hidden">View full case</span>
               <span class="case-arrow transition-transform duration-200">→</span>
             </span>
           </div>
@@ -196,20 +314,39 @@
               <span class="text-xs text-gray-400 font-mono">05</span>
               <span class="text-xs uppercase tracking-wider text-gray-500">IBM · HSBC</span>
             </div>
-            <h3 class="text-2xl font-bold text-black mb-3">Modificando paradigmas en base al diseño centrado en el usuario</h3>
-            <p class="text-sm text-gray-700 leading-relaxed mb-8">
+            <h3 data-lang="es" class="text-2xl font-bold text-black mb-3">Modificando paradigmas en base al diseño centrado en el usuario</h3>
+            <h3 data-lang="en" class="hidden text-2xl font-bold text-black mb-3">Shifting paradigms through user-centered design</h3>
+            <p data-lang="es" class="text-sm text-gray-700 leading-relaxed mb-8">
               Rediseño de la Banca Empresas de HSBC Argentina junto a IBM: investigación con usuarios, arquitectura
               de información y sistema de diseño para digitalizar operaciones bancarias corporativas.
+            </p>
+            <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed mb-8">
+              Redesign of HSBC Argentina's Corporate Banking alongside IBM: user research, information architecture,
+              and a design system to digitize corporate banking operations.
             </p>
           </div>
           <div>
             <div class="grid grid-cols-3 gap-4 text-xs text-gray-600 mb-6 pt-6 border-t border-gray-100">
-              <div><p class="text-gray-400 mb-1">Rol</p><p class="text-black">UX Designer</p></div>
-              <div><p class="text-gray-400 mb-1">Duración</p><p class="text-black">2 años</p></div>
-              <div><p class="text-gray-400 mb-1">Año</p><p class="text-black">2015</p></div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Rol</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Role</p>
+                <p class="text-black">UX Designer</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Duración</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Duration</p>
+                <p data-lang="es" class="text-black">2 años</p>
+                <p data-lang="en" class="hidden text-black">2 years</p>
+              </div>
+              <div>
+                <p data-lang="es" class="text-gray-400 mb-1">Año</p>
+                <p data-lang="en" class="hidden text-gray-400 mb-1">Year</p>
+                <p class="text-black">2015</p>
+              </div>
             </div>
             <span class="inline-flex items-center gap-2 text-sm font-medium text-black">
-              Ver caso completo
+              <span data-lang="es">Ver caso completo</span>
+              <span data-lang="en" class="hidden">View full case</span>
               <span class="case-arrow transition-transform duration-200">→</span>
             </span>
           </div>
@@ -225,11 +362,13 @@
       <div class="grid md:grid-cols-2 gap-12 mb-12">
         <div>
           <h3 class="text-xl font-bold text-black mb-3">Gonzalo Felis</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Product Designer · UX Lead · Estrategia y experiencia digital</p>
+          <p data-lang="es" class="text-sm text-gray-600 leading-relaxed">Product Designer · UX Lead · Estrategia y experiencia digital</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 leading-relaxed">Product Designer · UX Lead · Digital Strategy &amp; Experience</p>
         </div>
         <div class="space-y-3 text-sm">
           <div class="flex justify-between border-b border-gray-200 pb-2">
-            <span class="text-gray-600">Ubicación</span>
+            <span data-lang="es" class="text-gray-600">Ubicación</span>
+            <span data-lang="en" class="hidden text-gray-600">Location</span>
             <span class="text-black">Buenos Aires, Argentina</span>
           </div>
           <div class="flex justify-between border-b border-gray-200 pb-2">
@@ -247,10 +386,12 @@
         </div>
       </div>
       <div class="pt-8 border-t border-gray-200">
-        <p class="text-xs text-gray-500">© 2026 — Gonzalo Felis. Portfolio personal.</p>
+        <p data-lang="es" class="text-xs text-gray-500">© 2026 — Gonzalo Felis. Portfolio personal.</p>
+        <p data-lang="en" class="hidden text-xs text-gray-500">© 2026 — Gonzalo Felis. Personal portfolio.</p>
       </div>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
 </body>
 </html>
