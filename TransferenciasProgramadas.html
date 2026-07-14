@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transferencias Programadas — Caso de estudio UX/UI</title>
+<meta name="description" content="Diseño de un flujo para programar el ingreso de dinero en Personal Pay y evitar la mora en los servicios por falta de saldo al momento del débito automático.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Transferencias Programadas — Caso de estudio UX/UI", "en": "Scheduled Transfers — UX/UI Case Study" },
+  "description": {
+    "es": "Diseño de un flujo para programar el ingreso de dinero en Personal Pay y evitar la mora en los servicios por falta de saldo al momento del débito automático.",
+    "en": "Designing a flow to schedule money top-ups in Personal Pay to prevent late payments caused by insufficient balance at the time of an automatic debit."
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  img { background-color: #f3f4f6; }
+</style>
+</head>
+<body class="bg-white text-black">
+
+<div class="min-h-screen bg-white">
+
+  <!-- NAV -->
+  <nav id="top" class="px-6 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto py-4 flex items-center justify-between">
+      <a href="index.html" class="text-sm font-medium text-black hover:underline">
+        <span data-lang="es">← Volver al inicio</span>
+        <span data-lang="en" class="hidden">← Back to home</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+        <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
+          <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
+          <span class="text-gray-300">/</span>
+          <button data-lang-btn="en" class="lang-btn px-2 py-1 rounded-full transition-colors">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="py-32 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">CASO DE ESTUDIO UX/UI</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">UX/UI CASE STUDY</p>
+      <h1 data-lang="es" class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Transferencias programadas: fondeo a tiempo para evitar la mora</h1>
+      <h1 data-lang="en" class="hidden mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Scheduled transfers: funding on time to prevent late payments</h1>
+      <p class="mb-4 text-xl text-gray-600 leading-relaxed">Personal Pay — Argentina</p>
+      <p data-lang="es" class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        Diseño de un flujo para programar el ingreso de dinero en la billetera antes del vencimiento de un
+        servicio, para asegurar que hubiera saldo disponible al momento del débito automático.
+      </p>
+      <p data-lang="en" class="hidden mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        Designing a flow to schedule a money top-up into the wallet ahead of a bill's due date, so there would be
+        enough balance available when the automatic debit was attempted.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Rol</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Role</p>
+          <p class="text-black">Product Designer</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Duración</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Duration</p>
+          <p data-lang="es" class="text-black">3 meses</p>
+          <p data-lang="en" class="hidden text-black">3 months</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Producto</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Product</p>
+          <p class="text-black">Fintech</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMEN -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RESUMEN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">SUMMARY</p>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 data-lang="es" class="text-2xl font-bold text-black mb-4">Contexto</h2>
+          <h2 data-lang="en" class="hidden text-2xl font-bold text-black mb-4">Context</h2>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">
+            Muchos usuarios de Personal Pay tenían débitos automáticos programados para pagar sus servicios (luz,
+            gas, streaming, etc.), pero si no había saldo suficiente en la cuenta al momento del vencimiento, el
+            débito se rechazaba. Eso generaba mora en el servicio y obligaba al usuario a reintentar el pago de
+            forma manual, muchas veces más de una vez.
+          </p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+            Many Personal Pay users had automatic debits set up to pay their bills (electricity, gas, streaming,
+            etc.), but if there wasn't enough balance in the account by the due date, the debit was rejected. That
+            caused late payments and forced the user to manually retry the payment, often more than once.
+          </p>
+        </div>
+        <div>
+          <h2 data-lang="es" class="text-2xl font-bold text-black mb-4">Objetivo</h2>
+          <h2 data-lang="en" class="hidden text-2xl font-bold text-black mb-4">Objective</h2>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">
+            Diseñar una forma simple de programar el ingreso de dinero a la cuenta con anticipación a la fecha de
+            vencimiento de un servicio, para que el saldo estuviera disponible en el momento exacto en que se
+            intentara el débito automático.
+          </p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+            Design a simple way to schedule a money top-up ahead of a bill's due date, so the balance would be
+            available at the exact moment the automatic debit was attempted.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA OPORTUNIDAD -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">LA OPORTUNIDAD</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE OPPORTUNITY</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Por qué programar el fondeo</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">Why scheduling the top-up mattered</h2>
+      <div class="space-y-4">
+        <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
+          <span class="text-sm text-gray-400 font-mono">01</span>
+          <p data-lang="es" class="text-gray-900 flex-1">La falta de saldo al momento del vencimiento era una de las causas más comunes de mora en los servicios de los usuarios.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">Insufficient balance at the time of the due date was one of the most common causes of late payments for users.</p>
+        </div>
+        <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
+          <span class="text-sm text-gray-400 font-mono">02</span>
+          <p data-lang="es" class="text-gray-900 flex-1">Cada débito rechazado generaba fricción adicional: el usuario tenía que reintentar el pago manualmente, a veces más de una vez.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">Every rejected debit created extra friction: the user had to manually retry the payment, sometimes more than once.</p>
+        </div>
+        <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
+          <span class="text-sm text-gray-400 font-mono">03</span>
+          <p data-lang="es" class="text-gray-900 flex-1">Una notificación push que avise el vencimiento y permita programar el fondeo con anticipación resuelve el problema sin pedirle al usuario que cambie su comportamiento habitual.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1">A push notification that flags the due date and offers to schedule the top-up in advance solves the problem without asking the user to change their usual behavior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOS 3 CASOS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL DISEÑO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE DESIGN</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Tres escenarios de usuario</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Three user scenarios</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        El flujo tenía que resolverse de forma distinta según cuántas cuentas bancarias externas tuviera asociadas
+        el usuario a su billetera.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        The flow had to behave differently depending on how many external bank accounts the user already had
+        linked to their wallet.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border border-gray-200 rounded-lg p-6">
+          <span class="text-xs text-gray-400 font-mono">Caso 1</span>
+          <h3 data-lang="es" class="text-lg font-bold text-black mt-2 mb-3">Sin cuentas asociadas</h3>
+          <h3 data-lang="en" class="hidden text-lg font-bold text-black mt-2 mb-3">No linked accounts</h3>
+          <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
+            El usuario todavía no vinculó ninguna cuenta bancaria externa. Antes de programar un ingreso, tiene
+            que asociar al menos una cuenta desde un flujo dedicado.
+          </p>
+          <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+            The user hasn't linked an external bank account yet. Before scheduling a top-up, they need to link at
+            least one account through a dedicated flow.
+          </p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6">
+          <span class="text-xs text-gray-400 font-mono">Caso 2</span>
+          <h3 data-lang="es" class="text-lg font-bold text-black mt-2 mb-3">Una cuenta asociada</h3>
+          <h3 data-lang="en" class="hidden text-lg font-bold text-black mt-2 mb-3">One linked account</h3>
+          <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
+            El usuario ya tiene una cuenta vinculada. No necesita elegirla: el flujo pasa directo a definir la
+            fecha y el monto del ingreso.
+          </p>
+          <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+            The user already has one linked account. They don't need to pick it: the flow goes straight to setting
+            the date and the amount.
+          </p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6">
+          <span class="text-xs text-gray-400 font-mono">Caso 3</span>
+          <h3 data-lang="es" class="text-lg font-bold text-black mt-2 mb-3">Dos o más cuentas asociadas</h3>
+          <h3 data-lang="en" class="hidden text-lg font-bold text-black mt-2 mb-3">Two or more linked accounts</h3>
+          <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
+            El usuario elige desde cuál de sus cuentas quiere programar el ingreso, y después define la fecha y
+            el monto.
+          </p>
+          <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+            The user picks which of their accounts they want to schedule the top-up from, then sets the date and
+            the amount.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL FLUJO: PROGRAMAR UN NUEVO INGRESO -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL FLUJO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE FLOW</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Programar un nuevo ingreso</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Scheduling a new top-up</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Desde la explicación inicial del beneficio hasta la confirmación, cada paso se adapta al caso del usuario
+        (Caso 1, 2 o 3).
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        From the initial explanation of the benefit to the confirmation, each step adapts to the user's scenario
+        (Case 1, 2, or 3).
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/01-onboarding.png" data-i18n-alt-es="Modal de onboarding explicando el beneficio de programar ingresos" data-i18n-alt-en="Onboarding modal explaining the benefit of scheduling top-ups" alt="Modal de onboarding explicando el beneficio de programar ingresos" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">1. Beneficio</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">1. Benefit</p>
+          <p data-lang="es" class="text-xs text-gray-600">La primera vez, un modal explica el beneficio: automatizar ingresos, no quedarse sin saldo y aprovechar rendimientos.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">The first time, a modal explains the benefit: automating top-ups, never running out of balance, and earning yield.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/04-seleccionar-cuenta.png" data-i18n-alt-es="Selección de la cuenta de origen entre las cuentas asociadas" data-i18n-alt-en="Selecting the source account among linked accounts" alt="Selección de la cuenta de origen entre las cuentas asociadas" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">2. Cuenta de origen</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">2. Source account</p>
+          <p data-lang="es" class="text-xs text-gray-600">Con 2+ cuentas asociadas (Caso 3), el usuario elige desde cuál quiere programar el ingreso.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">With 2+ linked accounts (Case 3), the user picks which one to schedule the top-up from.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/05-elegir-banco.png" data-i18n-alt-es="Selección del banco para asociar una nueva cuenta" data-i18n-alt-en="Selecting a bank to link a new account" alt="Selección del banco para asociar una nueva cuenta" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">3. Asociar cuenta</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">3. Link an account</p>
+          <p data-lang="es" class="text-xs text-gray-600">Sin cuentas asociadas (Caso 1), primero elige su banco para vincular una cuenta.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">With no linked accounts (Case 1), the user first picks their bank to link an account.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/07-calendario.png" data-i18n-alt-es="Selección de la fecha en la que se acreditará el dinero" data-i18n-alt-en="Selecting the date the money will be credited" alt="Selección de la fecha en la que se acreditará el dinero" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">4. Fecha</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">4. Date</p>
+          <p data-lang="es" class="text-xs text-gray-600">Elige la fecha en la que quiere que se acredite el dinero, antes del vencimiento del servicio.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">The user picks the date they want the money credited, ahead of the bill's due date.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/08-importe.png" data-i18n-alt-es="Ingreso del monto con accesos rápidos a montos frecuentes" data-i18n-alt-en="Entering the amount with quick shortcuts to frequent amounts" alt="Ingreso del monto con accesos rápidos a montos frecuentes" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">5. Monto</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">5. Amount</p>
+          <p data-lang="es" class="text-xs text-gray-600">Define el monto a ingresar, con accesos rápidos a los montos más usados.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">The user sets the amount to top up, with shortcuts to the most common amounts.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/09-revisar-info.png" data-i18n-alt-es="Revisión del monto, la cuenta y la fecha antes de confirmar" data-i18n-alt-en="Reviewing the amount, account, and date before confirming" alt="Revisión del monto, la cuenta y la fecha antes de confirmar" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">6. Revisión</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">6. Review</p>
+          <p data-lang="es" class="text-xs text-gray-600">Revisa el monto, la cuenta de origen y la fecha antes de confirmar la programación.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">The user reviews the amount, source account, and date before confirming the schedule.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/10-exito.png" data-i18n-alt-es="Confirmación de que el ingreso quedó programado con éxito" data-i18n-alt-en="Confirmation that the top-up was scheduled successfully" alt="Confirmación de que el ingreso quedó programado con éxito" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">7. Confirmación</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">7. Confirmation</p>
+          <p data-lang="es" class="text-xs text-gray-600">El ingreso queda programado, con la fecha y hora estimadas de acreditación.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">The top-up is scheduled, with the estimated date and time it will be credited.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GESTIONAR LOS INGRESOS PROGRAMADOS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">GESTIÓN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">MANAGEMENT</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Gestionar los ingresos programados</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Managing scheduled top-ups</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Programar un ingreso no es un compromiso fijo: el usuario puede ver el detalle y cancelar la programación
+        en cualquier momento, hasta 24 horas antes de la fecha elegida.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Scheduling a top-up isn't a fixed commitment: the user can view the details and cancel the schedule at any
+        time, up to 24 hours before the chosen date.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/12-listado.png" data-i18n-alt-es="Listado de próximos ingresos e ingresos finalizados" data-i18n-alt-en="List of upcoming and completed top-ups" alt="Listado de próximos ingresos e ingresos finalizados" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Listado</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">List</p>
+          <p data-lang="es" class="text-xs text-gray-600">"Próximos ingresos" pendientes e "Ingresos finalizados", con su estado (realizado, rechazado).</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Pending "upcoming top-ups" and "completed top-ups," with their status (completed, rejected).</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/13-detalle.png" data-i18n-alt-es="Detalle de un ingreso programado con opción de cancelar" data-i18n-alt-en="Detail of a scheduled top-up with the option to cancel" alt="Detalle de un ingreso programado con opción de cancelar" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Detalle</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Detail</p>
+          <p data-lang="es" class="text-xs text-gray-600">Monto, cuenta y fecha del ingreso, con la opción de cancelar la programación hasta 24 horas antes.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Amount, account, and date of the top-up, with the option to cancel the schedule up to 24 hours in advance.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/14-cancelar-modal.png" data-i18n-alt-es="Modal de confirmación antes de cancelar la programación" data-i18n-alt-en="Confirmation modal before canceling the schedule" alt="Modal de confirmación antes de cancelar la programación" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Confirmar cancelación</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Confirm cancellation</p>
+          <p data-lang="es" class="text-xs text-gray-600">Antes de cancelar, se le confirma al usuario qué va a dejar de ingresar y para cuándo estaba programado.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Before canceling, the user is shown exactly what won't be credited and when it was scheduled for.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/16-cancelar-exito.png" data-i18n-alt-es="Confirmación de que la programación se canceló con éxito" data-i18n-alt-en="Confirmation that the schedule was successfully canceled" alt="Confirmación de que la programación se canceló con éxito" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Cancelación exitosa</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Successful cancellation</p>
+          <p data-lang="es" class="text-xs text-gray-600">Confirmación clara de que la programación se canceló, visible directamente en el listado.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Clear confirmation that the schedule was canceled, visible directly in the list.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTADOS CRÍTICOS DEL SISTEMA -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">ESTADOS CRÍTICOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">CRITICAL STATES</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Estados críticos del sistema</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Critical system states</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Los estados vacíos y de error necesitaban ser tan claros como el flujo principal, para que el usuario
+        siempre supiera qué pasó y qué podía hacer a continuación.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-12 max-w-2xl">
+        Empty and error states needed to be just as clear as the main flow, so the user always knew what happened
+        and what they could do next.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/03-empty-sin-cuentas.png" data-i18n-alt-es="Estado vacío: sin cuentas asociadas" data-i18n-alt-en="Empty state: no linked accounts" alt="Estado vacío: sin cuentas asociadas" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Sin cuentas asociadas</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">No linked accounts</p>
+          <p data-lang="es" class="text-xs text-gray-600">Invita a asociar una cuenta antes de poder programar nada (Caso 1).</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">Prompts the user to link an account before scheduling anything (Case 1).</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/02-empty-sin-programados.png" data-i18n-alt-es="Estado vacío: sin ingresos programados todavía" data-i18n-alt-en="Empty state: no top-ups scheduled yet" alt="Estado vacío: sin ingresos programados todavía" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Sin ingresos programados</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">No scheduled top-ups</p>
+          <p data-lang="es" class="text-xs text-gray-600">Primera vez que el usuario entra a la sección, todavía sin historial.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">The first time the user opens the section, with no history yet.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/11-error.png" data-i18n-alt-es="Error al programar el ingreso" data-i18n-alt-en="Error scheduling the top-up" alt="Error al programar el ingreso" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Error al programar</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Scheduling error</p>
+          <p data-lang="es" class="text-xs text-gray-600">Si algo falla, se le pide al usuario reintentar sin perder los datos que ya cargó.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">If something fails, the user is asked to retry without losing the data they already entered.</p>
+        </div>
+        <div>
+          <div class="bg-gray-50 rounded-lg p-4 mb-3 aspect-[9/19] flex items-center justify-center">
+            <img src="img/transferencias-programadas/15-cancelar-error.png" data-i18n-alt-es="Error al cancelar la programación" data-i18n-alt-en="Error canceling the schedule" alt="Error al cancelar la programación" class="w-full h-full object-cover object-top rounded-md shadow-sm">
+          </div>
+          <p data-lang="es" class="text-sm font-medium text-black mb-1">Error al cancelar</p>
+          <p data-lang="en" class="hidden text-sm font-medium text-black mb-1">Cancellation error</p>
+          <p data-lang="es" class="text-xs text-gray-600">Si la cancelación falla, el ingreso programado se mantiene sin cambios y se informa el error.</p>
+          <p data-lang="en" class="hidden text-xs text-gray-600">If the cancellation fails, the scheduled top-up stays unchanged and the error is clearly reported.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">IMPACTO</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">IMPACT</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Menos mora, menos fricción reactiva</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Less late payment, less reactive friction</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed max-w-2xl mb-8">
+        El feature está en producción. No contamos con métricas exhaustivas de adopción, pero el equipo identificó
+        una reducción aproximada del 10% en la mora de servicios asociados a débito automático desde su
+        lanzamiento. La fricción que buscaba resolver —tener que reintentar manualmente un pago rechazado por
+        falta de saldo— era real, aunque no estuviera cuantificada con precisión antes de encarar el diseño.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed max-w-2xl mb-8">
+        The feature is in production. We don't have exhaustive adoption metrics, but the team identified an
+        approximate 10% reduction in late payments on services tied to automatic debit since launch. The friction
+        it aimed to solve — having to manually retry a payment rejected for insufficient balance — was real, even
+        if it wasn't precisely quantified before the design work started.
+      </p>
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 max-w-2xl">
+        <p data-lang="es" class="text-sm font-semibold text-black mb-2">El disparador: una notificación push</p>
+        <p data-lang="en" class="hidden text-sm font-semibold text-black mb-2">The trigger: a push notification</p>
+        <p data-lang="es" class="text-sm text-gray-700 leading-relaxed">
+          Para que el usuario adoptara el hábito sin esfuerzo extra, el punto de entrada principal al flujo es una
+          notificación push que avisa el vencimiento próximo de un servicio y ofrece programar el fondeo en ese
+          mismo momento, sin que el usuario tenga que buscar la función de forma proactiva.
+        </p>
+        <p data-lang="en" class="hidden text-sm text-gray-700 leading-relaxed">
+          For the user to adopt the habit without extra effort, the main entry point to the flow is a push
+          notification that flags an upcoming bill due date and offers to schedule the top-up right then, without
+          the user having to proactively look for the feature.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APRENDIZAJES -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">APRENDIZAJES</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">LEARNINGS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Lo que me llevo</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">What I took away</h2>
+      <div class="space-y-8">
+        <div class="pb-8 border-b border-gray-200 last:border-0">
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Diseñar para el momento de la necesidad, no solo para la función</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Design for the moment of need, not just the feature</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">La notificación push que dispara el flujo en el momento justo, antes del vencimiento, fue tan importante como el flujo de programación en sí. Sin ese gatillo, la función existía pero nadie la encontraba.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">The push notification that triggers the flow at exactly the right moment, before the due date, was as important as the scheduling flow itself. Without that trigger, the feature existed but no one found it.</p>
+        </div>
+        <div class="pb-8 border-b border-gray-200 last:border-0">
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Los casos de borde definen la complejidad real</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Edge cases define the real complexity</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Diseñar para 0, 1 y 2+ cuentas asociadas triplicó la cantidad de estados a resolver, pero simplificó la experiencia para cada usuario: nadie ve un paso que no le aplica.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Designing for 0, 1, and 2+ linked accounts tripled the number of states to solve for, but simplified the experience for each individual user: no one sees a step that doesn't apply to them.</p>
+        </div>
+        <div class="pb-8 border-b border-gray-200 last:border-0">
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Resolver la fricción de forma proactiva reduce el trabajo reactivo</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Solving friction proactively reduces reactive work</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Cada débito rechazado no solo afectaba al usuario: implicaba que tuviera que volver a intentar el pago por su cuenta. Resolver el problema de forma proactiva, antes de que pasara, le ahorró ese esfuerzo repetido al usuario.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Every rejected debit didn't just affect the user in the moment — it meant they had to go back and retry the payment themselves. Solving the problem proactively, before it happened, saved users that repeated effort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECORRÉ LOS CASOS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">EXPLORE MORE CASES</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="IBMHSBC.html" class="group flex items-center gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors">
+          <span class="text-xl group-hover:-translate-x-1 transition-transform">←</span>
+          <div>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Previous case</p>
+            <h3 class="text-lg font-bold text-black">IBM · HSBC</h3>
+          </div>
+        </a>
+        <a href="HabilitadoPagosFintech.html" class="group flex items-center justify-between gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors text-right">
+          <div>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Next case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Habilitando pagos PIX en una billetera digital</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">Enabling PIX payments in a digital wallet</h3>
+          </div>
+          <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <p data-lang="es" class="text-sm text-gray-500">Caso de Estudio</p>
+        <p data-lang="en" class="hidden text-sm text-gray-500">Case Study</p>
+        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">
+          <span data-lang="es">Volver arriba ↑</span>
+          <span data-lang="en" class="hidden">Back to top ↑</span>
+        </a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <h3 class="text-xl font-bold text-black mb-3">Personal Pay</h3>
+          <p data-lang="es" class="text-sm text-gray-600 leading-relaxed">Caso de estudio — Transferencias Programadas</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 leading-relaxed">Case study — Scheduled Transfers</p>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Rol</span>
+            <span data-lang="en" class="hidden text-gray-600">Role</span>
+            <span class="text-black">Product Designer</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Duración</span>
+            <span data-lang="en" class="hidden text-gray-600">Duration</span>
+            <span data-lang="es" class="text-black">3 meses</span>
+            <span data-lang="en" class="hidden text-black">3 months</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">País</span>
+            <span data-lang="en" class="hidden text-gray-600">Country</span>
+            <span class="text-black">Argentina</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-200">
+        <p class="text-xs text-gray-500">© 2026 — Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="js/i18n.js"></script>
+</body>
+</html>
