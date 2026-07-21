@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vault Transfer DS — Caso de estudio Design System</title>
+<meta name="description" content="Design system atomico construido desde cero para una app de transferencias entre personas: tokens, 25 componentes, 450+ variantes y el happy path completo de una transferencia.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Vault Transfer DS — Caso de estudio Design System", "en": "Vault Transfer DS — Design System Case Study" },
+  "description": {
+    "es": "Design system atomico construido desde cero para una app de transferencias entre personas: tokens, 25 componentes, 450+ variantes y el happy path completo de una transferencia.",
+    "en": "An atomic design system built from scratch for a peer-to-peer transfer app: tokens, 25 components, 450+ variants, and the complete transfer happy path."
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  img { background-color: #f3f4f6; }
+  .vault-demo { font-family: 'Nunito Sans', -apple-system, sans-serif; }
+</style>
+</head>
+<body class="bg-white text-black">
+
+<div class="min-h-screen bg-white">
+
+  <!-- NAV -->
+  <nav id="top" class="px-6 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto py-4 flex items-center justify-between">
+      <a href="index.html" class="text-sm font-medium text-black hover:underline">
+        <span data-lang="es">&larr; Volver al inicio</span>
+        <span data-lang="en" class="hidden">&larr; Back to home</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+        <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
+          <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
+          <span class="text-gray-300">/</span>
+          <button data-lang-btn="en" class="lang-btn px-2 py-1 rounded-full transition-colors">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="py-32 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-6">
+        <span data-lang="es" class="inline-flex items-center text-xs font-semibold tracking-wider bg-black text-white px-4 py-1.5 rounded-full">CASO DE ESTUDIO &mdash; DESIGN SYSTEM</span>
+        <span data-lang="en" class="hidden inline-flex items-center text-xs font-semibold tracking-wider bg-black text-white px-4 py-1.5 rounded-full">CASE STUDY &mdash; DESIGN SYSTEM</span>
+        <span class="inline-flex items-center text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full">07</span>
+      </div>
+      <h1 class="mb-6 text-6xl md:text-7xl font-bold tracking-tight text-black">Vault Transfer DS</h1>
+      <p data-lang="es" class="mb-4 text-xl text-gray-600 leading-relaxed">Proyecto personal &mdash; Fintech</p>
+      <p data-lang="en" class="hidden mb-4 text-xl text-gray-600 leading-relaxed">Personal project &mdash; Fintech</p>
+      <p data-lang="es" class="mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        Una libreria de componentes construida desde cero para una app de transferencias entre personas. Átomos,
+        moléculas y organismos pensados para flujos bancarios reales: seguridad, velocidad y claridad.
+      </p>
+      <p data-lang="en" class="hidden mb-12 text-base text-gray-600 leading-relaxed max-w-2xl">
+        A component library built from scratch for a peer-to-peer transfer app. Atoms, molecules, and organisms
+        designed for real banking flows: security, speed, and clarity.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Rol</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Role</p>
+          <p data-lang="es" class="text-black">Product Designer &middot; DesignOps</p>
+          <p data-lang="en" class="hidden text-black">Product Designer &middot; DesignOps</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Duración</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Duration</p>
+          <p data-lang="es" class="text-black">4 fases &middot; en curso</p>
+          <p data-lang="en" class="hidden text-black">4 phases &middot; ongoing</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Año</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Year</p>
+          <p class="text-black">2026</p>
+        </div>
+        <div>
+          <p data-lang="es" class="text-gray-500 mb-1">Herramientas</p>
+          <p data-lang="en" class="hidden text-gray-500 mb-1">Tools</p>
+          <p class="text-black">Figma &middot; Tokens &middot; HTML</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMEN -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RESUMEN</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">SUMMARY</p>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 data-lang="es" class="text-2xl font-bold text-black mb-4">Contexto</h2>
+          <h2 data-lang="en" class="hidden text-2xl font-bold text-black mb-4">Context</h2>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">
+            Las apps de transferencias viven de operaciones repetidas: buscar un contacto, verificar un CBU,
+            confirmar un monto. Cada inconsistencia visual en ese camino es fricción y desconfianza. Vault
+            Transfer DS nace para sistematizar ese lenguaje: un design system atómico donde cada componente está
+            pensado para flujos transaccionales con dinero real.
+          </p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+            Transfer apps live on repeated operations: search a contact, verify a bank account, confirm an
+            amount. Every visual inconsistency along that path is friction and distrust. Vault Transfer DS was
+            born to systematize that language: an atomic design system where every component is built for
+            transactional flows with real money.
+          </p>
+        </div>
+        <div>
+          <h2 data-lang="es" class="text-2xl font-bold text-black mb-4">Objetivo</h2>
+          <h2 data-lang="en" class="hidden text-2xl font-bold text-black mb-4">Objective</h2>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">
+            Construir una librería escalable &mdash; tokens, 25 componentes y 450+ variantes &mdash; que cubra el
+            happy path completo de una transferencia, con estados explícitos (default, pressed, focused,
+            disabled, loading, success) y accesibilidad como requisito de base, no como retrofit.
+          </p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">
+            Build a scalable library &mdash; tokens, 25 components, 450+ variants &mdash; that covers the complete
+            happy path of a transfer, with explicit states (default, pressed, focused, disabled, loading,
+            success) and accessibility as a baseline requirement, not a retrofit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL SISTEMA -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL SISTEMA</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE SYSTEM</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Arquitectura atómica en números</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Atomic architecture, in numbers</h2>
+      <div class="vault-demo">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+      <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:28px"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#0D1B3E">25</div><div style="font-size:14px;font-weight:700;margin-top:4px">Componentes</div><div style="font-size:12px;color:#6B7280;margin-top:2px">13 átomos · 3 moléculas · 9 organismos</div></div>
+      <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:28px"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#007B7C">450+</div><div style="font-size:14px;font-weight:700;margin-top:4px">Variantes</div><div style="font-size:12px;color:#6B7280;margin-top:2px">Button ×63 · Contact List Item ×72</div></div>
+      <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:28px"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#0D1B3E">7</div><div style="font-size:14px;font-weight:700;margin-top:4px">Estados por acción</div><div style="font-size:12px;color:#6B7280;margin-top:2px">Default → Loading → Success</div></div>
+      <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:28px"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#007B7C">5</div><div style="font-size:14px;font-weight:700;margin-top:4px">Pantallas cubiertas</div><div style="font-size:12px;color:#6B7280;margin-top:2px">Happy path completo de transferencia</div></div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDACIONES: TOKENS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">FUNDACIONES</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">FOUNDATIONS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Tokens: la voz visual del sistema</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Tokens: the system's visual voice</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        Navy transmite solidez bancaria; teal marca acción y foco; los semánticos hablan el idioma del dinero
+        (fee waived, instant, error). Plus Jakarta Sans para display, Nunito Sans para UI.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        Navy conveys banking solidity; teal marks action and focus; semantic tokens speak the language of money
+        (fee waived, instant, error). Plus Jakarta Sans for display, Nunito Sans for UI.
+      </p>
+      <div class="vault-demo">
+    <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:24px;display:flex;flex-wrap:wrap;gap:10px">
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#0D1B3E"></div><div style="font-size:11px;font-weight:700;margin-top:6px">navy-900</div><div style="font-size:10px;color:#9CA3AF">#0D1B3E</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#1A2E5C"></div><div style="font-size:11px;font-weight:700;margin-top:6px">navy-700</div><div style="font-size:10px;color:#9CA3AF">#1A2E5C</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#007B7C"></div><div style="font-size:11px;font-weight:700;margin-top:6px">teal-600</div><div style="font-size:10px;color:#9CA3AF">#007B7C</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#00A896"></div><div style="font-size:11px;font-weight:700;margin-top:6px">teal-400</div><div style="font-size:10px;color:#9CA3AF">#00A896</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:linear-gradient(135deg,#000D24,#006D43)"></div><div style="font-size:11px;font-weight:700;margin-top:6px">grad-vault</div><div style="font-size:10px;color:#9CA3AF">#000D24→#006D43</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#00C853"></div><div style="font-size:11px;font-weight:700;margin-top:6px">success-500</div><div style="font-size:10px;color:#9CA3AF">#00C853</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#F59E0B"></div><div style="font-size:11px;font-weight:700;margin-top:6px">warning-500</div><div style="font-size:10px;color:#9CA3AF">#F59E0B</div></div>
+      <div style="width:118px"><div style="height:52px;border-radius:10px;background:#EF4444"></div><div style="font-size:11px;font-weight:700;margin-top:6px">error-500</div><div style="font-size:10px;color:#9CA3AF">#EF4444</div></div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDACIONES: TIPOGRAFIA -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">FUNDACIONES</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">FOUNDATIONS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Variables tipográficas</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Typographic variables</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        Siete roles tipográficos con función explícita. Display en Plus Jakarta Sans para los momentos de
+        dinero; el resto en Nunito Sans para densidad de UI.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        Seven typographic roles, each with an explicit function. Display in Plus Jakarta Sans for money
+        moments; everything else in Nunito Sans for UI density.
+      </p>
+      <div class="vault-demo">
+    <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:24px;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #F4F5F7"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">display</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:32px">$12.450,00</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">32px / Bold — montos, éxito</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #F4F5F7"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">heading-xl</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:24px">Check your transfer</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">24px / Bold — títulos de pantalla</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #F4F5F7"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">heading-lg</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px">Add recipient details</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">18px / Bold — subtítulos</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #F4F5F7"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">body-semi</span><span style="font-weight:600;font-size:14px">Julian Alvarez</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">14px / SemiBold — nombres</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #F4F5F7"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">body-reg</span><span style="font-size:14px">Personal Contact</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">14px / Regular — descripciones</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #F4F5F7"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">label-upper</span><span style="font-weight:600;font-size:10px;letter-spacing:.08em">BANK NAME</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">10px / SemiBold — labels</span></div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding:14px 0"><span style="width:110px;flex-shrink:0;font-size:11px;font-weight:700;background:#F4F5F7;border-radius:6px;padding:3px 8px;text-align:center">caption</span><span style="font-size:12px;color:#6B7280">CBU: 0110599540...</span><span style="font-size:11px;color:#9CA3AF;margin-left:auto">12px / Regular — datos técnicos</span></div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTES: ESTADOS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">COMPONENTES</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">COMPONENTS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Estados que cuentan la historia de una transacción</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">States that tell the story of a transaction</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        El Button no es un botón: es la máquina de estados de la transferencia. Del tap al "Transferencia
+        exitosa" sin salir del componente.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        The Button isn't a button: it's the transfer's state machine. From tap to "Transfer successful" without
+        ever leaving the component.
+      </p>
+      <div class="vault-demo">
+    <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+      <div style="width:180px;height:48px;border-radius:10px;background:#0D1B3E;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:14px"><span style="font-size:13px">▶</span>Send Money</div>
+      <span style="color:#C5C6D2">→</span>
+      <div style="width:180px;height:48px;border-radius:10px;background:#081228;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:14px"><span style="font-size:13px">▶</span>Send Money</div>
+      <span style="color:#C5C6D2">→</span>
+      <div style="width:180px;height:48px;border-radius:10px;background:#1A2E5C;display:flex;align-items:center;justify-content:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s .2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s .4s infinite"></span></div>
+      <span style="color:#C5C6D2">→</span>
+      <div style="width:200px;height:48px;border-radius:10px;background:#00A846;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:14px"><span style="font-weight:700">✓</span>Transferencia exitosa</div>
+    </div>
+    <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:24px;display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;align-items:center">
+      <div style="width:342px;border-radius:16px;background:#F8F9FA;display:flex;align-items:center;gap:16px;padding:16px"><span style="width:48px;height:48px;border-radius:50%;background:#00113A;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;flex-shrink:0">AT</span><span style="display:flex;flex-direction:column;gap:3px;flex:1"><span style="font-size:16px;font-weight:700;color:#191C1D">Adrian Thompson</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:2px;background:#117ACA;color:#fff;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center">B</span><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">CHASE SAVINGS</span></span></span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="#9CA3AF" stroke-width="1.5"></path></svg></div>
+      <span style="display:inline-flex;align-items:center;gap:5px;background:#D1FAE5;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600;color:#065F46"><span style="width:6px;height:6px;border-radius:50%;background:#00C853"></span>$0.00 WAIVED</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;background:#DBEAFE;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600;color:#1E40AF"><span style="width:6px;height:6px;border-radius:50%;background:#2980B9"></span>Instant Transfer</span>
+      <div style="width:280px;border-radius:16px;background:linear-gradient(135deg,#00113A,#004D40);padding:20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.08em">NEW CONTACT SUMMARY</span><span style="font-size:18px;font-weight:700;color:#fff">Julian Ricardo Alvarez</span><span style="font-size:12px;color:rgba(255,255,255,.6)">CBU: 0110599540059901234567</span></div>
+    </div>
+      </div>
+
+      <h3 data-lang="es" class="text-xl font-bold text-black mt-12 mb-2">Loader &mdash; un mismo latido, cuatro pieles</h3>
+      <h3 data-lang="en" class="hidden text-xl font-bold text-black mt-12 mb-2">Loader &mdash; one heartbeat, four skins</h3>
+      <p data-lang="es" class="text-sm text-gray-600 mb-6 max-w-2xl">
+        Tres puntos con animacion escalonada. El tema (Dark / Light / Teal / NavyTeal) hereda del contenedor
+        donde vive: dentro de un boton navy, sobre superficie clara, o como estado de carga de una tarjeta teal.
+      </p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mb-6 max-w-2xl">
+        Three dots with staggered animation. The theme (Dark / Light / Teal / NavyTeal) inherits from whatever
+        container it lives in: inside a navy button, on a light surface, or as the loading state of a teal card.
+      </p>
+      <div class="vault-demo">
+    <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:24px;display:flex;flex-wrap:wrap;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:76px;height:52px;border-radius:8px;background:#0D1B3E;display:flex;align-items:center;justify-content:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s .2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s .4s infinite"></span></div><span style="font-size:10px;color:#9CA3AF">Dark · MD</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:60px;height:40px;border-radius:8px;background:#0D1B3E;display:flex;align-items:center;justify-content:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#fff;animation:vpulse 1.2s infinite"></span><span style="width:8px;height:8px;border-radius:50%;background:#fff;animation:vpulse 1.2s .2s infinite"></span><span style="width:8px;height:8px;border-radius:50%;background:#fff;animation:vpulse 1.2s .4s infinite"></span></div><span style="font-size:10px;color:#9CA3AF">Dark · SM</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:76px;height:52px;border-radius:8px;background:#F4F5F7;display:flex;align-items:center;justify-content:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#0D1B3E;animation:vpulse 1.2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#0D1B3E;animation:vpulse 1.2s .2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#0D1B3E;animation:vpulse 1.2s .4s infinite"></span></div><span style="font-size:10px;color:#9CA3AF">Light · MD</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:76px;height:52px;border-radius:8px;background:#007B7C;display:flex;align-items:center;justify-content:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s .2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#fff;animation:vpulse 1.2s .4s infinite"></span></div><span style="font-size:10px;color:#9CA3AF">Teal · MD</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:76px;height:52px;border-radius:8px;background:#0D1B3E;display:flex;align-items:center;justify-content:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#007B7C;animation:vpulse 1.2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#007B7C;animation:vpulse 1.2s .2s infinite"></span><span style="width:10px;height:10px;border-radius:50%;background:#007B7C;animation:vpulse 1.2s .4s infinite"></span></div><span style="font-size:10px;color:#9CA3AF">NavyTeal · MD</span></div>
+    </div>
+      </div>
+
+      <h3 data-lang="es" class="text-xl font-bold text-black mt-12 mb-2">Matriz de estados &mdash; Button</h3>
+      <h3 data-lang="en" class="hidden text-xl font-bold text-black mt-12 mb-2">State matrix &mdash; Button</h3>
+      <p data-lang="es" class="text-sm text-gray-600 mb-6 max-w-2xl">
+        Cada tipo (Primary / Secondary / Ghost) resuelve los siete estados con reglas propias: Primary desplaza
+        el fill, Secondary vira el stroke, Ghost solo cambia fondo sutil. Consistencia sin uniformidad.
+      </p>
+      <p data-lang="en" class="hidden text-sm text-gray-600 mb-6 max-w-2xl">
+        Each type (Primary / Secondary / Ghost) resolves the seven states with its own rules: Primary shifts the
+        fill, Secondary turns the stroke, Ghost only changes background subtly. Consistency without uniformity.
+      </p>
+      <div class="vault-demo">
+    <div style="background:#fff;border:1px solid #E5E8EF;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:20px">
+      <div><div style="font-size:12px;font-weight:700;color:#6B7280;margin-bottom:10px">PRIMARY · fill sólido navy</div><div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#0D1B3E;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:13px"><span style="font-size:12px">▶</span>Send</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Default</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#162448;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:13px"><span style="font-size:12px">▶</span>Send</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Hover</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:6px"><div style="width:150px;height:44px;border-radius:10px;background:#0D1B3E;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:13px;outline:2px solid #007B7C;outline-offset:4px"><span style="font-size:12px">▶</span>Send</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Focused</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#081228;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-weight:600;font-size:13px"><span style="font-size:12px">▶</span>Send</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Pressed</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#00A846;display:flex;align-items:center;justify-content:center;gap:6px;color:#fff;font-weight:600;font-size:13px"><span style="font-weight:700">✓</span>¡Listo!</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Success</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#1A2E5C;display:flex;align-items:center;justify-content:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#fff;animation:vpulse 1.2s infinite"></span><span style="width:8px;height:8px;border-radius:50%;background:#fff;animation:vpulse 1.2s .2s infinite"></span><span style="width:8px;height:8px;border-radius:50%;background:#fff;animation:vpulse 1.2s .4s infinite"></span></div><span style="font-size:10px;color:#9CA3AF;text-align:center">Loading</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#E5E8EF;display:flex;align-items:center;justify-content:center;gap:8px;color:#9CA3AF;font-weight:600;font-size:13px"><span style="font-size:12px">▶</span>Send</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Disabled</span></div>
+      </div></div>
+      <div><div style="font-size:12px;font-weight:700;color:#6B7280;margin-bottom:10px">SECONDARY · stroke 1.5px · GHOST · fondo sutil</div><div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#fff;border:1.5px solid #0D1B3E;display:flex;align-items:center;justify-content:center;gap:8px;color:#0D1B3E;font-weight:600;font-size:13px"><span>✎</span>Edit</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Sec · Default</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#EEF2FF;border:1.5px solid #0D1B3E;display:flex;align-items:center;justify-content:center;gap:8px;color:#0D1B3E;font-weight:600;font-size:13px"><span>✎</span>Edit</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Sec · Hover</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#E8F5E9;border:1.5px solid #00A846;display:flex;align-items:center;justify-content:center;gap:6px;color:#00A846;font-weight:600;font-size:13px"><span style="font-weight:700">✓</span>¡Listo!</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Sec · Success</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:8px;color:#0D1B3E;font-weight:600;font-size:13px"><span>✕</span>Cancel</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Ghost · Default</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;gap:8px;color:#0D1B3E;font-weight:600;font-size:13px"><span>✕</span>Cancel</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Ghost · Hover</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="width:150px;height:44px;border-radius:10px;background:#DDE3EF;display:flex;align-items:center;justify-content:center;gap:8px;color:#081228;font-weight:600;font-size:13px"><span>✕</span>Cancel</div><span style="font-size:10px;color:#9CA3AF;text-align:center">Ghost · Pressed</span></div>
+      </div></div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL SISTEMA EN ACCION -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">EL SISTEMA EN ACCION</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">THE SYSTEM IN ACTION</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-6">Happy path: de la agenda al comprobante</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-6">Happy path: from contacts to receipt</h2>
+      <p data-lang="es" class="text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        Las cinco pantallas del flujo de transferencia, compuestas integramente con componentes de la libreria.
+        Ningún elemento ad-hoc: si algo aparece en pantalla, existe en el sistema.
+      </p>
+      <p data-lang="en" class="hidden text-gray-700 leading-relaxed mb-8 max-w-2xl">
+        The five screens of the transfer flow, composed entirely with library components. No ad-hoc elements: if
+        it appears on screen, it exists in the system.
+      </p>
+      <div class="vault-demo">
+    <div style="display:flex;gap:24px;align-items:flex-start;overflow-x:auto;padding:4px 4px 16px 4px">
+
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#0D1B3E;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-size:13px;font-weight:700">Agenda de Contactos</span></div>
+          <div data-screen-label="01 Agenda de Contactos" style="width:390px;background:#F8F9FA;border:1px solid #E5E8EF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;position:relative">
+            <div style="height:66px;background:#F8FAFC;display:flex;align-items:center;gap:16px;padding:0 24px"><span style="font-size:24px;font-weight:700;color:#00113A;flex:1">Transfer</span><span style="width:34px;height:34px;border-radius:50%;background:rgba(226,232,240,.5);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4" stroke="#00113A" stroke-width="1.5"></circle><path d="M9.5 9.5L13 13" stroke="#00113A" stroke-width="1.5"></path></svg></span><span style="width:34px;height:34px;border-radius:50%;background:rgba(226,232,240,.5);display:flex;align-items:center;justify-content:center;gap:2px"><span style="width:3px;height:3px;border-radius:50%;background:#00113A"></span><span style="width:3px;height:3px;border-radius:50%;background:#00113A"></span><span style="width:3px;height:3px;border-radius:50%;background:#00113A"></span></span></div>
+            <div style="display:flex;flex-direction:column;gap:28px;padding:16px 24px 24px 24px">
+              <div style="height:55px;border-radius:16px;background:#E1E3E4;display:flex;align-items:center;gap:12px;padding:0 16px"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#6B7280" stroke-width="2"></circle><path d="M12.5 12.5L16 16" stroke="#6B7280" stroke-width="2"></path></svg><span style="font-size:15px;color:#6B7280">Search contacts by name or bank...</span></div>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:16px;font-weight:700;color:#00113A">Favorite</span><span style="font-size:14px;font-weight:600;color:#006D43">See all</span></div>
+                <div style="display:flex;justify-content:space-between">
+                  <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><span style="width:58px;height:58px;border-radius:50%;background:#00113A;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center">MA</span><span style="font-size:12px;font-weight:700;color:#444650">Marcus</span></div>
+                  <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><span style="width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#000D24,#006D43);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center">EL</span><span style="font-size:12px;font-weight:700;color:#444650">Elena</span></div>
+                  <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><span style="width:58px;height:58px;border-radius:50%;background:#E1E3E4;position:relative;overflow:hidden;display:inline-block"><span style="position:absolute;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.6);left:17px;top:11px"></span><span style="position:absolute;width:38px;height:24px;border-radius:50% 50% 0 0;background:rgba(255,255,255,.6);left:10px;top:36px"></span></span><span style="font-size:12px;font-weight:700;color:#444650">David</span></div>
+                  <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><span style="width:58px;height:58px;border-radius:50%;background:#007B7C;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center">SO</span><span style="font-size:12px;font-weight:700;color:#444650">Sophie</span></div>
+                  <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><span style="width:58px;height:58px;border-radius:50%;border:2px dashed #C5C6D2;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="#9CA3AF" stroke-width="1.5"></path></svg></span><span style="font-size:12px;font-weight:700;color:#757682">New</span></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#00113A;padding-left:4px">A</span>
+                <div style="border-radius:16px;background:#fff;display:flex;align-items:center;gap:16px;padding:16px"><span style="width:48px;height:48px;border-radius:50%;background:rgba(168,176,192,.5);position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="position:absolute;width:20px;height:2px;background:rgba(255,255,255,.7)"></span><span style="position:absolute;width:2px;height:20px;background:rgba(255,255,255,.7)"></span></span><span style="display:flex;flex-direction:column;gap:3px;flex:1"><span style="font-size:16px;font-weight:700;color:#191C1D">Adrian Thompson</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:2px;background:#117ACA;color:#fff;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center">B</span><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">CHASE SAVINGS</span></span></span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="#9CA3AF" stroke-width="1.5"></path></svg></div>
+                <div style="border-radius:16px;background:#fff;display:flex;align-items:center;gap:16px;padding:16px"><span style="width:48px;height:48px;border-radius:50%;background:#00113A;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;flex-shrink:0">AW</span><span style="display:flex;flex-direction:column;gap:3px;flex:1"><span style="font-size:16px;font-weight:700;color:#191C1D">Alice Walker</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:2px;background:#D71E28;color:#fff;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center">W</span><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">WELLS CHECKING</span></span></span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="#9CA3AF" stroke-width="1.5"></path></svg></div>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#00113A;padding-left:4px">B</span>
+                <div style="border-radius:16px;background:#fff;display:flex;align-items:center;gap:16px;padding:16px"><span style="width:48px;height:48px;border-radius:50%;background:rgba(168,176,192,.5);position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="position:absolute;width:20px;height:2px;background:rgba(255,255,255,.7)"></span><span style="position:absolute;width:2px;height:20px;background:rgba(255,255,255,.7)"></span></span><span style="display:flex;flex-direction:column;gap:3px;flex:1"><span style="font-size:16px;font-weight:700;color:#191C1D">Benjamin Hayes</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:2px;background:#FF6200;color:#fff;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center">I</span><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">ING INVESTMENT</span></span></span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="#9CA3AF" stroke-width="1.5"></path></svg></div>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:#00113A;padding-left:4px">C</span>
+                <div style="border-radius:16px;background:#fff;display:flex;align-items:center;gap:16px;padding:16px"><span style="width:48px;height:48px;border-radius:50%;background:#00113A;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;flex-shrink:0">CW</span><span style="display:flex;flex-direction:column;gap:3px;flex:1"><span style="font-size:16px;font-weight:700;color:#191C1D">Catherine Wood</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:2px;background:#00704A;color:#fff;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center">S</span><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">STANDARD SAVINGS</span></span></span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="#9CA3AF" stroke-width="1.5"></path></svg></div>
+              </div>
+            </div>
+            <div style="position:absolute;right:20px;bottom:110px;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#00113A,#002366);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,17,58,.35)"><svg width="22" height="22" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="#fff" stroke-width="2"></path></svg></div>
+            <div style="background:rgba(255,255,255,.9);border-top:1px solid rgba(226,232,240,.6);display:flex;justify-content:center;padding:13px 0;margin-top:auto"><span style="width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 0"><span style="width:18px;height:18px;border-radius:3px;background:#94A3B8"></span><span style="font-size:10px;font-weight:600;color:#94A3B8;letter-spacing:.06em">DASHBOARD</span></span><span style="width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#ECFDF5;border-radius:12px;padding:8px 0"><span style="width:18px;height:18px;border-radius:3px;background:#065F46"></span><span style="font-size:10px;font-weight:600;color:#065F46;letter-spacing:.06em">TRANSFERS</span></span><span style="width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 0"><span style="width:18px;height:18px;border-radius:3px;background:#94A3B8"></span><span style="font-size:10px;font-weight:600;color:#94A3B8;letter-spacing:.06em">PROFILE</span></span></div>
+          </div>
+        </div>
+
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#0D1B3E;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-size:13px;font-weight:700">Detalle del Contacto</span></div>
+          <div data-screen-label="02 Detalle del Contacto" style="width:390px;background:#F8F9FA;border:1px solid #E5E8EF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:66px;background:#F8FAFC;display:flex;align-items:center;gap:16px;padding:0 24px"><span style="width:32px;height:32px;border-radius:8px;background:rgba(226,232,240,.5);display:flex;align-items:center;justify-content:center"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7l6 6" stroke="#00113A" stroke-width="2"></path></svg></span><span style="font-size:20px;font-weight:700;color:#00113A;flex:1">Transfer</span><span style="width:34px;height:34px;border-radius:50%;background:rgba(226,232,240,.5);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4" stroke="#00113A" stroke-width="1.5"></circle><path d="M9.5 9.5L13 13" stroke="#00113A" stroke-width="1.5"></path></svg></span></div>
+            <div style="display:flex;flex-direction:column;gap:32px;padding:32px 24px 40px 24px">
+              <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+                <div style="width:128px;height:128px;border-radius:50%;background:linear-gradient(135deg,#000D24,#006D43);display:flex;align-items:center;justify-content:center;position:relative"><div style="width:120px;height:120px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><div style="width:112px;height:112px;border-radius:50%;background:linear-gradient(135deg,#000D24,#006D43);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:36px">JA</div></div><div style="position:absolute;right:2px;bottom:2px;width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center"><div style="width:24px;height:24px;border-radius:50%;background:#00C853;display:flex;align-items:center;justify-content:center"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.2 7.5L11 1" stroke="#fff" stroke-width="2.5"></path></svg></div></div></div>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:#00113A">Julian Alvarez</span>
+                <span style="font-size:15px;color:#444650;margin-top:-6px">Personal Contact</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div style="border-radius:12px;background:#F3F4F5;display:flex;align-items:center;gap:16px;padding:20px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:10px;font-weight:500;color:#444650;letter-spacing:.06em">BANK NAME</span><span style="font-size:15px;font-weight:700;color:#00113A">Santander Rio</span></span><span style="display:inline-flex;align-items:center;gap:5px;color:rgba(0,17,58,.6);font-weight:600;font-size:12px;padding:7px 8px;border-radius:8px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.5"></rect><rect x="4" y="1" width="9" height="10" rx="2" fill="#F3F4F5" stroke="currentColor" stroke-width="1.5"></rect></svg>Copiar</span></div>
+                <div style="border-radius:12px;background:#F3F4F5;display:flex;align-items:center;gap:16px;padding:20px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:10px;font-weight:500;color:#444650;letter-spacing:.06em">CBU / CVU</span><span style="font-size:14px;font-weight:700;color:#00113A;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">0720543220000000123456</span></span><span style="display:inline-flex;align-items:center;gap:5px;color:rgba(0,17,58,.6);font-weight:600;font-size:12px;padding:7px 8px;border-radius:8px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.5"></rect><rect x="4" y="1" width="9" height="10" rx="2" fill="#F3F4F5" stroke="currentColor" stroke-width="1.5"></rect></svg>Copiar</span></div>
+                <div style="border-radius:12px;background:#F3F4F5;display:flex;align-items:center;gap:16px;padding:20px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:10px;font-weight:500;color:#444650;letter-spacing:.06em">ALIAS</span><span style="font-size:15px;font-weight:700;color:#00113A">JULIAN.TRANSFER.V</span></span><span style="display:inline-flex;align-items:center;gap:5px;color:rgba(0,17,58,.6);font-weight:600;font-size:12px;padding:7px 8px;border-radius:8px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.5"></rect><rect x="4" y="1" width="9" height="10" rx="2" fill="#F3F4F5" stroke="currentColor" stroke-width="1.5"></rect></svg>Copiar</span></div>
+                <div style="border-radius:12px;background:#F3F4F5;display:flex;align-items:center;gap:16px;padding:20px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:10px;font-weight:500;color:#444650;letter-spacing:.06em">CUIT / CUIL</span><span style="font-size:15px;font-weight:700;color:#00113A">20-41002345-8</span></span><span style="display:inline-flex;align-items:center;gap:5px;color:rgba(0,17,58,.6);font-weight:600;font-size:12px;padding:7px 8px;border-radius:8px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.5"></rect><rect x="4" y="1" width="9" height="10" rx="2" fill="#F3F4F5" stroke="currentColor" stroke-width="1.5"></rect></svg>Copiar</span></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div style="height:60px;border-radius:12px;background:linear-gradient(135deg,#00113A,#002366);display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px"><span style="font-size:14px">▶</span>Send Money</div>
+                <div style="height:56px;border-radius:12px;border:2px solid rgba(197,198,210,.5);display:flex;align-items:center;justify-content:center;color:#00113A;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px">Edit Contact</div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.9);border-top:1px solid rgba(226,232,240,.6);display:flex;justify-content:center;padding:13px 0;margin-top:auto"><span style="width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 0"><span style="width:18px;height:18px;border-radius:3px;background:#94A3B8"></span><span style="font-size:10px;font-weight:600;color:#94A3B8;letter-spacing:.06em">DASHBOARD</span></span><span style="width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#ECFDF5;border-radius:12px;padding:8px 0"><span style="width:18px;height:18px;border-radius:3px;background:#065F46"></span><span style="font-size:10px;font-weight:600;color:#065F46;letter-spacing:.06em">TRANSFERS</span></span><span style="width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 0"><span style="width:18px;height:18px;border-radius:3px;background:#94A3B8"></span><span style="font-size:10px;font-weight:600;color:#94A3B8;letter-spacing:.06em">PROFILE</span></span></div>
+          </div>
+        </div>
+
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#0D1B3E;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-size:13px;font-weight:700">Nuevo Contacto</span></div>
+          <div data-screen-label="03 Nuevo Contacto" style="width:390px;background:#F8F9FA;border:1px solid #E5E8EF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:64px;background:#F8FAFC;display:flex;align-items:center;gap:16px;padding:0 24px"><span style="width:32px;height:32px;border-radius:8px;background:rgba(226,232,240,.5);display:flex;align-items:center;justify-content:center"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7l6 6" stroke="#00113A" stroke-width="2"></path></svg></span><span style="font-size:20px;font-weight:700;color:#00113A;flex:1">Transfer</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="4.5" r="1" fill="#64748B"></circle><path d="M8 7v5" stroke="#64748B" stroke-width="1.5"></path></svg></div>
+            <div style="display:flex;flex-direction:column;gap:32px;padding:32px 24px 40px 24px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:14px;font-weight:700;color:#006D43">New Directory Entry</span>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:#00113A;line-height:1.15">Add recipient details</span>
+                <span style="font-size:15px;color:#444650;line-height:1.5;text-wrap:pretty">Enter the banking details or scan a QR code to save this contact to your vault.</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:11px;font-weight:600;color:#444650;letter-spacing:.04em">CBU, CVU OR ALIAS</span>
+                <div style="height:55px;border-radius:12px;background:#E1E3E4;display:flex;align-items:center;padding:0 20px;gap:12px"><span style="font-size:16px;color:#757682;flex:1">00000031000...</span><span style="font-size:10px;font-weight:700;color:#006D43;letter-spacing:.06em">SCAN</span></div>
+              </div>
+              <div style="border-radius:12px;background:#F3F4F5;border:1px solid rgba(197,198,210,.3);padding:24px;display:flex;flex-direction:column;gap:12px">
+                <span style="font-size:10px;font-weight:700;color:#006D43;letter-spacing:.08em">VERIFIED IDENTITY</span>
+                <div style="display:flex;align-items:flex-start;gap:16px">
+                  <span style="width:44px;height:44px;border-radius:10px;background:#fff;border:1px solid #E5E8EF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#00113A;flex-shrink:0">JA</span>
+                  <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:#00113A">JULIAN RICARDO ALVAREZ</span><span style="font-size:14px;color:#444650">Banco de la Nación Argentina • CA 3492/1</span></span>
+                  <span style="display:inline-flex;align-items:center;gap:5px;background:#D1FAE5;border-radius:999px;padding:4px 10px;font-size:9px;font-weight:700;color:#007147;flex-shrink:0"><span style="width:6px;height:6px;border-radius:50%;background:#00C853"></span>VALID</span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:11px;font-weight:600;color:#444650;letter-spacing:.04em">CUSTOM NICKNAME (OPTIONAL)</span>
+                <div style="height:55px;border-radius:12px;background:#E1E3E4;display:flex;align-items:center;padding:0 20px"><span style="font-size:16px;color:#757682">e.g. Rent Payment</span></div>
+              </div>
+              <div style="border-radius:16px;background:linear-gradient(135deg,#00113A,#004D40);padding:24px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden">
+                <span style="position:absolute;right:-40px;top:-40px;width:128px;height:128px;border-radius:50%;background:rgba(0,109,67,.3)"></span>
+                <span style="font-size:12px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.08em">NEW CONTACT SUMMARY</span>
+                <span style="font-size:20px;font-weight:700;color:#fff">Julian Ricardo Alvarez</span>
+                <span style="font-size:13px;color:rgba(255,255,255,.6)">CBU: 0110599540059901234567</span>
+              </div>
+            </div>
+            <div style="background:rgba(248,249,250,.9);padding:24px;margin-top:auto">
+              <div style="height:56px;border-radius:12px;background:linear-gradient(135deg,#00113A,#002366);display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="#fff" stroke-width="2"></path></svg>Save Contact</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#0D1B3E;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">4</span><span style="font-size:13px;font-weight:700">Confirmación de Transferencia</span></div>
+          <div data-screen-label="04 Confirmación de Transferencia" style="width:390px;background:#F8F9FA;border:1px solid #E5E8EF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:72px;background:#F8FAFC;display:flex;align-items:center;gap:16px;padding:0 24px"><span style="width:40px;height:40px;border-radius:50%;background:rgba(226,232,240,.5);display:flex;align-items:center;justify-content:center"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7l6 6" stroke="#00113A" stroke-width="2"></path></svg></span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;color:#00113A;flex:1">Transfer</span><span style="display:flex;align-items:center;gap:6px"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M7 1L13 3.5V8c0 3.5-2.5 6-6 7-3.5-1-6-3.5-6-7V3.5L7 1z" stroke="#64748B" stroke-width="1.5" fill="none"></path></svg><span style="font-size:10px;font-weight:600;color:#94A3B8;letter-spacing:.06em">SECURE PROTOCOL</span></span></div>
+            <div style="display:flex;flex-direction:column;gap:28px;padding:24px 24px 40px 24px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:12px;font-weight:600;color:#006D43;letter-spacing:.04em">REVIEW TRANSACTION</span>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:#00113A;line-height:1.2">Check your transfer details</span>
+              </div>
+              <div style="border-radius:24px;background:linear-gradient(135deg,#00113A,#002366);padding:32px;display:flex;flex-direction:column;gap:28px;position:relative;overflow:hidden">
+                <span style="position:absolute;right:-60px;bottom:-60px;width:205px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(0,109,67,.4),rgba(0,109,67,0))"></span>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <span style="font-size:12px;font-weight:500;color:#DBE1FF">Total to send</span>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif;color:#fff"><span style="font-size:44px;font-weight:800">$12,450</span><span style="font-size:22px;font-weight:700">.00</span></span>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;align-items:center;gap:16px">
+                  <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:10px;font-weight:700;color:#DBE1FF;letter-spacing:.08em">ORIGIN ACCOUNT</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:600;color:#fff">Private Vault •••• 8829</span></span>
+                  <span style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:20px">🏦</span>
+                </div>
+              </div>
+              <div style="border-radius:12px;background:#F3F4F5;padding:24px;display:flex;flex-direction:column;gap:16px">
+                <div style="display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:50%;background:#00113A;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center">JS</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:10px;font-weight:700;color:#757682;letter-spacing:.06em">RECIPIENT</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:#00113A">Julianna V. Sterling</span></span></div>
+                <span style="height:1px;background:rgba(197,198,210,.2)"></span>
+                <div style="display:flex;gap:24px">
+                  <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:10px;font-weight:700;color:#757682;letter-spacing:.06em">BANK NAME</span><span style="font-size:15px;font-weight:600;color:#00113A">Global Meridian Bank</span></span>
+                  <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:10px;font-weight:700;color:#757682;letter-spacing:.06em">ACCOUNT NUMBER</span><span style="font-size:15px;font-weight:600;color:#00113A">**** 4920 1102</span></span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="border-radius:12px;background:#fff;border:1px solid rgba(197,198,210,.3);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:10px;font-weight:700;color:#757682;letter-spacing:.06em">TRANSACTION FEE</span><span style="display:flex;align-items:center;gap:8px"><span style="font-size:16px;font-weight:700;color:#006D43">$0.00</span><span style="display:inline-flex;align-items:center;gap:5px;background:#D1FAE5;border-radius:999px;padding:3px 10px;font-size:10px;font-weight:700;color:#007147">WAIVED</span></span></div>
+                <div style="border-radius:12px;background:#fff;border:1px solid rgba(197,198,210,.3);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:10px;font-weight:700;color:#757682;letter-spacing:.06em">DELIVERY SPEED</span><span style="display:flex;align-items:center;gap:8px"><span style="font-size:16px;font-weight:700;color:#00113A">Instant Transfer</span><span style="display:inline-flex;align-items:center;gap:5px;background:#DBEAFE;border-radius:999px;padding:3px 10px;font-size:10px;font-weight:700;color:#1E40AF">INSTANT</span></span></div>
+              </div>
+              <div style="border-radius:12px;background:rgba(241,245,249,.7);padding:16px;display:flex;gap:16px"><svg width="20" height="20" viewBox="0 0 14 16" fill="none" style="flex-shrink:0;margin-top:2px"><path d="M7 1L13 3.5V8c0 3.5-2.5 6-6 7-3.5-1-6-3.5-6-7V3.5L7 1z" stroke="#757682" stroke-width="1.5" fill="none"></path></svg><span style="font-size:12px;color:#757682;line-height:1.6;text-wrap:pretty">By tapping confirm, you authorize the immediate transfer of funds. This transaction is protected by our 256-bit institutional security protocol.</span></div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="height:64px;border-radius:12px;background:linear-gradient(135deg,#00113A,#002366);display:flex;align-items:center;justify-content:center;gap:12px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="#fff" stroke-width="2"></path></svg>Confirm and Transfer</div>
+                <div style="height:56px;border-radius:12px;border:2px solid rgba(197,198,210,.4);display:flex;align-items:center;justify-content:center;color:#00113A;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px">Cancel Transfer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:#0D1B3E;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">5</span><span style="font-size:13px;font-weight:700">Transfer Status</span></div>
+          <div data-screen-label="05 Transfer Status" style="width:390px;background:#F8F9FA;border:1px solid #E5E8EF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:60px;background:#F8F9FA;display:flex;align-items:center;gap:16px;padding:0 24px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1v12" stroke="#00113A" stroke-width="1.5" transform="rotate(45 7 7)"></path></svg><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:#00113A">Transfer Status</span></div>
+            <div style="display:flex;flex-direction:column;gap:28px;padding:24px 24px 40px 24px;align-items:center">
+              <div style="width:96px;height:96px;border-radius:50%;background:#78FBB6;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 16px rgba(0,109,67,.08)"><svg width="36" height="28" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.2 7.5L11 1" stroke="#00113A" stroke-width="1.4"></path></svg></div>
+              <div style="display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:#00113A;line-height:1.2">¡Transferencia Exitosa!</span>
+                <span style="font-size:15px;color:#444650;line-height:1.5;max-width:300px;text-wrap:pretty">El dinero ya está en camino a Julian Rodriguez</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;align-items:center">
+                <span style="font-size:11px;font-weight:600;color:#444650;letter-spacing:.06em">MONTO ENVIADO</span>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;color:#00113A">$12.450,00</span>
+              </div>
+              <div style="width:100%;border-radius:24px;background:#F3F4F5;border:1px solid rgba(197,198,210,.3);padding:24px;display:flex;flex-direction:column;gap:20px">
+                <div style="display:flex;gap:24px">
+                  <span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">FECHA</span><span style="font-size:14px;font-weight:600;color:#00113A">24 de Mayo, 2024 • 14:32</span></span>
+                  <span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">REFERENCIA</span><span style="font-size:14px;font-weight:600;color:#00113A">#TXN-984210</span></span>
+                </div>
+                <span style="height:1px;background:rgba(197,198,210,.2)"></span>
+                <span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;font-weight:600;color:#444650;letter-spacing:.06em">BANCO DESTINO</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:2px;background:#6B7280;color:#fff;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center">G</span><span style="font-size:14px;font-weight:600;color:#00113A">Banco Galicia S.A.</span></span></span>
+                <span style="height:1px;background:rgba(197,198,210,.2)"></span>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <div style="height:46px;border-radius:12px;border:1px solid rgba(0,17,58,.2);display:flex;align-items:center;justify-content:center;gap:8px;color:#00113A;font-weight:600;font-size:14px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v9M4 7.5L7 10.5l3-3M1 12.5h12" stroke="currentColor" stroke-width="1.5"></path></svg>Descargar Comprobante</div>
+                  <div style="height:46px;border-radius:12px;border:1px solid rgba(0,17,58,.2);display:flex;align-items:center;justify-content:center;gap:8px;color:#00113A;font-weight:600;font-size:14px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 10V1M4 3.5L7 1l3 2.5" stroke="currentColor" stroke-width="1.5"></path><rect x="1" y="11" width="12" height="2" rx="1" fill="currentColor"></rect></svg>Compartir Comprobante</div>
+                </div>
+              </div>
+              <div style="width:100%;border-radius:24px;background:linear-gradient(135deg,#0A1432,#142850);padding:24px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden">
+                <span style="position:absolute;right:-40px;top:-40px;width:128px;height:128px;border-radius:50%;background:rgba(0,109,67,.3)"></span>
+                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:#fff">Haz crecer tus ahorros</span>
+                <span style="font-size:12px;color:#DBEAFE;line-height:1.5">Invierte tu saldo sobrante y obtén rendimientos diarios.</span>
+                <span style="font-size:12px;font-weight:600;color:#fff;margin-top:6px">Conocer más →</span>
+              </div>
+              <div style="width:100%;height:56px;border-radius:12px;background:linear-gradient(135deg,#00113A,#002366);display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px">Volver al Inicio<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="#fff" stroke-width="2"></path></svg></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APRENDIZAJES -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">APRENDIZAJES</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">LEARNINGS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Lo que aprendí</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">What I learned</h2>
+      <div class="space-y-8">
+        <div class="pb-8 border-b border-gray-200 last:border-0">
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Los estados son el sistema</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">States are the system</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Definir 7 estados por componente desde el día uno evitó los "casos especiales" que suelen romper un DS cuando llega el desarrollo.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Defining 7 states per component from day one avoided the "special cases" that usually break a DS once development starts.</p>
+        </div>
+        <div class="pb-8 border-b border-gray-200 last:border-0">
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">Props antes que variantes</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">Props before variants</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Modelar Contact List Item como State &times; AvatarType &times; Bank &times; ShowSecondary (72 combinaciones) mantiene una sola fuente de verdad en lugar de 72 dibujos sueltos.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Modeling Contact List Item as State &times; AvatarType &times; Bank &times; ShowSecondary (72 combinations) keeps a single source of truth instead of 72 loose drawings.</p>
+        </div>
+        <div class="pb-8 border-b border-gray-200 last:border-0">
+          <h3 data-lang="es" class="text-xl font-bold text-black mb-3">El flujo valida la librería</h3>
+          <h3 data-lang="en" class="hidden text-xl font-bold text-black mb-3">The flow validates the library</h3>
+          <p data-lang="es" class="text-gray-700 leading-relaxed">Armar el happy path completo con piezas del sistema fue el mejor test de cobertura: cada hueco que apareció se convirtió en backlog del evolutivo.</p>
+          <p data-lang="en" class="hidden text-gray-700 leading-relaxed">Building the complete happy path with system pieces was the best coverage test: every gap that surfaced became backlog for the next iteration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS PASOS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">PRÓXIMOS PASOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">NEXT STEPS</p>
+      <h2 data-lang="es" class="text-4xl font-bold text-black mb-12">Evolución continua</h2>
+      <h2 data-lang="en" class="hidden text-4xl font-bold text-black mb-12">Ongoing evolution</h2>
+      <div class="space-y-4">
+        <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
+          <span class="text-sm text-gray-400 font-mono">01</span>
+          <p data-lang="es" class="text-gray-900 flex-1"><strong>Dark mode</strong> &mdash; duplicar la capa de tokens semánticos manteniendo contraste AA en todos los pares.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1"><strong>Dark mode</strong> &mdash; duplicate the semantic token layer while keeping AA contrast across every pair.</p>
+        </div>
+        <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
+          <span class="text-sm text-gray-400 font-mono">02</span>
+          <p data-lang="es" class="text-gray-900 flex-1"><strong>Documentación de código</strong> &mdash; specs de uso, do/don't y nomenclatura de props para handoff a desarrollo.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1"><strong>Code documentation</strong> &mdash; usage specs, do's and don'ts, and prop naming for developer handoff.</p>
+        </div>
+        <div class="flex gap-4 py-4 border-b border-gray-200 last:border-0">
+          <span class="text-sm text-gray-400 font-mono">03</span>
+          <p data-lang="es" class="text-gray-900 flex-1"><strong>Cobertura de pantallas</strong> &mdash; extender el sistema a flujos de error, vacíos y onboarding.</p>
+          <p data-lang="en" class="hidden text-gray-900 flex-1"><strong>Screen coverage</strong> &mdash; extend the system to error, empty, and onboarding flows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECORRE LOS CASOS -->
+  <section class="py-20 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-8">RECORRÉ LOS CASOS</p>
+      <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-8">EXPLORE MORE CASES</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="TransferenciasProgramadas.html" class="group flex items-center gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors">
+          <span class="text-xl group-hover:-translate-x-1 transition-transform">&larr;</span>
+          <div>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Caso anterior</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Previous case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Transferencias Programadas</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">Scheduled Transfers</h3>
+          </div>
+        </a>
+        <a href="HabilitadoPagosFintech.html" class="group flex items-center justify-between gap-4 border border-gray-200 rounded-lg p-6 hover:border-black transition-colors text-right">
+          <div>
+            <p data-lang="es" class="text-xs uppercase tracking-wider text-gray-500 mb-1">Siguiente caso</p>
+            <p data-lang="en" class="hidden text-xs uppercase tracking-wider text-gray-500 mb-1">Next case</p>
+            <h3 data-lang="es" class="text-lg font-bold text-black">Habilitando pagos PIX en una billetera digital</h3>
+            <h3 data-lang="en" class="hidden text-lg font-bold text-black">Enabling PIX payments in a digital wallet</h3>
+          </div>
+          <span class="text-xl group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 px-6 bg-white border-t border-gray-200">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <p data-lang="es" class="text-sm text-gray-500">Caso de Estudio</p>
+        <p data-lang="en" class="hidden text-sm text-gray-500">Case Study</p>
+        <a href="#top" class="text-sm text-gray-600 hover:text-black transition-colors">
+          <span data-lang="es">Volver arriba &uarr;</span>
+          <span data-lang="en" class="hidden">Back to top &uarr;</span>
+        </a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <h3 class="text-xl font-bold text-black mb-3">Vault Transfer DS</h3>
+          <p data-lang="es" class="text-sm text-gray-600 leading-relaxed">Caso de estudio &mdash; Design System</p>
+          <p data-lang="en" class="hidden text-sm text-gray-600 leading-relaxed">Case study &mdash; Design System</p>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Rol</span>
+            <span data-lang="en" class="hidden text-gray-600">Role</span>
+            <span class="text-black">Product Designer &middot; DesignOps</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Duración</span>
+            <span data-lang="en" class="hidden text-gray-600">Duration</span>
+            <span data-lang="es" class="text-black">4 fases &middot; en curso</span>
+            <span data-lang="en" class="hidden text-black">4 phases &middot; ongoing</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-200 pb-2">
+            <span data-lang="es" class="text-gray-600">Año</span>
+            <span data-lang="en" class="hidden text-gray-600">Year</span>
+            <span class="text-black">2026</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-200">
+        <p data-lang="es" class="text-xs text-gray-500">&copy; 2026 &mdash; Caso de estudio diseñado para demostrar proceso UX/UI completo</p>
+        <p data-lang="en" class="hidden text-xs text-gray-500">&copy; 2026 &mdash; Case study designed to demonstrate a complete UX/UI process</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="js/i18n.js"></script>
+</body>
+</html>
