@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gonzalo Felis — Product Designer</title>
+<meta name="description" content="Gonzalo Felis, Product Designer y UX Lead en Buenos Aires, Argentina. Portfolio de casos de estudio en diseño de producto fintech.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Gonzalo Felis — Product Designer", "en": "Gonzalo Felis — Product Designer" },
+  "description": {
+    "es": "Gonzalo Felis, Product Designer y UX Lead en Buenos Aires, Argentina. Portfolio de casos de estudio en diseño de producto fintech.",
+    "en": "Gonzalo Felis, Product Designer and UX Lead based in Buenos Aires, Argentina. Portfolio of fintech product design case studies."
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#EEEAE1;--ink:#1A1917;--panel:#E7E2D7;--panel2:#E1DBCF;--ph:#DAD4C8;--muted:#4A4842;
+    --label:#6B6A63;--faint:#8A897F;--ink2:#3A3833;--accent:#0F6E72;--line:rgba(26,25,23,.16);
+    --line2:rgba(26,25,23,.24);--case-scrim:rgba(238,234,225,.8);
+  }
+  html[data-theme="dark"]{
+    --bg:#131311;--ink:#F1EEE7;--panel:#1C1B18;--panel2:#26241F;--ph:#2A2824;--muted:#B4B0A6;
+    --label:#8C897F;--faint:#6E6C64;--ink2:#D8D4CA;--accent:#50C878;--line:rgba(241,238,231,.14);
+    --line2:rgba(241,238,231,.22);--case-scrim:rgba(0,0,0,.8);
+  }
+  html,body{background:var(--bg);color:var(--ink);font-family:'Geist',sans-serif;-webkit-font-smoothing:antialiased;transition:background .5s ease,color .5s ease;}
+  html{scroll-behavior:smooth;}
+  a{color:inherit;text-decoration:none;}
+  a:hover{color:var(--accent);}
+  ::selection{background:var(--accent);color:var(--bg);}
+  .hidden{display:none !important;}
+  button{font:inherit;}
+
+  /* reveal-on-scroll */
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+  [data-reveal].in-view{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){[data-reveal]{opacity:1 !important;transform:none !important;}}
+
+  .rf-root{position:relative;width:100%;overflow-x:hidden;background:var(--bg);}
+  .rf-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:9998;}
+
+  /* header */
+  .rf-hdr{position:fixed;top:0;left:0;width:100%;z-index:9000;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:var(--bg);border-bottom:1px solid var(--line);}
+  .rf-brand{display:flex;align-items:center;gap:11px;cursor:pointer;}
+  .rf-avatar{width:34px;height:34px;border-radius:50%;overflow:hidden;background:var(--ph);position:relative;display:inline-block;flex:none;}
+  .rf-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.2);}
+  .rf-brand-name{font-family:'Instrument Serif',serif;font-size:22px;letter-spacing:.01em;}
+  .rf-nav{display:flex;align-items:center;gap:8px;font-family:'Geist',sans-serif;font-size:13px;}
+  .rf-navlink{padding:8px 14px;border-radius:100px;transition:background .3s;}
+  .rf-navlink:hover{background:var(--panel2);}
+  .rf-theme-btn{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.05em;background:transparent;border:1px solid var(--line2);color:var(--ink);padding:7px 11px;border-radius:100px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
+  .rf-theme-dot{width:12px;height:12px;border-radius:50%;border:1px solid var(--ink);background:linear-gradient(90deg,var(--ink) 50%,transparent 50%);display:inline-block;}
+  .rf-lang{display:flex;align-items:center;gap:2px;font-size:13px;background:transparent;border:1px solid var(--line2);padding:2px;border-radius:100px;}
+  .lang-btn{background:transparent;border:none;color:var(--faint);padding:6px 10px;border-radius:100px;cursor:pointer;transition:color .2s;}
+  .lang-btn.text-black{color:var(--accent);font-weight:600;}
+  .rf-cta{font-size:13px;background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:100px;}
+  .rf-cta:hover{color:var(--bg);opacity:.85;}
+
+  main{padding-top:0;}
+  section{padding:100px 32px;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+
+  /* hero */
+  .rf-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 32px 40px !important;position:relative;border-top:none !important;}
+  .rf-hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(46px,10.5vw,180px);line-height:.94;letter-spacing:-.01em;max-width:15ch;}
+  .rf-hero .accent{font-style:italic;color:var(--accent);}
+  .rf-hero p{margin-top:34px;max-width:620px;font-size:clamp(16px,1.6vw,20px);line-height:1.55;color:var(--muted);}
+  .rf-hero-ctas{margin-top:44px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .rf-btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-size:14px;padding:13px 22px;border-radius:100px;}
+  .rf-btn-dark:hover{color:var(--bg);opacity:.85;}
+  .rf-btn-outline{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);font-size:14px;padding:13px 22px;border-radius:100px;}
+  .rf-scroll-hint{position:absolute;bottom:34px;left:32px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:9px;}
+  .rf-scroll-hint span{width:22px;height:1px;background:var(--faint);display:inline-block;}
+
+  /* marquee */
+  .rf-marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;background:var(--panel);}
+  .rf-marquee-track{display:flex;width:max-content;animation:rf-marquee 34s linear infinite;}
+  @keyframes rf-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .rf-marquee-track span{display:inline-flex;align-items:center;gap:24px;padding:0 24px;font-family:'Instrument Serif',serif;font-size:26px;color:var(--ink2);white-space:nowrap;}
+  .rf-marquee-track span em{font-style:normal;color:var(--accent);}
+
+  /* intro / audiences */
+  .rf-intro-grid{display:grid;grid-template-columns:180px 1fr;gap:48px;align-items:start;max-width:1200px;}
+  .rf-intro-tag{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);padding-top:8px;}
+  .rf-aud-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px;}
+  .rf-aud-pill{font-family:'Geist',sans-serif;font-size:14px;padding:9px 16px;border-radius:100px;border:1px solid var(--line2);background:transparent;color:var(--ink);cursor:pointer;transition:all .3s;}
+  .rf-aud-pill.active{border-color:var(--ink);background:var(--ink);color:var(--bg);}
+  .rf-aud-text{font-family:'Instrument Serif',serif;font-size:clamp(26px,3.4vw,46px);line-height:1.22;letter-spacing:-.01em;text-wrap:pretty;max-width:22ch;}
+
+  /* featured work */
+  .rf-work-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:44px;flex-wrap:wrap;}
+  .rf-work-hd .eyebrow{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);margin-bottom:14px;}
+  .rf-work-hd h2{font-family:'Instrument Serif',serif;font-size:clamp(40px,6vw,88px);line-height:.98;letter-spacing:-.01em;}
+  .rf-work-hd p{max-width:360px;font-size:15px;line-height:1.55;color:var(--muted);}
+  .rf-work-list{border-top:1px solid var(--line);}
+  .rf-work-row{display:grid;grid-template-columns:64px 1fr auto;gap:28px;align-items:start;padding:38px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:color .3s,padding-left .3s;}
+  .rf-work-row:hover{color:var(--accent);padding-left:12px;}
+  .rf-work-num{font-family:'Geist Mono',monospace;font-size:13px;color:var(--faint);padding-top:14px;}
+  .rf-work-meta{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--label);margin-bottom:12px;}
+  .rf-work-row h3{font-family:'Instrument Serif',serif;font-size:clamp(32px,4.4vw,60px);line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .rf-work-row:hover h3{color:var(--accent);}
+  .rf-work-row p{margin-top:16px;font-size:16px;line-height:1.55;color:var(--muted);max-width:600px;}
+  .rf-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .rf-tags span{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line2);padding:6px 11px;border-radius:100px;}
+  .rf-view-case{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:14px;font-weight:500;color:var(--accent);}
+  .rf-work-arrow{font-family:'Instrument Serif',serif;font-size:clamp(30px,3vw,48px);line-height:1;padding-top:8px;color:var(--ink);}
+
+  /* about */
+  .rf-about-grid{display:grid;grid-template-columns:0.85fr 1.25fr;gap:56px;align-items:start;max-width:1200px;}
+  .rf-about-photo{aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--ph);position:relative;}
+  .rf-about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.12);}
+  .rf-about-meta{margin-top:20px;font-family:'Geist Mono',monospace;font-size:12px;line-height:1.7;letter-spacing:.03em;text-transform:uppercase;color:var(--label);white-space:pre-line;}
+  .rf-about-lead{font-family:'Instrument Serif',serif;font-size:clamp(26px,3.2vw,44px);line-height:1.2;letter-spacing:-.01em;margin-bottom:20px;text-wrap:pretty;}
+  .rf-about-body{font-size:16px;line-height:1.6;color:var(--muted);max-width:620px;margin-bottom:44px;}
+  .rf-exp-list{border-top:1px solid var(--line);}
+  .rf-exp-row{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line);}
+  .rf-exp-company{font-family:'Instrument Serif',serif;font-size:26px;line-height:1;}
+  .rf-exp-role{font-size:13px;color:var(--label);margin-top:8px;}
+  .rf-exp-years{font-family:'Geist Mono',monospace;font-size:12px;color:var(--accent);white-space:nowrap;}
+  .rf-tag-label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);margin-bottom:16px;}
+  .rf-skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:40px;}
+  .rf-skills span{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);border:1px solid var(--line2);padding:8px 14px;border-radius:100px;}
+  .rf-skills span::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block;}
+  .rf-tools{display:flex;flex-wrap:wrap;gap:22px;margin-top:32px;}
+  .rf-tools span{display:inline-flex;align-items:center;gap:9px;font-family:'Geist Mono',monospace;font-size:13px;color:var(--ink2);}
+  .rf-tools span::before{content:'';width:9px;height:9px;border:1px solid var(--accent);display:inline-block;}
+
+  /* contact */
+  .rf-contact h2{font-family:'Instrument Serif',serif;font-size:clamp(56px,11vw,180px);line-height:.92;letter-spacing:-.02em;}
+  .rf-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px;max-width:900px;}
+  .rf-contact-email{font-family:'Instrument Serif',serif;font-size:clamp(24px,2.6vw,38px);line-height:1.1;color:var(--accent);}
+  .rf-connect-links{display:flex;flex-direction:column;gap:10px;font-size:16px;}
+  .rf-connect-links a{display:inline-flex;align-items:center;gap:8px;}
+  .rf-connect-links a span{color:var(--accent);}
+  .rf-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:90px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);flex-wrap:wrap;gap:12px;}
+
+  @media (max-width:900px){
+    .rf-intro-grid,.rf-about-grid{grid-template-columns:1fr !important;gap:20px !important;}
+    .rf-about-grid{gap:36px !important;}
+    .rf-contact-grid{grid-template-columns:1fr !important;gap:28px !important;}
+  }
+  @media (max-width:640px){
+    .rf-hdr{padding:14px 18px !important;}
+    .rf-navlink{display:none !important;}
+    .rf-work-row{grid-template-columns:1fr !important;gap:0 !important;}
+    .rf-work-row>.rf-work-num,.rf-work-row>.rf-work-arrow{display:none !important;}
+    .rf-foot{flex-direction:column;align-items:flex-start !important;gap:10px !important;}
+    section{padding-left:20px !important;padding-right:20px !important;}
+    .rf-hero h1{font-size:clamp(46px,15vw,90px) !important;}
+  }
+</style>
+</head>
+<body>
+<div class="rf-root" data-root>
+  <div class="rf-progress" data-progress></div>
+
+  <header class="rf-hdr">
+    <a href="#top" class="rf-brand" aria-label="Ir al inicio">
+      <span class="rf-avatar"><img src="../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis"></span>
+      <span class="rf-brand-name">Gonzalo Felis<span class="accent" style="color:var(--accent);">.</span></span>
+    </a>
+    <nav class="rf-nav">
+      <a href="#work" class="rf-navlink" data-lang="es">Trabajo</a>
+      <a href="#work" class="rf-navlink hidden" data-lang="en">Work</a>
+      <a href="#about" class="rf-navlink" data-lang="es">Perfil</a>
+      <a href="#about" class="rf-navlink hidden" data-lang="en">About</a>
+      <button id="theme-toggle" class="rf-theme-btn" title="Theme" type="button">
+        <span class="rf-theme-dot"></span><span id="theme-label">DARK</span>
+      </button>
+      <div class="rf-lang">
+        <button data-lang-btn="es" class="lang-btn">ES</button>
+        <button data-lang-btn="en" class="lang-btn">EN</button>
+      </div>
+      <a href="#contact" class="rf-cta" data-lang="es">Contacto</a>
+      <a href="#contact" class="rf-cta hidden" data-lang="en">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="top" class="rf-hero">
+      <h1 data-reveal>
+        <span data-lang="es">Diseño <span class="accent">producto</span> para fintech.</span>
+        <span data-lang="en" class="hidden">I design <span class="accent">product</span> for fintech.</span>
+      </h1>
+      <p data-reveal data-lang="es">Product Designer / UX Lead en Buenos Aires. Mezclo estrategia, tecnología y craft para construir experiencias fintech que se sienten humanas y confiables.</p>
+      <p data-reveal data-lang="en" class="hidden">Product Designer / UX Lead based in Buenos Aires. I blend strategy, technology and craft into fintech experiences that feel human and trustworthy.</p>
+      <div data-reveal class="rf-hero-ctas">
+        <a href="#work" class="rf-btn-dark">
+          <span data-lang="es">Ver trabajo</span><span data-lang="en" class="hidden">View work</span> <span>→</span>
+        </a>
+        <a href="mailto:gonzalofelis@hotmail.com" class="rf-btn-outline">
+          <span data-lang="es">Escribime</span><span data-lang="en" class="hidden">Say hello</span>
+        </a>
+      </div>
+      <div class="rf-scroll-hint">
+        <span data-lang="es">Scrolleá</span><span data-lang="en" class="hidden">Scroll</span>
+        <span></span>
+      </div>
+    </section>
+
+    <!-- DISCIPLINES MARQUEE -->
+    <div class="rf-marquee-wrap">
+      <div class="rf-marquee-track" data-lang="es">
+        <span>Diseño de producto <em>✳</em></span><span>Fintech <em>✳</em></span><span>Design systems <em>✳</em></span><span>Estrategia UX <em>✳</em></span><span>Prototipado <em>✳</em></span><span>Banca digital <em>✳</em></span>
+        <span>Diseño de producto <em>✳</em></span><span>Fintech <em>✳</em></span><span>Design systems <em>✳</em></span><span>Estrategia UX <em>✳</em></span><span>Prototipado <em>✳</em></span><span>Banca digital <em>✳</em></span>
+      </div>
+      <div class="rf-marquee-track hidden" data-lang="en">
+        <span>Product design <em>✳</em></span><span>Fintech <em>✳</em></span><span>Design systems <em>✳</em></span><span>UX strategy <em>✳</em></span><span>Prototyping <em>✳</em></span><span>Digital banking <em>✳</em></span>
+        <span>Product design <em>✳</em></span><span>Fintech <em>✳</em></span><span>Design systems <em>✳</em></span><span>UX strategy <em>✳</em></span><span>Prototyping <em>✳</em></span><span>Digital banking <em>✳</em></span>
+      </div>
+    </div>
+
+    <!-- INTRO / AUDIENCES -->
+    <section>
+      <div class="rf-intro-grid">
+        <div class="rf-intro-tag" data-lang="es">(Intro)</div>
+        <div class="rf-intro-tag hidden" data-lang="en">(Intro)</div>
+        <div>
+          <div class="rf-aud-pills" data-lang="es" data-audience-pills="es">
+            <button class="rf-aud-pill active" data-audience-idx="0">Vista general</button>
+            <button class="rf-aud-pill" data-audience-idx="1">HR</button>
+            <button class="rf-aud-pill" data-audience-idx="2">Diseñadores</button>
+            <button class="rf-aud-pill" data-audience-idx="3">Product Managers</button>
+            <button class="rf-aud-pill" data-audience-idx="4">Developers</button>
+          </div>
+          <div class="rf-aud-pills hidden" data-lang="en" data-audience-pills="en">
+            <button class="rf-aud-pill active" data-audience-idx="0">Overview</button>
+            <button class="rf-aud-pill" data-audience-idx="1">HR</button>
+            <button class="rf-aud-pill" data-audience-idx="2">Designers</button>
+            <button class="rf-aud-pill" data-audience-idx="3">Product Managers</button>
+            <button class="rf-aud-pill" data-audience-idx="4">Engineers</button>
+          </div>
+          <p data-reveal class="rf-aud-text" data-lang="es" data-audience-text="es">Soy Gonzalo — un product designer de Buenos Aires que mezcla estrategia, tecnología y craft para construir experiencias fintech que se sienten simples y confiables.</p>
+          <p data-reveal class="rf-aud-text hidden" data-lang="en" data-audience-text="en">I’m Gonzalo — a Buenos Aires product designer who blends strategy, technology and craft into fintech experiences that feel simple and trustworthy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section data-work id="work">
+      <div class="rf-work-hd">
+        <div>
+          <div class="eyebrow" data-lang="es">Desde 2022</div>
+          <div class="eyebrow hidden" data-lang="en">Since 2022</div>
+          <h2 data-lang="es">Trabajo destacado</h2>
+          <h2 class="hidden" data-lang="en">Featured work</h2>
+        </div>
+        <p data-lang="es">Cruzo tecnología, creatividad y empatía para crear experiencias que conectan personas y servicios.</p>
+        <p class="hidden" data-lang="en">I blend technology, creativity and empathy to craft experiences that bridge people and services.</p>
+      </div>
+
+      <div class="rf-work-list">
+        <!-- 01 — PIX -->
+        <a href="../HabilitadoPagosFintech.html" class="rf-work-row" data-reveal>
+          <span class="rf-work-num">01</span>
+          <div>
+            <div class="rf-work-meta">Telecom Argentina · 2025</div>
+            <h3>Habilitando pagos PIX en una billetera digital</h3>
+            <p data-lang="es">Habilitar pagos PIX por QR desde el saldo de la billetera: rápido, confiable y con impacto medible en el mercado brasileño.</p>
+            <p class="hidden" data-lang="en">Enabling PIX QR payments straight from the wallet balance: fast, reliable and with measurable impact in the Brazilian market.</p>
+            <div class="rf-tags" data-lang="es">
+              <span>Pagos</span><span>Transferencias</span><span>Marketplace</span><span>Programadas</span>
+            </div>
+            <div class="rf-tags hidden" data-lang="en">
+              <span>Payments</span><span>Transfers</span><span>Marketplace</span><span>Scheduled</span>
+            </div>
+            <span class="rf-view-case">
+              <span data-lang="es">Ver caso</span><span data-lang="en" class="hidden">View case</span> <span>→</span>
+            </span>
+          </div>
+          <span class="rf-work-arrow">↗</span>
+        </a>
+
+        <!-- 02 — Flow -->
+        <a href="../FlowWebclient.html" class="rf-work-row" data-reveal>
+          <span class="rf-work-num">02</span>
+          <div>
+            <div class="rf-work-meta">Telecom Argentina · 2023</div>
+            <h3>Flow Webclient</h3>
+            <p data-lang="es">Rediseño del cliente web del servicio de streaming: catálogo, player y continuidad multi-dispositivo.</p>
+            <p class="hidden" data-lang="en">Web client redesign of the streaming service: catalog, player and cross-device continuity.</p>
+            <div class="rf-tags" data-lang="es">
+              <span>Streaming</span><span>Catálogo</span><span>Reproductor</span><span>Web</span>
+            </div>
+            <div class="rf-tags hidden" data-lang="en">
+              <span>Streaming</span><span>Catalog</span><span>Player</span><span>Web</span>
+            </div>
+            <span class="rf-view-case">
+              <span data-lang="es">Ver caso</span><span data-lang="en" class="hidden">View case</span> <span>→</span>
+            </span>
+          </div>
+          <span class="rf-work-arrow">↗</span>
+        </a>
+
+        <!-- 03 — IBM · HSBC -->
+        <a href="../IBMHSBC.html" class="rf-work-row" data-reveal>
+          <span class="rf-work-num">03</span>
+          <div>
+            <div class="rf-work-meta">IBM · HSBC · 2021</div>
+            <h3>Banca Empresas</h3>
+            <p data-lang="es">Herramientas de banca empresarial: operaciones masivas, autorizaciones y tableros de alta densidad.</p>
+            <p class="hidden" data-lang="en">Enterprise banking tools: bulk operations, authorizations and high-density dashboards.</p>
+            <div class="rf-tags" data-lang="es">
+              <span>Banca</span><span>Enterprise</span><span>Data</span><span>Autorizaciones</span>
+            </div>
+            <div class="rf-tags hidden" data-lang="en">
+              <span>Banking</span><span>Enterprise</span><span>Data</span><span>Authorizations</span>
+            </div>
+            <span class="rf-view-case">
+              <span data-lang="es">Ver caso</span><span data-lang="en" class="hidden">View case</span> <span>→</span>
+            </span>
+          </div>
+          <span class="rf-work-arrow">↗</span>
+        </a>
+
+        <!-- 04 — Transferencias Programadas -->
+        <a href="../TransferenciasProgramadas.html" class="rf-work-row" data-reveal>
+          <span class="rf-work-num">04</span>
+          <div>
+            <div class="rf-work-meta">Personal Pay · Telecom · 2024</div>
+            <h3>Transferencias Programadas</h3>
+            <p data-lang="es">Flujo de transferencias recurrentes de Personal Pay: onboarding, calendario, estados y gestión.</p>
+            <p class="hidden" data-lang="en">Personal Pay’s recurring transfers flow: onboarding, calendar, states and management.</p>
+            <div class="rf-tags" data-lang="es">
+              <span>Fintech</span><span>Flujo end-to-end</span><span>Estados</span><span>Calendario</span>
+            </div>
+            <div class="rf-tags hidden" data-lang="en">
+              <span>Fintech</span><span>End-to-end flow</span><span>States</span><span>Calendar</span>
+            </div>
+            <span class="rf-view-case">
+              <span data-lang="es">Ver caso</span><span data-lang="en" class="hidden">View case</span> <span>→</span>
+            </span>
+          </div>
+          <span class="rf-work-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="rf-about-grid">
+        <div>
+          <div class="rf-about-photo">
+            <img src="../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis">
+          </div>
+          <p class="rf-about-meta" data-lang="es">8+ años · UX Lead
+Fintech · Banca · Streaming
+Buenos Aires, Argentina</p>
+          <p class="rf-about-meta hidden" data-lang="en">8+ years · UX Lead
+Fintech · Banking · Streaming
+Buenos Aires, Argentina</p>
+        </div>
+        <div>
+          <p data-reveal class="rf-about-lead" data-lang="es">UX Lead especializado en fintech, con foco en pagos y sistemas de diseño a escala.</p>
+          <p data-reveal class="rf-about-lead hidden" data-lang="en">UX Lead specialized in fintech, focused on payments and design systems at scale.</p>
+          <p data-reveal class="rf-about-body" data-lang="es">Más de 8 años diseñando producto para banca, fintech y telecomunicaciones. Trabajo en el cruce entre negocio, tecnología y usuario: defino la estrategia de experiencia, lidero equipos de diseño y bajo hasta el detalle de interacción. Creo en el diseño basado en sistemas, en decisiones sostenidas por datos y en la simplicidad como forma de generar confianza.</p>
+          <p data-reveal class="rf-about-body hidden" data-lang="en">8+ years designing product for banking, fintech and telecom. I work at the intersection of business, technology and users: I define the experience strategy, lead design teams and go all the way down to interaction detail. I believe in systems-based design, data-backed decisions and simplicity as a way to build trust.</p>
+
+          <div class="rf-exp-list">
+            <div class="rf-exp-row">
+              <div>
+                <div class="rf-exp-company">Telecom Argentina</div>
+                <div class="rf-exp-role" data-lang="es">UX Lead — Personal Pay / Flow</div>
+                <div class="rf-exp-role hidden" data-lang="en">UX Lead — Personal Pay / Flow</div>
+              </div>
+              <span class="rf-exp-years">2018 — 2026</span>
+            </div>
+            <div class="rf-exp-row">
+              <div>
+                <div class="rf-exp-company">IBM</div>
+                <div class="rf-exp-role" data-lang="es">UX Designer — HSBC Banca Empresas</div>
+                <div class="rf-exp-role hidden" data-lang="en">UX Designer — HSBC Corporate Banking</div>
+              </div>
+              <span class="rf-exp-years">2014 — 2018</span>
+            </div>
+            <div class="rf-exp-row">
+              <div>
+                <div class="rf-exp-company">Conexia</div>
+                <div class="rf-exp-role" data-lang="es">Product Designer — Salud digital</div>
+                <div class="rf-exp-role hidden" data-lang="en">Product Designer — Digital health</div>
+              </div>
+              <span class="rf-exp-years">2013 — 2014</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="rf-tag-label" data-lang="es">Qué hago</div>
+            <div class="rf-tag-label hidden" data-lang="en">What I do</div>
+            <div class="rf-skills" data-lang="es">
+              <span>Estrategia de producto &amp; UX</span><span>Design systems &amp; escala</span><span>Fintech &amp; pagos</span><span>Research &amp; delivery</span><span>Prototipado &amp; handoff</span>
+            </div>
+            <div class="rf-skills hidden" data-lang="en">
+              <span>Product &amp; UX strategy</span><span>Design systems &amp; scale</span><span>Fintech &amp; payments</span><span>Research &amp; delivery</span><span>Prototyping &amp; handoff</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="rf-tag-label" style="margin-top:32px;" data-lang="es">Herramientas</div>
+            <div class="rf-tag-label hidden" style="margin-top:32px;" data-lang="en">Tools</div>
+            <div class="rf-tools">
+              <span>Figma</span><span>Framer</span><span>ProtoPie</span><span>After Effects</span><span>Notion</span><span>Jira</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="rf-contact">
+      <h2 data-reveal>
+        <span data-lang="es">Trabajemos <span class="accent">juntos</span></span>
+        <span data-lang="en" class="hidden">Let’s <span class="accent">collaborate</span></span>
+      </h2>
+      <div class="rf-contact-grid">
+        <div>
+          <div class="rf-tag-label" data-lang="es">Saludá</div>
+          <div class="rf-tag-label hidden" data-lang="en">Say hello</div>
+          <a href="mailto:gonzalofelis@hotmail.com" class="rf-contact-email">gonzalofelis@hotmail.com</a>
+        </div>
+        <div>
+          <div class="rf-tag-label">Connect</div>
+          <div class="rf-connect-links">
+            <a href="https://linkedin.com/in/gonzalofelis" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+            <a href="https://behance.net/gonzalofelis" target="_blank" rel="noopener">Behance <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="rf-foot">
+        <span><span data-lang="es">Disponible para proyectos</span><span data-lang="en" class="hidden">Available for projects</span> — Buenos Aires, AR</span>
+        <span>© 2026 Gonzalo Felis</span>
+        <a href="#top"><span data-lang="es">Volver arriba</span><span data-lang="en" class="hidden">Back to top</span> ↑</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../js/i18n.js"></script>
+<script>
+(function () {
+  // theme toggle (independent of i18n language toggle)
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+
+  var saved = localStorage.getItem(THEME_KEY);
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // audience tabs (independent per language)
+  ['es', 'en'].forEach(function (lang) {
+    var pillsWrap = document.querySelector('[data-audience-pills="' + lang + '"]');
+    var textEl = document.querySelector('[data-audience-text="' + lang + '"]');
+    if (!pillsWrap || !textEl) return;
+    var texts = lang === 'es' ? [
+      'Soy Gonzalo — un product designer de Buenos Aires que mezcla estrategia, tecnología y craft para construir experiencias fintech que se sienten simples y confiables.',
+      'UX Lead con 8+ años en fintech, banca y streaming. Lideré el core de pagos de una billetera con millones de usuarios y sé mover producto de la estrategia al pixel.',
+      'Pienso en sistemas: tokens, componentes y patrones reutilizables. Me obsesionan los estados, los edge cases y la coherencia entre plataformas.',
+      'Traduzco objetivos de negocio en decisiones de diseño medibles: menos fricción, más conversión y métricas de confianza que se mueven.',
+      'Diseño pensando en producción: specs claras, handoff prolijo y una relación cercana con ingeniería para que lo diseñado sea lo que se envía.'
+    ] : [
+      'I’m Gonzalo — a Buenos Aires product designer who blends strategy, technology and craft into fintech experiences that feel simple and trustworthy.',
+      'UX Lead with 8+ years in fintech, banking and streaming. I led the payments core of a wallet with millions of users, moving product from strategy to pixel.',
+      'I think in systems: tokens, components and reusable patterns. I obsess over states, edge cases and cross-platform consistency.',
+      'I translate business goals into measurable design decisions: less friction, more conversion and trust metrics that actually move.',
+      'I design for production: clear specs, clean handoff and a close relationship with engineering so what’s designed is what ships.'
+    ];
+    pillsWrap.querySelectorAll('.rf-aud-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        var idx = parseInt(pill.getAttribute('data-audience-idx'), 10);
+        pillsWrap.querySelectorAll('.rf-aud-pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        textEl.textContent = texts[idx];
+      });
+    });
+  });
+
+  // scroll progress bar
+  var progress = document.querySelector('[data-progress]');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight || 1;
+    progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveal on scroll
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduced) {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
+</body>
+</html>
