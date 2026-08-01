@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habilitando pagos PIX — Gonzalo Felis</title>
+<meta name="description" content="Diseñando un flujo confiable y sin fricciones para pagos internacionales con QR en Brasil — desde la hipótesis hasta el impacto medible.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Habilitando pagos PIX — Gonzalo Felis", "en": "Enabling PIX payments — Gonzalo Felis" },
+  "description": {
+    "es": "Diseñando un flujo confiable y sin fricciones para pagos internacionales con QR en Brasil — desde la hipótesis hasta el impacto medible.",
+    "en": "Designing a reliable, frictionless flow for international QR payments in Brazil — from hypothesis to measurable impact."
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../case.css">
+</head>
+<body>
+<div class="rf-root" data-root>
+  <div class="rf-progress" data-progress></div>
+
+  <header class="rf-hdr">
+    <a href="../index.html#top" class="rf-brand" aria-label="Ir al inicio">
+      <span class="rf-avatar"><img src="../../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis"></span>
+      <span class="rf-brand-name">Gonzalo Felis<span style="color:var(--accent);">.</span></span>
+    </a>
+    <nav class="rf-nav">
+      <a href="../index.html#work" class="rf-navlink" data-lang="es">Trabajo</a>
+      <a href="../index.html#work" class="rf-navlink hidden" data-lang="en">Work</a>
+      <a href="../index.html#about" class="rf-navlink" data-lang="es">Perfil</a>
+      <a href="../index.html#about" class="rf-navlink hidden" data-lang="en">About</a>
+      <button id="theme-toggle" class="rf-theme-btn" title="Theme" type="button">
+        <span class="rf-theme-dot"></span><span id="theme-label">DARK</span>
+      </button>
+      <div class="rf-lang">
+        <button data-lang-btn="es" class="lang-btn">ES</button>
+        <button data-lang-btn="en" class="lang-btn">EN</button>
+      </div>
+      <a href="../index.html#contact" class="rf-cta" data-lang="es">Contacto</a>
+      <a href="../index.html#contact" class="rf-cta hidden" data-lang="en">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rf-case-hero">
+      <div class="rf-case-field" style="background:linear-gradient(135deg,#dcefe8,#eee9df);"></div>
+      <div class="rf-case-field" style="background:radial-gradient(80% 80% at 30% 20%,rgba(15,110,114,.28),transparent 60%);"></div>
+      <div class="rf-case-fade"></div>
+      <div class="rf-case-scrim"></div>
+      <div class="rf-case-hero-inner">
+        <a href="../index.html#work" class="rf-back">
+          <span>←</span><span data-lang="es">Volver al inicio</span><span data-lang="en" class="hidden">Back home</span>
+        </a>
+        <div class="rf-case-eyebrow">
+          <span class="n">01</span>
+          <span class="lbl" data-lang="es">Caso de Estudio de Diseño de Producto — 2025</span>
+          <span class="lbl hidden" data-lang="en">Product Design Case Study — 2025</span>
+        </div>
+        <h1 data-reveal>Habilitando pagos PIX en una billetera digital</h1>
+        <p data-reveal data-lang="es">Diseñando un flujo confiable y sin fricciones para pagos internacionales con QR en Brasil — desde la hipótesis hasta el impacto medible.</p>
+        <p data-reveal data-lang="en" class="hidden">Designing a reliable, frictionless flow for international QR payments in Brazil — from hypothesis to measurable impact.</p>
+      </div>
+    </section>
+
+    <!-- META -->
+    <section>
+      <div class="rf-meta-grid">
+        <div data-reveal><div class="k" data-lang="es">Rol</div><div class="k hidden" data-lang="en">Role</div><div class="v">UX Lead</div></div>
+        <div data-reveal><div class="k" data-lang="es">Año</div><div class="k hidden" data-lang="en">Year</div><div class="v">2023 — 2024</div></div>
+        <div data-reveal><div class="k" data-lang="es">Plataforma</div><div class="k hidden" data-lang="en">Platform</div><div class="v">iOS · Android</div></div>
+        <div data-reveal><div class="k" data-lang="es">Equipo</div><div class="k hidden" data-lang="en">Team</div><div class="v" data-lang="es">Producto + Fintech</div><div class="v hidden" data-lang="en">Product + Fintech</div></div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="rf-overview">
+      <p data-reveal data-lang="es">Escalar una billetera a millones de usuarios sin perder claridad: rediseñar el core de pagos y las transferencias como un sistema, no como pantallas sueltas.</p>
+      <p data-reveal class="hidden" data-lang="en">Scale a wallet to millions of users without losing clarity: redesign the payments and transfers core as a system, not scattered screens.</p>
+    </section>
+
+    <!-- FLOW SHOTS -->
+    <section class="rf-flowshots">
+      <div class="rf-flowshots-grid">
+        <figure data-reveal>
+          <img src="../../img/pix/aprendizajes-2.png" alt="Onboarding de pagos Pix">
+          <figcaption data-lang="es">Onboarding: activación de pagos con Pix en Brasil desde Personal Pay.</figcaption>
+          <figcaption class="hidden" data-lang="en">Onboarding: enabling Pix payments in Brazil from Personal Pay.</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/pix/aprendizajes-3.png" alt="Escaneo de QR Pix">
+          <figcaption data-lang="es">Escaneo del QR Pix con cotización estimada en pesos argentinos.</figcaption>
+          <figcaption class="hidden" data-lang="en">Pix QR scan with an estimated quote in Argentine pesos.</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/pix/aprendizajes-1.png" alt="Ingreso de clave Pix">
+          <figcaption data-lang="es">Ingreso de la llave Pix (CPF/CNPJ, celular o e-mail) para generar el pago.</figcaption>
+          <figcaption class="hidden" data-lang="en">Entering the Pix key (CPF/CNPJ, phone or e-mail) to generate the payment.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTIONS -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Contexto</div><div class="label hidden" data-lang="en">Context</div>
+            <h3 data-lang="es">Una billetera lista para cruzar la frontera</h3>
+            <h3 class="hidden" data-lang="en">A wallet ready to cross the border</h3>
+          </div>
+          <div class="body" data-lang="es">Personal Pay es la billetera digital de Telecom Argentina, con millones de usuarios activos. El objetivo era habilitar pagos en Brasil directamente desde el saldo de la billetera, aprovechando PIX, sin obligar al usuario a cambiar de app ni a pensar en otra moneda.</div>
+          <div class="body hidden" data-lang="en">Personal Pay is Telecom Argentina's digital wallet, with millions of active users. The goal was to enable payments in Brazil straight from the wallet balance, leveraging PIX, without forcing users to switch apps or think in another currency.</div>
+        </div>
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">¿Qué es PIX?</div><div class="label hidden" data-lang="en">What is PIX?</div>
+            <h3 data-lang="es">El estándar de pagos instantáneos de Brasil</h3>
+            <h3 class="hidden" data-lang="en">Brazil's instant payment standard</h3>
+          </div>
+          <div class="body" data-lang="es">PIX es el sistema de pagos instantáneos del Banco Central de Brasil: transferencias y cobros 24/7, en segundos, mediante un código QR o una clave. Es el método de pago dominante del país, por lo que soportarlo era condición para operar en el mercado brasileño.</div>
+          <div class="body hidden" data-lang="en">PIX is the Central Bank of Brazil's instant payment system: 24/7 transfers and collections, in seconds, via a QR code or a key. It is the country's dominant payment method, so supporting it was a condition to operate in the Brazilian market.</div>
+        </div>
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Problema a resolver</div><div class="label hidden" data-lang="en">Problem to solve</div>
+            <h3 data-lang="es">Pagar en otro país sin fricción ni desconfianza</h3>
+            <h3 class="hidden" data-lang="en">Paying abroad without friction or distrust</h3>
+          </div>
+          <div class="body" data-lang="es">Diseñar un flujo de pago por QR que resultara confiable para pagar en una moneda y un país distintos: mostrar con claridad el monto en reales y su conversión, estados de error recuperables y una confirmación en un solo paso — todo sin agregar pasos ni romper el modelo mental de la billetera.</div>
+          <div class="body hidden" data-lang="en">Design a QR payment flow that felt trustworthy for paying in a different currency and country: clearly show the amount in reais and its conversion, recoverable error states and one-step confirmation — all without adding steps or breaking the wallet's mental model.</div>
+        </div>
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Aprendizajes</div><div class="label hidden" data-lang="en">Learnings</div>
+            <h3 data-lang="es">Lo que dejó el proyecto</h3>
+            <h3 class="hidden" data-lang="en">What the project left behind</h3>
+          </div>
+          <div class="body" data-lang="es">La confianza se construye en los detalles: la conversión visible, los estados de error claros y la confirmación en un paso fueron clave para la adopción. Validar la hipótesis con métricas reales permitió iterar rápido y priorizar lo que movía el volumen.</div>
+          <div class="body hidden" data-lang="en">Trust is built in the details: visible conversion, clear error states and one-step confirmation were key to adoption. Validating the hypothesis with real metrics let us iterate fast and prioritize what moved volume.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS -->
+    <section>
+      <div class="rf-metrics-tag" data-lang="es">Impacto y métricas</div>
+      <div class="rf-metrics-tag hidden" data-lang="en">Impact & metrics</div>
+      <div class="rf-metrics-grid">
+        <div class="cell" data-reveal><div class="num">8.016</div><div class="lbl" data-lang="es">Clientes únicos (primeras 4 semanas)</div><div class="lbl hidden" data-lang="en">Unique customers (first 4 weeks)</div></div>
+        <div class="cell" data-reveal><div class="num">$2.264M</div><div class="lbl" data-lang="es">Millones transaccionados</div><div class="lbl hidden" data-lang="en">Millions transacted</div></div>
+        <div class="cell" data-reveal><div class="num" data-lang="es">8,6 tx</div><div class="num hidden" data-lang="en">8.6 tx</div><div class="lbl" data-lang="es">Promedio por usuario — adopción real</div><div class="lbl hidden" data-lang="en">Average per user — real adoption</div></div>
+        <div class="cell" data-reveal><div class="num">+350%</div><div class="lbl" data-lang="es">Crecimiento del volumen diario (Dic → Ene)</div><div class="lbl hidden" data-lang="en">Growth in daily volume (Dec → Jan)</div></div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section>
+      <div class="rf-highlights">
+        <div>
+          <h2 data-lang="es">(Highlights)</h2>
+          <h2 class="hidden" data-lang="en">(Highlights)</h2>
+        </div>
+        <div class="rf-highlights-list">
+          <div class="rf-highlight" data-reveal>
+            <span class="n">01</span>
+            <div>
+              <div class="t" data-lang="es">Pagos</div><div class="t hidden" data-lang="en">Payments</div>
+              <p class="d" data-lang="es">Flujo de pago por QR y clave con confirmación en un paso y estados de error recuperables.</p>
+              <p class="d hidden" data-lang="en">QR and key payment flow with one-step confirmation and recoverable error states.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">02</span>
+            <div>
+              <div class="t" data-lang="es">Agenda de transferencias</div><div class="t hidden" data-lang="en">Transfer address book</div>
+              <p class="d" data-lang="es">Contactos frecuentes, alias y CBU unificados en una agenda buscable y editable.</p>
+              <p class="d hidden" data-lang="en">Frequent contacts, aliases and account numbers unified into a searchable, editable book.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">03</span>
+            <div>
+              <div class="t" data-lang="es">Marketplace embebido</div><div class="t hidden" data-lang="en">Embedded marketplace</div>
+              <p class="d" data-lang="es">Tienda de servicios integrada al home sin romper el modelo mental de la billetera.</p>
+              <p class="d hidden" data-lang="en">A services store built into the home without breaking the wallet's mental model.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">04</span>
+            <div>
+              <div class="t" data-lang="es">Transferencias programadas</div><div class="t hidden" data-lang="en">Scheduled transfers</div>
+              <p class="d" data-lang="es">Programación recurrente con recordatorios y control total de la agenda financiera.</p>
+              <p class="d hidden" data-lang="en">Recurring scheduling with reminders and full control of the financial calendar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL CASE -->
+    <section class="rf-fullcase">
+      <a href="../../HabilitadoPagosFintech.html">
+        <span data-lang="es">Ver caso completo</span><span data-lang="en" class="hidden">View full case study</span> <span>→</span>
+      </a>
+    </section>
+
+    <!-- NEXT -->
+    <section class="rf-next">
+      <a href="flow.html" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;width:100%;">
+        <div>
+          <div class="tag" data-lang="es">Siguiente caso</div>
+          <div class="tag hidden" data-lang="en">Next case</div>
+          <div class="title">Flow Webclient</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+  </main>
+</div>
+
+<script src="../../js/i18n.js"></script>
+<script>
+(function () {
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  var saved = localStorage.getItem(THEME_KEY);
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  var progress = document.querySelector('[data-progress]');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight || 1;
+    progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduced) {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
+</body>
+</html>

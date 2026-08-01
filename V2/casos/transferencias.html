@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transferencias Programadas — Gonzalo Felis</title>
+<meta name="description" content="Flujo de transferencias recurrentes de Personal Pay: onboarding, calendario, estados y gestión.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Transferencias Programadas — Gonzalo Felis", "en": "Scheduled Transfers — Gonzalo Felis" },
+  "description": {
+    "es": "Flujo de transferencias recurrentes de Personal Pay: onboarding, calendario, estados y gestión.",
+    "en": "Personal Pay's recurring transfers flow: onboarding, calendar, states and management."
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../case.css">
+</head>
+<body>
+<div class="rf-root" data-root>
+  <div class="rf-progress" data-progress></div>
+
+  <header class="rf-hdr">
+    <a href="../index.html#top" class="rf-brand" aria-label="Ir al inicio">
+      <span class="rf-avatar"><img src="../../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis"></span>
+      <span class="rf-brand-name">Gonzalo Felis<span style="color:var(--accent);">.</span></span>
+    </a>
+    <nav class="rf-nav">
+      <a href="../index.html#work" class="rf-navlink" data-lang="es">Trabajo</a>
+      <a href="../index.html#work" class="rf-navlink hidden" data-lang="en">Work</a>
+      <a href="../index.html#about" class="rf-navlink" data-lang="es">Perfil</a>
+      <a href="../index.html#about" class="rf-navlink hidden" data-lang="en">About</a>
+      <button id="theme-toggle" class="rf-theme-btn" title="Theme" type="button">
+        <span class="rf-theme-dot"></span><span id="theme-label">DARK</span>
+      </button>
+      <div class="rf-lang">
+        <button data-lang-btn="es" class="lang-btn">ES</button>
+        <button data-lang-btn="en" class="lang-btn">EN</button>
+      </div>
+      <a href="../index.html#contact" class="rf-cta" data-lang="es">Contacto</a>
+      <a href="../index.html#contact" class="rf-cta hidden" data-lang="en">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rf-case-hero">
+      <div class="rf-case-field" style="background:linear-gradient(135deg,#dbe6f2,#eee9df);"></div>
+      <div class="rf-case-field" style="background:radial-gradient(80% 80% at 40% 25%,rgba(15,110,114,.26),transparent 60%);"></div>
+      <div class="rf-case-fade"></div>
+      <div class="rf-case-scrim"></div>
+      <div class="rf-case-hero-inner">
+        <a href="../index.html#work" class="rf-back">
+          <span>←</span><span data-lang="es">Volver al inicio</span><span data-lang="en" class="hidden">Back home</span>
+        </a>
+        <div class="rf-case-eyebrow">
+          <span class="n">04</span>
+          <span class="lbl">Personal Pay · Telecom — 2024</span>
+        </div>
+        <h1 data-reveal>Transferencias Programadas</h1>
+        <p data-reveal data-lang="es">Nueva funcionalidad de la billetera: programar transferencias recurrentes. Diseñé el flujo completo, los estados vacíos, el calendario y la gestión de la agenda financiera.</p>
+        <p data-reveal data-lang="en" class="hidden">A new wallet feature: scheduling recurring transfers. I designed the full flow, the empty states, the calendar and the management of the financial calendar.</p>
+      </div>
+    </section>
+
+    <!-- META -->
+    <section>
+      <div class="rf-meta-grid">
+        <div data-reveal><div class="k" data-lang="es">Rol</div><div class="k hidden" data-lang="en">Role</div><div class="v">Product Designer</div></div>
+        <div data-reveal><div class="k" data-lang="es">Año</div><div class="k hidden" data-lang="en">Year</div><div class="v">2024</div></div>
+        <div data-reveal><div class="k" data-lang="es">Plataforma</div><div class="k hidden" data-lang="en">Platform</div><div class="v">iOS · Android</div></div>
+        <div data-reveal><div class="k" data-lang="es">Alcance</div><div class="k hidden" data-lang="en">Scope</div><div class="v" data-lang="es">Feature end-to-end</div><div class="v hidden" data-lang="en">End-to-end feature</div></div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="rf-overview">
+      <p data-reveal data-lang="es">Convertir una tarea financiera repetitiva en un flujo simple y confiable: onboarding claro, un calendario legible y estados de éxito, error y vacío pensados como parte del producto, no como excepción.</p>
+      <p data-reveal class="hidden" data-lang="en">Turn a repetitive financial task into a simple, trustworthy flow: clear onboarding, a legible calendar and success, error and empty states designed as part of the product, not as an exception.</p>
+    </section>
+
+    <!-- MOBILE SHOWCASE -->
+    <section class="rf-showcase-mobile">
+      <div class="rf-showcase-tag" data-lang="es">iOS · Android</div>
+      <div class="rf-showcase-tag hidden" data-lang="en">iOS · Android</div>
+      <div class="rf-showcase-tag right" data-lang="es">Galería</div>
+      <div class="rf-showcase-tag right hidden" data-lang="en">Gallery</div>
+      <div class="rf-trio">
+        <div class="rf-phone l"><div class="rf-phone-screen"><img src="../../img/transferencias-programadas/01-onboarding.png" alt=""></div></div>
+        <div class="rf-phone mid"><div class="rf-phone-screen"><img src="../../img/transferencias-programadas/04-seleccionar-cuenta.png" alt=""></div></div>
+        <div class="rf-phone r"><div class="rf-phone-screen"><img src="../../img/transferencias-programadas/07-calendario.png" alt=""></div></div>
+      </div>
+    </section>
+    <section class="rf-mobile-grid">
+      <div class="grid">
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/transferencias-programadas/08-importe.png" alt=""></div></div>
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/transferencias-programadas/10-exito.png" alt=""></div></div>
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/transferencias-programadas/13-detalle.png" alt=""></div></div>
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/transferencias-programadas/12-listado.png" alt=""></div></div>
+      </div>
+    </section>
+
+    <!-- WIDE -->
+    <section class="rf-wide">
+      <div class="tag" data-lang="es">Galería — iOS · Android</div>
+      <div class="tag hidden" data-lang="en">Gallery — iOS · Android</div>
+      <div class="frame"><img src="../../img/transferencias-programadas/Journey.png" alt="Transferencias Programadas"></div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section>
+      <div class="rf-highlights">
+        <div>
+          <h2 data-lang="es">(Highlights)</h2>
+          <h2 class="hidden" data-lang="en">(Highlights)</h2>
+        </div>
+        <div class="rf-highlights-list">
+          <div class="rf-highlight" data-reveal>
+            <span class="n">01</span>
+            <div>
+              <div class="t">Onboarding</div>
+              <p class="d" data-lang="es">Introducción de la funcionalidad y selección de cuenta y banco en pocos pasos.</p>
+              <p class="d hidden" data-lang="en">Feature intro plus account and bank selection in just a few steps.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">02</span>
+            <div>
+              <div class="t" data-lang="es">Calendario e importe</div><div class="t hidden" data-lang="en">Calendar &amp; amount</div>
+              <p class="d" data-lang="es">Programación recurrente con calendario claro y control total del monto.</p>
+              <p class="d hidden" data-lang="en">Recurring scheduling with a clear calendar and full control of the amount.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">03</span>
+            <div>
+              <div class="t" data-lang="es">Estados completos</div><div class="t hidden" data-lang="en">Complete states</div>
+              <p class="d" data-lang="es">Éxito, error y vacíos diseñados para cada punto del flujo, incluyendo cancelaciones.</p>
+              <p class="d hidden" data-lang="en">Success, error and empty states designed for every point of the flow, including cancellations.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">04</span>
+            <div>
+              <div class="t" data-lang="es">Gestión y detalle</div><div class="t hidden" data-lang="en">Management &amp; detail</div>
+              <p class="d" data-lang="es">Listado de programadas, detalle y edición desde la agenda financiera.</p>
+              <p class="d hidden" data-lang="en">List of scheduled transfers, detail and editing from the financial calendar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="rf-next">
+      <a href="pix.html" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;width:100%;">
+        <div>
+          <div class="tag" data-lang="es">Siguiente caso</div>
+          <div class="tag hidden" data-lang="en">Next case</div>
+          <div class="title">Habilitando pagos PIX en una billetera digital</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+  </main>
+</div>
+
+<script src="../../js/i18n.js"></script>
+<script>
+(function () {
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  var saved = localStorage.getItem(THEME_KEY);
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  var progress = document.querySelector('[data-progress]');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight || 1;
+    progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduced) {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
+</body>
+</html>

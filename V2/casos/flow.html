@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Webclient — Gonzalo Felis</title>
+<meta name="description" content="Rediseño del cliente web de Flow: catálogo, player y continuidad multi-dispositivo.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Flow Webclient — Gonzalo Felis", "en": "Flow Webclient — Gonzalo Felis" },
+  "description": {
+    "es": "Rediseño del cliente web del servicio de streaming: catálogo, player y continuidad multi-dispositivo.",
+    "en": "Web client redesign of the streaming service: catalog, player and cross-device continuity."
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../case.css">
+</head>
+<body>
+<div class="rf-root" data-root>
+  <div class="rf-progress" data-progress></div>
+
+  <header class="rf-hdr">
+    <a href="../index.html#top" class="rf-brand" aria-label="Ir al inicio">
+      <span class="rf-avatar"><img src="../../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis"></span>
+      <span class="rf-brand-name">Gonzalo Felis<span style="color:var(--accent);">.</span></span>
+    </a>
+    <nav class="rf-nav">
+      <a href="../index.html#work" class="rf-navlink" data-lang="es">Trabajo</a>
+      <a href="../index.html#work" class="rf-navlink hidden" data-lang="en">Work</a>
+      <a href="../index.html#about" class="rf-navlink" data-lang="es">Perfil</a>
+      <a href="../index.html#about" class="rf-navlink hidden" data-lang="en">About</a>
+      <button id="theme-toggle" class="rf-theme-btn" title="Theme" type="button">
+        <span class="rf-theme-dot"></span><span id="theme-label">DARK</span>
+      </button>
+      <div class="rf-lang">
+        <button data-lang-btn="es" class="lang-btn">ES</button>
+        <button data-lang-btn="en" class="lang-btn">EN</button>
+      </div>
+      <a href="../index.html#contact" class="rf-cta" data-lang="es">Contacto</a>
+      <a href="../index.html#contact" class="rf-cta hidden" data-lang="en">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rf-case-hero">
+      <div class="rf-case-field" style="background:linear-gradient(135deg,#ece0ef,#eee9df);"></div>
+      <div class="rf-case-field" style="background:radial-gradient(80% 80% at 70% 20%,rgba(150,90,200,.26),transparent 60%);"></div>
+      <div class="rf-case-fade"></div>
+      <div class="rf-case-scrim"></div>
+      <div class="rf-case-hero-inner">
+        <a href="../index.html#work" class="rf-back">
+          <span>←</span><span data-lang="es">Volver al inicio</span><span data-lang="en" class="hidden">Back home</span>
+        </a>
+        <div class="rf-case-eyebrow">
+          <span class="n">02</span>
+          <span class="lbl">Telecom Argentina — 2023</span>
+        </div>
+        <h1 data-reveal>Flow Webclient</h1>
+        <p data-reveal data-lang="es">Rediseño del cliente web de Flow: navegación de catálogo, reproducción y continuidad entre dispositivos para el servicio de streaming de Telecom.</p>
+        <p data-reveal data-lang="en" class="hidden">Redesign of Flow's web client: catalog navigation, playback and cross-device continuity for Telecom's streaming service.</p>
+      </div>
+    </section>
+
+    <!-- META -->
+    <section>
+      <div class="rf-meta-grid">
+        <div data-reveal><div class="k" data-lang="es">Rol</div><div class="k hidden" data-lang="en">Role</div><div class="v">Product Designer</div></div>
+        <div data-reveal><div class="k" data-lang="es">Año</div><div class="k hidden" data-lang="en">Year</div><div class="v">2022 — 2023</div></div>
+        <div data-reveal><div class="k" data-lang="es">Plataforma</div><div class="k hidden" data-lang="en">Platform</div><div class="v">Web · TV</div></div>
+        <div data-reveal><div class="k" data-lang="es">Foco</div><div class="k hidden" data-lang="en">Focus</div><div class="v" data-lang="es">Navegación + Player</div><div class="v hidden" data-lang="en">Nav + Player</div></div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="rf-overview">
+      <p data-reveal data-lang="es">Unificar catálogo, reproducción y continuidad en una experiencia web fluida, coherente con la app de TV y el mobile de Flow.</p>
+      <p data-reveal class="hidden" data-lang="en">Unify catalog, playback and continuity into a fluid web experience, consistent with Flow's TV and mobile apps.</p>
+    </section>
+
+    <!-- WEB SHOWCASE -->
+    <section class="rf-showcase-web">
+      <div class="cover" data-reveal><img src="../../img/flow/hero.jpg" alt="Flow Webclient"></div>
+      <div class="spacer"></div>
+    </section>
+    <section class="rf-web-shots">
+      <div class="stack">
+        <div data-reveal><img src="../../img/flow/home-detalle.png" alt=""></div>
+        <div data-reveal><img src="../../img/flow/reproductor-vivo.png" alt=""></div>
+        <div data-reveal><img src="../../img/flow/guia-tv.png" alt=""></div>
+        <div data-reveal><img src="../../img/flow/perfil-selector.png" alt=""></div>
+        <div data-reveal><img src="../../img/flow/sistema-diseno.jpg" alt=""></div>
+      </div>
+    </section>
+
+    <!-- WIDE -->
+    <section class="rf-wide">
+      <div class="tag" data-lang="es">Galería — Web · TV</div>
+      <div class="tag hidden" data-lang="en">Gallery — Web · TV</div>
+      <div class="frame"><img src="../../img/flow/arquitectura-flujo.jpg" alt="Flow Webclient"></div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section>
+      <div class="rf-highlights">
+        <div>
+          <h2 data-lang="es">(Highlights)</h2>
+          <h2 class="hidden" data-lang="en">(Highlights)</h2>
+        </div>
+        <div class="rf-highlights-list">
+          <div class="rf-highlight" data-reveal>
+            <span class="n">01</span>
+            <div>
+              <div class="t" data-lang="es">Navegación de catálogo</div><div class="t hidden" data-lang="en">Catalog browsing</div>
+              <p class="d" data-lang="es">Filas dinámicas, filtros y búsqueda que reducen el tiempo hasta el play.</p>
+              <p class="d hidden" data-lang="en">Dynamic rails, filters and search that cut time-to-play.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">02</span>
+            <div>
+              <div class="t" data-lang="es">Reproductor</div><div class="t hidden" data-lang="en">Player</div>
+              <p class="d" data-lang="es">Controles claros, subtítulos y calidad adaptativa con foco en accesibilidad.</p>
+              <p class="d hidden" data-lang="en">Clear controls, subtitles and adaptive quality with accessibility in mind.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">03</span>
+            <div>
+              <div class="t" data-lang="es">Continuidad</div><div class="t hidden" data-lang="en">Continuity</div>
+              <p class="d" data-lang="es">Seguir viendo entre web, TV y mobile sin fricción.</p>
+              <p class="d hidden" data-lang="en">Keep watching across web, TV and mobile with no friction.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">04</span>
+            <div>
+              <div class="t" data-lang="es">Sistema visual</div><div class="t hidden" data-lang="en">Visual system</div>
+              <p class="d" data-lang="es">Grilla y componentes consistentes con el ecosistema Flow.</p>
+              <p class="d hidden" data-lang="en">Grid and components consistent with the Flow ecosystem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="rf-next">
+      <a href="ibm-hsbc.html" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;width:100%;">
+        <div>
+          <div class="tag" data-lang="es">Siguiente caso</div>
+          <div class="tag hidden" data-lang="en">Next case</div>
+          <div class="title">Banca Empresas</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+  </main>
+</div>
+
+<script src="../../js/i18n.js"></script>
+<script>
+(function () {
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  var saved = localStorage.getItem(THEME_KEY);
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  var progress = document.querySelector('[data-progress]');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight || 1;
+    progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduced) {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
+</body>
+</html>
