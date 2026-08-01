@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "-l", "8934", "/Users/u596714/Downloads/Portfolio"],
+      "port": 8934
+    }
+  ]
+}

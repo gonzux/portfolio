@@ -4,9 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vault Transfer DS — Design System</title>
+  <script>
+    (function () {
+      var stored = localStorage.getItem('vault-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,6 +31,22 @@
       --text2:  #4A5568;
       --radius: 16px;
       --radius-sm: 10px;
+
+      /* semantic theming tokens — resuelven light/dark, --navy y --teal quedan constantes (paneles/acento de marca) */
+      --surface: #FFFFFF;
+      --heading: var(--navy);
+      --nav-bg:  rgba(244,246,250,0.85);
+    }
+
+    :root[data-theme="dark"] {
+      --off:     #0A1330;
+      --surface: #142250;
+      --heading: #F4F6FA;
+      --text:    #E3E7F1;
+      --text2:   #9AA4BE;
+      --muted:   #7C88A6;
+      --border:  rgba(255,255,255,0.09);
+      --nav-bg:  rgba(6,11,28,0.82);
     }
 
     html { scroll-behavior: smooth; }
@@ -33,6 +56,7 @@
       background: var(--off);
       color: var(--text);
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* ── NAV ── */
@@ -41,16 +65,17 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 clamp(1.5rem, 5vw, 4rem);
       height: 64px;
-      background: rgba(244,246,250,0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
       font-family: 'Syne', sans-serif;
       font-weight: 700; font-size: 15px;
-      color: var(--navy); text-decoration: none;
+      color: var(--heading); text-decoration: none;
     }
 
     .nav-logo-mark {
@@ -69,16 +94,26 @@
     }
 
     .nav-links {
-      display: flex; gap: 2rem; list-style: none;
+      display: flex; gap: 1.25rem; list-style: none; white-space: nowrap;
     }
 
     .nav-links a {
-      font-size: 13px; color: var(--text2);
+      font-size: 12.5px; color: var(--text2);
       text-decoration: none; font-weight: 400;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover { color: var(--heading); }
+
+    .theme-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: transparent; border: 1.5px solid var(--border);
+      cursor: pointer; font-size: 14px; line-height: 1;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .theme-toggle:hover { border-color: var(--teal); transform: translateY(-1px); }
 
     @media (max-width: 600px) {
       .nav-links { display: none; }
@@ -140,7 +175,7 @@
       font-family: 'Syne', sans-serif;
       font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 800; line-height: 1.0;
-      color: var(--navy);
+      color: var(--heading);
       max-width: 900px;
       opacity: 0; animation: fadeUp 0.7s 0.35s ease forwards;
     }
@@ -196,7 +231,7 @@
       cursor: pointer; transition: border-color 0.2s, color 0.2s;
     }
 
-    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
+    .btn-ghost:hover { border-color: var(--heading); color: var(--heading); }
 
     .hero-stats {
       display: flex; gap: clamp(1.5rem, 4vw, 3.5rem);
@@ -209,7 +244,7 @@
 
     .hero-stat-num {
       font-family: 'Syne', sans-serif;
-      font-size: 2rem; font-weight: 700; color: var(--navy);
+      font-size: 2rem; font-weight: 700; color: var(--heading);
       line-height: 1;
     }
 
@@ -246,7 +281,7 @@
     .section-title {
       font-family: 'Syne', sans-serif;
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 700; color: var(--navy);
+      font-weight: 700; color: var(--heading);
       line-height: 1.15; max-width: 560px;
     }
 
@@ -314,7 +349,7 @@
     .flow-step-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
     /* ── ATOM CARD GRID ── */
-    .atoms-section { background: var(--white); }
+    .atoms-section { background: var(--surface); transition: background-color 0.3s ease; }
 
     .atoms-wrap {
       padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
@@ -367,7 +402,7 @@
 
     .component-card-name {
       font-family: 'Syne', sans-serif;
-      font-size: 14px; font-weight: 600; color: var(--navy);
+      font-size: 14px; font-weight: 600; color: var(--heading);
     }
 
     .component-card-meta {
@@ -378,8 +413,15 @@
       display: inline-flex; align-items: center;
       margin-top: 12px;
       font-size: 11px; font-weight: 500;
-      color: var(--navy); background: rgba(13,27,62,0.06);
+      color: var(--heading); background: rgba(13,27,62,0.06);
       padding: 3px 8px; border-radius: 6px;
+    }
+
+    :root[data-theme="dark"] .component-card-variants { background: rgba(255,255,255,0.08); }
+    :root[data-theme="dark"] .hero-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
     }
 
     /* ── KPI STRIP ── */
@@ -439,7 +481,7 @@
     }
 
     .screen-card {
-      background: var(--white);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
@@ -493,11 +535,16 @@
 
     .screen-name {
       font-family: 'Syne', sans-serif;
-      font-size: 13px; font-weight: 600; color: var(--navy);
+      font-size: 13px; font-weight: 600; color: var(--heading);
     }
 
     .screen-comps {
       font-size: 11px; color: var(--muted); margin-top: 3px;
+    }
+
+    .screen-detail {
+      font-size: 11px; color: var(--text2); margin-top: 8px;
+      line-height: 1.4; padding-top: 8px; border-top: 1px solid var(--border);
     }
 
     /* ── ROADMAP ── */
@@ -508,7 +555,7 @@
     }
 
     .phase-card {
-      background: var(--white);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius); padding: 1.5rem;
       position: relative; overflow: hidden;
@@ -543,7 +590,7 @@
 
     .phase-title {
       font-family: 'Syne', sans-serif;
-      font-size: 15px; font-weight: 700; color: var(--navy);
+      font-size: 15px; font-weight: 700; color: var(--heading);
     }
 
     .phase-items {
@@ -565,6 +612,186 @@
     .phase-wip    .phase-items li::before { background: #7F77DD; }
     .phase-next   .phase-items li::before { background: #F59E0B; }
     .phase-future .phase-items li::before { background: #CBD5E0; }
+
+    /* ── COLOR TOKENS (Vault brand palette) ── */
+    .color-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+
+    .color-group-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .color-chip-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .color-chip {
+      display: flex; align-items: center; gap: 12px;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .color-chip.visible { opacity: 1; transform: translateY(0); }
+
+    .color-chip-swatch {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .color-chip-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px; font-weight: 600; color: var(--heading);
+    }
+
+    .color-chip-hex {
+      font-size: 11px; color: var(--muted); margin-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── TYPOGRAPHY SCALE ── */
+    .type-scale { margin-top: 3rem; display: flex; flex-direction: column; }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 140px;
+      align-items: center; gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border);
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .type-row.visible { opacity: 1; transform: translateY(0); }
+    .type-row:last-child { border-bottom: 1px solid var(--border); }
+
+    .type-row-token {
+      font-family: 'DM Sans', monospace;
+      font-size: 11px; font-weight: 500; color: var(--muted);
+    }
+
+    .type-row-sample {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--heading); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+
+    .type-row-meta {
+      font-size: 11px; color: var(--muted); text-align: right;
+    }
+
+    .type-row-meta-usage {
+      font-size: 11px; color: var(--text2); margin-top: 3px;
+    }
+
+    @media (max-width: 700px) {
+      .type-row { grid-template-columns: 1fr; gap: 0.35rem; text-align: left; }
+      .type-row-meta { text-align: left; }
+    }
+
+    /* ── HEALTH DASHBOARD ── */
+    .health-strip {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: clamp(2rem, 4vw, 3rem);
+      margin-top: 3rem;
+      position: relative; overflow: hidden;
+    }
+
+    .health-strip-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 100% at 100% 0%, rgba(0,188,212,0.14) 0%, transparent 60%);
+    }
+
+    .health-kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem; position: relative; z-index: 1;
+    }
+
+    .health-kpi-num {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800; color: var(--teal); line-height: 1;
+    }
+
+    .health-kpi-label { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 6px; }
+    .health-kpi-sub { font-size: 11px; color: rgba(255,255,255,0.32); margin-top: 2px; }
+
+    .health-score {
+      position: relative; z-index: 1;
+      margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; flex-wrap: wrap; gap: 2rem; align-items: baseline;
+    }
+
+    .health-score-item { display: flex; align-items: baseline; gap: 8px; }
+    .health-score-label { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .health-score-num {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: #fff;
+    }
+
+    .health-score-caption {
+      position: relative; z-index: 1;
+      font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 1rem;
+    }
+
+    .health-note {
+      font-size: 12px; color: var(--muted); margin-top: 1.25rem;
+      line-height: 1.6; max-width: 700px;
+    }
+
+    /* ── TOKENS (dark mode) ── */
+    .tokens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+
+    .token-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.4s, transform 0.4s, background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .token-card.visible { opacity: 1; transform: translateY(0); }
+
+    .token-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px; font-weight: 700; color: var(--heading);
+    }
+
+    .token-usage {
+      font-size: 11px; color: var(--muted); margin-top: 3px; margin-bottom: 1rem;
+    }
+
+    .token-swatches { display: flex; gap: 10px; }
+    .token-swatches.single { }
+
+    .token-swatch { flex: 1; }
+
+    .token-swatch-chip {
+      height: 40px; border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .token-swatch-meta {
+      display: flex; justify-content: space-between;
+      font-size: 10px; color: var(--muted); margin-top: 6px;
+    }
+
+    .token-swatch-mode { text-transform: uppercase; letter-spacing: 0.04em; }
+
+    .token-constant-tag {
+      display: inline-flex; font-size: 10px; font-weight: 500;
+      color: var(--muted); margin-top: 6px;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -607,9 +834,18 @@
       <li><a href="#intro">Qué es</a></li>
       <li><a href="#components">Componentes</a></li>
       <li><a href="#screens">Pantallas</a></li>
+      <li><a href="#tokens">Tokens</a></li>
+      <li><a href="#typography">Tipografía</a></li>
+      <li><a href="#health">Health</a></li>
+      <li><a href="#dark-mode">Dark mode</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
     </ul>
-    <span class="nav-pill">Abril 2026</span>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span class="nav-pill">Abril 2026</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo oscuro">
+        <span id="themeToggleIcon">🌙</span>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -823,6 +1059,7 @@
         <div class="screen-info">
           <div class="screen-name">Agenda Contactos</div>
           <div class="screen-comps">10 componentes</div>
+          <div class="screen-detail">Favorites Strip + FAB + búsqueda + lista alfabética</div>
         </div>
       </div>
       <div class="screen-card">
@@ -834,6 +1071,7 @@
         <div class="screen-info">
           <div class="screen-name">Detalle Contacto</div>
           <div class="screen-comps">8 componentes</div>
+          <div class="screen-detail">Bento grid CBU / Alias / CUIT con copy actions</div>
         </div>
       </div>
       <div class="screen-card">
@@ -846,6 +1084,7 @@
         <div class="screen-info">
           <div class="screen-name">Nuevo Contacto</div>
           <div class="screen-comps">8 componentes</div>
+          <div class="screen-detail">CBU/Alias + QR scan + auto-fill preview</div>
         </div>
       </div>
       <div class="screen-card">
@@ -858,6 +1097,7 @@
         <div class="screen-info">
           <div class="screen-name">Confirmación</div>
           <div class="screen-comps">10 componentes</div>
+          <div class="screen-detail">Nav shell suprimido · bento de transacción · nota de seguridad</div>
         </div>
       </div>
       <div class="screen-card">
@@ -873,7 +1113,290 @@
         <div class="screen-info">
           <div class="screen-name">Transfer Status</div>
           <div class="screen-comps">9 componentes</div>
+          <div class="screen-detail">Success animation + promo banner + share/download</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- COLOR TOKENS -->
+  <section class="section" id="tokens">
+    <div class="section-eyebrow reveal">Fundamentos</div>
+    <h2 class="section-title reveal">Tokens de color</h2>
+    <p class="section-body reveal">
+      La paleta real del Vault Transfer DS, tal como está definida en Figma: primarios navy/teal,
+      semánticos de estado, neutros de superficie, texto y los colores de marca de cada banco
+      para el Bank Badge.
+    </p>
+
+    <div class="color-groups">
+      <div>
+        <div class="color-group-title reveal">Primarios</div>
+        <div class="color-chip-list">
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#0D1B3E;"></div><div><div class="color-chip-name">navy-900</div><div class="color-chip-hex">#0D1B3E</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#1A2E5C;"></div><div><div class="color-chip-name">navy-700</div><div class="color-chip-hex">#1A2E5C</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#007B7C;"></div><div><div class="color-chip-name">teal-600</div><div class="color-chip-hex">#007B7C</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#00A896;"></div><div><div class="color-chip-name">teal-400</div><div class="color-chip-hex">#00A896</div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="color-group-title reveal">Semánticos</div>
+        <div class="color-chip-list">
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#00C853;"></div><div><div class="color-chip-name">success-500</div><div class="color-chip-hex">#00C853</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#E8F5E9;"></div><div><div class="color-chip-name">success-50</div><div class="color-chip-hex">#E8F5E9</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#F59E0B;"></div><div><div class="color-chip-name">warning-500</div><div class="color-chip-hex">#F59E0B</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#EF4444;"></div><div><div class="color-chip-name">error-500</div><div class="color-chip-hex">#EF4444</div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="color-group-title reveal">Neutros</div>
+        <div class="color-chip-list">
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#F4F5F7;"></div><div><div class="color-chip-name">bg-100</div><div class="color-chip-hex">#F4F5F7</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#FFFFFF;"></div><div><div class="color-chip-name">surface-0</div><div class="color-chip-hex">#FFFFFF</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#E5E8EF;"></div><div><div class="color-chip-name">border-200</div><div class="color-chip-hex">#E5E8EF</div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="color-group-title reveal">Texto</div>
+        <div class="color-chip-list">
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#0D1B3E;"></div><div><div class="color-chip-name">text-900</div><div class="color-chip-hex">#0D1B3E</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#6B7280;"></div><div><div class="color-chip-name">text-500</div><div class="color-chip-hex">#6B7280</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#9CA3AF;"></div><div><div class="color-chip-name">text-300</div><div class="color-chip-hex">#9CA3AF</div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="color-group-title reveal">Bancos</div>
+        <div class="color-chip-list">
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#117ACA;"></div><div><div class="color-chip-name">bank-chase</div><div class="color-chip-hex">#117ACA</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#D71E28;"></div><div><div class="color-chip-name">bank-wells</div><div class="color-chip-hex">#D71E28</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#FF6200;"></div><div><div class="color-chip-name">bank-ing</div><div class="color-chip-hex">#FF6200</div></div></div>
+          <div class="color-chip"><div class="color-chip-swatch" style="background:#00704A;"></div><div><div class="color-chip-name">bank-std</div><div class="color-chip-hex">#00704A</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- TYPOGRAPHY -->
+  <section class="atoms-section" id="typography">
+    <div class="atoms-wrap">
+      <div class="section-eyebrow reveal">Fundamentos</div>
+      <h2 class="section-title reveal">Tipografía — Plus Jakarta Sans</h2>
+      <p class="section-body reveal">La escala tipográfica completa, con el caso de uso real de cada estilo dentro del flujo de transferencias.</p>
+
+      <div class="type-scale">
+        <div class="type-row">
+          <div class="type-row-token">display</div>
+          <div class="type-row-sample" style="font-size:32px;font-weight:700;">$12,450.00</div>
+          <div><div class="type-row-meta">32px / Bold</div><div class="type-row-meta-usage">Montos principales, pantalla de éxito</div></div>
+        </div>
+        <div class="type-row">
+          <div class="type-row-token">heading-xl</div>
+          <div class="type-row-sample" style="font-size:24px;font-weight:700;">Check your transfer</div>
+          <div><div class="type-row-meta">24px / Bold</div><div class="type-row-meta-usage">Títulos de pantalla</div></div>
+        </div>
+        <div class="type-row">
+          <div class="type-row-token">heading-lg</div>
+          <div class="type-row-sample" style="font-size:18px;font-weight:700;">Add recipient details</div>
+          <div><div class="type-row-meta">18px / Bold</div><div class="type-row-meta-usage">Subtítulos de sección</div></div>
+        </div>
+        <div class="type-row">
+          <div class="type-row-token">body-semi</div>
+          <div class="type-row-sample" style="font-size:14px;font-weight:600;">Julian Alvarez</div>
+          <div><div class="type-row-meta">14px / SemiBold</div><div class="type-row-meta-usage">Nombres de contacto, datos clave</div></div>
+        </div>
+        <div class="type-row">
+          <div class="type-row-token">body-reg</div>
+          <div class="type-row-sample" style="font-size:14px;font-weight:400;">Personal Contact</div>
+          <div><div class="type-row-meta">14px / Regular</div><div class="type-row-meta-usage">Descripciones, subtítulos</div></div>
+        </div>
+        <div class="type-row">
+          <div class="type-row-token">label-upper</div>
+          <div class="type-row-sample" style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Bank Name</div>
+          <div><div class="type-row-meta">10px / SemiBold</div><div class="type-row-meta-usage">Labels en mayúscula (WCAG: solo decorativo)</div></div>
+        </div>
+        <div class="type-row">
+          <div class="type-row-token">caption</div>
+          <div class="type-row-sample" style="font-size:12px;font-weight:400;">CBU: 0110599540...</div>
+          <div><div class="type-row-meta">12px / Regular</div><div class="type-row-meta-usage">CBU, datos técnicos, disclaimers</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- HEALTH DASHBOARD -->
+  <section class="section" id="health">
+    <div class="section-eyebrow reveal">🏥 Meta-herramienta</div>
+    <h2 class="section-title reveal">Health Dashboard</h2>
+    <p class="section-body reveal">
+      Además del DS, armé un tablero dentro del mismo archivo de Figma para trackear su propia
+      cobertura: cuántos componentes están mapeados, cuántos faltan por pantalla, y un score
+      de construcción que se actualiza a mano en cada fase.
+    </p>
+
+    <div class="health-strip reveal">
+      <div class="health-strip-bg"></div>
+      <div class="health-kpis">
+        <div>
+          <div class="health-kpi-num">25</div>
+          <div class="health-kpi-label">Componentes mapeados</div>
+          <div class="health-kpi-sub">en 5 pantallas</div>
+        </div>
+        <div>
+          <div class="health-kpi-num">11</div>
+          <div class="health-kpi-label">Átomos</div>
+          <div class="health-kpi-sub">base del sistema</div>
+        </div>
+        <div>
+          <div class="health-kpi-num">2</div>
+          <div class="health-kpi-label">Moléculas</div>
+          <div class="health-kpi-sub">combinaciones</div>
+        </div>
+        <div>
+          <div class="health-kpi-num">6</div>
+          <div class="health-kpi-label">Organismos</div>
+          <div class="health-kpi-sub">bloques completos</div>
+        </div>
+        <div>
+          <div class="health-kpi-num">6</div>
+          <div class="health-kpi-label">Acciones</div>
+          <div class="health-kpi-sub">nuevos (Abril)</div>
+        </div>
+        <div>
+          <div class="health-kpi-num">~312</div>
+          <div class="health-kpi-label">Cobertura inicial</div>
+          <div class="health-kpi-sub">variantes</div>
+        </div>
+      </div>
+
+      <div class="health-score">
+        <div class="health-score-item"><span class="health-score-label">Score de construcción</span><span class="health-score-num">100%</span></div>
+        <div class="health-score-item"><span class="health-score-label">Objetivo Fase 1</span><span class="health-score-num">100%</span></div>
+        <div class="health-score-item"><span class="health-score-label">Objetivo final</span><span class="health-score-num">85%</span></div>
+      </div>
+      <div class="health-score-caption">25 componentes construidos · ~312 variantes · 5 pantallas mapeadas · Fase 1 completada en Abril 2026</div>
+    </div>
+
+    <p class="health-note reveal">
+      El tablero trackea el avance por pantalla (Agenda, Detalle, Nuevo Contacto, Confirmación, Transfer Status)
+      y un roadmap de 4 fases — Tokens &amp; Fundamentos, Átomos, Moléculas, Organismos — con checklist item por
+      item. Los estados individuales quedaron como placeholder de la maqueta del propio tablero; el score final
+      arriba refleja el estado real de la librería construida.
+    </p>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- DARK MODE TOKENS -->
+  <section class="section" id="dark-mode">
+    <div class="section-eyebrow reveal">Theming · Fase 4</div>
+    <h2 class="section-title reveal">Dark mode tokens</h2>
+    <p class="section-body reveal">
+      El primer frente de la Fase 4: tokens semánticos que resuelven light y dark
+      desde el mismo sistema, sin duplicar componentes. <code style="background:rgba(0,188,212,0.1);padding:2px 6px;border-radius:4px;font-size:0.9em;">--navy</code> y
+      <code style="background:rgba(0,188,212,0.1);padding:2px 6px;border-radius:4px;font-size:0.9em;">--teal</code> quedan constantes como color de marca;
+      el resto se redefine por tema. Probalo con el toggle de arriba a la derecha.
+    </p>
+
+    <div class="tokens-grid">
+      <div class="token-card">
+        <div class="token-name">--off <span style="font-weight:400;color:var(--muted);">/ page bg</span></div>
+        <div class="token-usage">Fondo de página y tiles hundidos</div>
+        <div class="token-swatches">
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#F4F6FA;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Light</span><span>#F4F6FA</span></div>
+          </div>
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#0A1330;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Dark</span><span>#0A1330</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-name">--surface</div>
+        <div class="token-usage">Superficies elevadas (cards, secciones)</div>
+        <div class="token-swatches">
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#FFFFFF;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Light</span><span>#FFFFFF</span></div>
+          </div>
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#142250;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Dark</span><span>#142250</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-name">--heading</div>
+        <div class="token-usage">Títulos y nombres de componentes</div>
+        <div class="token-swatches">
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#0D1B3E;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Light</span><span>#0D1B3E</span></div>
+          </div>
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#F4F6FA;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Dark</span><span>#F4F6FA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-name">--text / --text2</div>
+        <div class="token-usage">Cuerpo de texto primario y secundario</div>
+        <div class="token-swatches">
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#0D1B3E;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Light</span><span>#0D1B3E</span></div>
+          </div>
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#E3E7F1;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Dark</span><span>#E3E7F1</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-name">--border</div>
+        <div class="token-usage">Bordes de cards, nav y dividers</div>
+        <div class="token-swatches">
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:rgba(13,27,62,0.1); border:1px solid rgba(13,27,62,0.2);"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Light</span><span>navy 10%</span></div>
+          </div>
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:rgba(255,255,255,0.09); border:1px solid rgba(255,255,255,0.2);"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">Dark</span><span>white 9%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-name">--navy / --teal</div>
+        <div class="token-usage">Paneles de marca y acento — no cambian por tema</div>
+        <div class="token-swatches">
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#0D1B3E;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">--navy</span><span>#0D1B3E</span></div>
+          </div>
+          <div class="token-swatch">
+            <div class="token-swatch-chip" style="background:#00BCD4;"></div>
+            <div class="token-swatch-meta"><span class="token-swatch-mode">--teal</span><span>#00BCD4</span></div>
+          </div>
+        </div>
+        <div class="token-constant-tag">Constante en ambos temas</div>
       </div>
     </div>
   </section>
@@ -925,13 +1448,13 @@
           <li>Promo Banner</li>
         </ul>
       </div>
-      <div class="phase-card phase-next">
+      <div class="phase-card phase-wip">
         <div class="phase-card-accent"></div>
-        <div class="phase-badge">Próxima fase</div>
+        <div class="phase-badge">En progreso</div>
         <div class="phase-title">Fase 4 — Cobertura de Screens</div>
         <ul class="phase-items">
           <li>Instanciar componentes en Screens</li>
-          <li>Dark mode tokens</li>
+          <li><strong>✓ Dark mode tokens</strong> — <a href="#dark-mode" style="color:inherit;">ver sección</a></li>
           <li>Documentación en código</li>
           <li>Prototyping interactivo</li>
         </ul>
@@ -963,8 +1486,26 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll(
-      '.reveal, .component-card, .screen-card, .phase-card, .kpi-item'
+      '.reveal, .component-card, .screen-card, .phase-card, .kpi-item, .token-card, .color-chip, .type-row'
     ).forEach(el => observer.observe(el));
+
+    // ── Theme toggle ──
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleIcon = document.getElementById('themeToggleIcon');
+
+    function syncToggleUI() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeToggleIcon.textContent = isDark ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    }
+    syncToggleUI();
+
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('vault-theme', next);
+      syncToggleUI();
+    });
 
     // ── Flow steps in intro visual ──
     const flowObserver = new IntersectionObserver((entries) => {
@@ -982,6 +1523,16 @@
     // ── Stagger delays for component cards ──
     document.querySelectorAll('.component-card').forEach((card, i) => {
       card.style.transitionDelay = `${(i % 8) * 0.05}s`;
+    });
+
+    document.querySelectorAll('.color-chip-list').forEach(list => {
+      list.querySelectorAll('.color-chip').forEach((chip, i) => {
+        chip.style.transitionDelay = `${i * 0.06}s`;
+      });
+    });
+
+    document.querySelectorAll('.type-row').forEach((row, i) => {
+      row.style.transitionDelay = `${i * 0.05}s`;
     });
   </script>
 
