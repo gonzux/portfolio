@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda de Transferencias — Gonzalo Felis</title>
+<meta name="description" content="Rediseño del flujo de gestión de contactos y transferencias para reducir la fricción en operaciones frecuentes.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Agenda de Transferencias — Gonzalo Felis", "en": "Transfer Contacts — Gonzalo Felis" },
+  "description": {
+    "es": "Rediseño del flujo de gestión de contactos y transferencias para reducir la fricción en operaciones frecuentes.",
+    "en": "Redesign of the contact and transfer management flow to reduce friction in frequent operations."
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../case.css">
+</head>
+<body>
+<div class="rf-root" data-root>
+  <div class="rf-progress" data-progress></div>
+
+  <header class="rf-hdr">
+    <a href="../index.html#top" class="rf-brand" aria-label="Ir al inicio">
+      <span class="rf-avatar"><img src="../../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis"></span>
+      <span class="rf-brand-name">Gonzalo Felis<span style="color:var(--accent);">.</span></span>
+    </a>
+    <nav class="rf-nav">
+      <a href="../index.html#work" class="rf-navlink" data-lang="es">Trabajo</a>
+      <a href="../index.html#work" class="rf-navlink hidden" data-lang="en">Work</a>
+      <a href="../index.html#about" class="rf-navlink" data-lang="es">Perfil</a>
+      <a href="../index.html#about" class="rf-navlink hidden" data-lang="en">About</a>
+      <button id="theme-toggle" class="rf-theme-btn" title="Theme" type="button">
+        <span class="rf-theme-dot"></span><span id="theme-label">DARK</span>
+      </button>
+      <div class="rf-lang">
+        <button data-lang-btn="es" class="lang-btn">ES</button>
+        <button data-lang-btn="en" class="lang-btn">EN</button>
+      </div>
+      <a href="../index.html#contact" class="rf-cta" data-lang="es">Contacto</a>
+      <a href="../index.html#contact" class="rf-cta hidden" data-lang="en">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rf-case-hero">
+      <div class="rf-case-field" style="background:linear-gradient(135deg,#dbe6f2,#eee9df);"></div>
+      <div class="rf-case-field" style="background:radial-gradient(80% 80% at 40% 25%,rgba(15,110,114,.26),transparent 60%);"></div>
+      <div class="rf-case-fade"></div>
+      <div class="rf-case-scrim"></div>
+      <div class="rf-case-hero-inner">
+        <a href="../index.html#work" class="rf-back">
+          <span>←</span><span data-lang="es">Volver al inicio</span><span data-lang="en" class="hidden">Back home</span>
+        </a>
+        <div class="rf-case-eyebrow">
+          <span class="n">04</span>
+          <span class="lbl">Personal Pay — 2025</span>
+        </div>
+        <h1 data-reveal>Agenda de Transferencias</h1>
+        <p data-reveal data-lang="es">Rediseño del flujo de gestión de contactos y transferencias para reducir la fricción en operaciones frecuentes y elevar la satisfacción del usuario.</p>
+        <p data-reveal data-lang="en" class="hidden">Redesign of the contact and transfer management flow to reduce friction in frequent operations and raise user satisfaction.</p>
+      </div>
+    </section>
+
+    <!-- META -->
+    <section>
+      <div class="rf-meta-grid">
+        <div data-reveal><div class="k" data-lang="es">Rol</div><div class="k hidden" data-lang="en">Role</div><div class="v">UX Lead</div></div>
+        <div data-reveal><div class="k" data-lang="es">Duración</div><div class="k hidden" data-lang="en">Duration</div><div class="v" data-lang="es">3 meses</div><div class="v hidden" data-lang="en">3 months</div></div>
+        <div data-reveal><div class="k" data-lang="es">Año</div><div class="k hidden" data-lang="en">Year</div><div class="v">2025</div></div>
+        <div data-reveal><div class="k" data-lang="es">País</div><div class="k hidden" data-lang="en">Country</div><div class="v">Argentina</div></div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="rf-overview">
+      <p data-reveal data-lang="es">Diseñar una experiencia de agenda que permita encontrar y seleccionar rápidamente destinatarios frecuentes, reducir errores en transferencias, y elevar la satisfacción del usuario.</p>
+      <p data-reveal class="hidden" data-lang="en">Design a contacts experience that lets users quickly find and select frequent recipients, reduce transfer errors, and raise user satisfaction.</p>
+    </section>
+
+    <!-- FLOW SHOTS (antes) -->
+    <section class="rf-flowshots">
+      <div class="rf-flowshots-grid">
+        <figure data-reveal>
+          <img src="../../img/agenda/0f2da6e4266c9ed58983717578ed4b9649da0612.png" alt="Diseño anterior: pantalla principal">
+          <figcaption data-lang="es">Diseño anterior: pantalla principal de la agenda, sin priorización visual de contactos frecuentes.</figcaption>
+          <figcaption class="hidden" data-lang="en">Previous design: main contacts screen, with no visual priority for frequent contacts.</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/agenda/2a977de0fe67c401a3396cc3cd370f82002b5bc2.png" alt="Diseño anterior: ingreso de datos">
+          <figcaption data-lang="es">Diseño anterior: ingreso de datos con jerarquía poco clara entre las opciones de transferencia.</figcaption>
+          <figcaption class="hidden" data-lang="en">Previous design: data entry with an unclear hierarchy between transfer options.</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/agenda/942847d6dc5255001540609a42b90dc465acca30.png" alt="Diseño anterior: confirmación">
+          <figcaption data-lang="es">Diseño anterior: pantalla de confirmación.</figcaption>
+          <figcaption class="hidden" data-lang="en">Previous design: confirmation screen.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTIONS -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Contexto</div><div class="label hidden" data-lang="en">Context</div>
+            <h3 data-lang="es">3 de cada 4 transacciones pasan por acá</h3>
+            <h3 class="hidden" data-lang="en">3 out of 4 transactions go through here</h3>
+          </div>
+          <div class="body" data-lang="es">En Personal Pay, cerca de 3 de cada 4 transacciones pasan por la agenda de transferencias. La experiencia existente presentaba fricciones recurrentes que afectaban la satisfacción del usuario y generaban costos operativos en soporte.</div>
+          <div class="body hidden" data-lang="en">At Personal Pay, close to 3 out of every 4 transactions go through the transfer contacts list. The existing experience had recurring friction points that affected user satisfaction and drove up support costs.</div>
+        </div>
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">El problema</div><div class="label hidden" data-lang="en">The problem</div>
+            <h3 data-lang="es">Fricciones en la experiencia actual</h3>
+            <h3 class="hidden" data-lang="en">Friction in the current experience</h3>
+          </div>
+          <div class="body" data-lang="es">— Dificultad para encontrar destinatarios frecuentes
+— Gestión poco clara de contactos
+— Poca utilidad de "Últimas transferencias" como atajo
+— Altos tiempos de interacción para transferencias recurrentes</div>
+          <div class="body hidden" data-lang="en">— Difficulty finding frequent recipients
+— Unclear contact management
+— Limited usefulness of "Recent transfers" as a shortcut
+— High interaction times for recurring transfers</div>
+        </div>
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">La solución</div><div class="label hidden" data-lang="en">The solution</div>
+            <h3 data-lang="es">Accesos directos, control y claridad</h3>
+            <h3 class="hidden" data-lang="en">Shortcuts, control and clarity</h3>
+          </div>
+          <div class="body" data-lang="es">Favoritos como entrada principal, gestión clara de contactos (alta, baja y modificación), últimas transferencias rediseñadas como una acción segura, y transferencias programadas con visibilidad y control directo. El foco en UX Writing fue clave para generar confianza en cada paso.</div>
+          <div class="body hidden" data-lang="en">Favorites as the main entry point, clear contact management (add, remove, edit), recent transfers redesigned as a safe action, and scheduled transfers with direct visibility and control. UX writing was key to building trust at every step.</div>
+        </div>
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Aprendizajes</div><div class="label hidden" data-lang="en">Learnings</div>
+            <h3 data-lang="es">Lo que dejó el proyecto</h3>
+            <h3 class="hidden" data-lang="en">What the project left behind</h3>
+          </div>
+          <div class="body" data-lang="es">El UX Writing no es decoración: mensajes simples y claros generan seguridad en cada acción. Priorizar por impacto y decidir qué construir ahora versus después fue clave para el resultado del proyecto.</div>
+          <div class="body hidden" data-lang="en">UX writing isn't decoration: simple, clear messages create a sense of safety in every action. Prioritizing by impact and deciding what to build now versus later was key to the project's outcome.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILE SHOWCASE (diseño final) -->
+    <section class="rf-showcase-mobile">
+      <div class="rf-showcase-tag" data-lang="es">iOS · Android</div>
+      <div class="rf-showcase-tag hidden" data-lang="en">iOS · Android</div>
+      <div class="rf-showcase-tag right" data-lang="es">Diseño final</div>
+      <div class="rf-showcase-tag right hidden" data-lang="en">Final design</div>
+      <div class="rf-trio">
+        <div class="rf-phone l"><div class="rf-phone-screen"><img src="../../img/agenda/d8687494471ebdf7ec03def5ea4a567ba785c982.png" alt="Agenda principal"></div></div>
+        <div class="rf-phone mid"><div class="rf-phone-screen"><img src="../../img/agenda/0b688ec5452e296a54aec44f790a73dcf828e22f.png" alt="Detalle de contacto"></div></div>
+        <div class="rf-phone r"><div class="rf-phone-screen"><img src="../../img/agenda/6f4f671ec9d9ed32c6e2cf69afee8dfa25ac8ea1.png" alt="Backdrop"></div></div>
+      </div>
+    </section>
+    <section class="rf-mobile-grid">
+      <div class="grid">
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/agenda/18578db8590b8f52d6847701a7ad86716287f629.png" alt="Múltiples cuentas"></div></div>
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/agenda/911f06f778a3d76705f62e631b8cf3357ef68d05.png" alt="Confirmación"></div></div>
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/agenda/9568c70f9e0b5d3866de9dea50e187c7eb61045d.png" alt="Ingreso de importe"></div></div>
+        <div class="cell" data-reveal><div class="cell-inner"><img src="../../img/agenda/86f7f6effbe743852d891ab9c7afccc78c9633b7.png" alt="Transferencia exitosa"></div></div>
+      </div>
+    </section>
+
+    <!-- WIDE -->
+    <section class="rf-wide">
+      <div class="tag">Workflow — iOS · Android</div>
+      <div class="frame"><img src="../../img/agenda/358c70a8af29f0ba8aee7fa8bc6c65a1296be1f1.png" alt="Workflow completo de la agenda de transferencias"></div>
+    </section>
+
+    <!-- METRICS -->
+    <section>
+      <div class="rf-metrics-tag" data-lang="es">Impacto y métricas</div>
+      <div class="rf-metrics-tag hidden" data-lang="en">Impact & metrics</div>
+      <div class="rf-metrics-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="cell" data-reveal><div class="num">-32%</div><div class="lbl" data-lang="es">Llamadas al soporte relacionadas con agenda/transferencias</div><div class="lbl hidden" data-lang="en">Support calls related to contacts/transfers</div></div>
+        <div class="cell" data-reveal><div class="num">+45%</div><div class="lbl" data-lang="es">Menciones positivas en reseñas de Google Play</div><div class="lbl hidden" data-lang="en">Positive mentions in Google Play reviews</div></div>
+        <div class="cell" data-reveal><div class="num">~25%</div><div class="lbl" data-lang="es">Reducción de tiempo en transferencias recurrentes</div><div class="lbl hidden" data-lang="en">Time reduction in recurring transfers</div></div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section>
+      <div class="rf-highlights">
+        <div>
+          <h2 data-lang="es">(Highlights)</h2>
+          <h2 class="hidden" data-lang="en">(Highlights)</h2>
+        </div>
+        <div class="rf-highlights-list">
+          <div class="rf-highlight" data-reveal>
+            <span class="n">01</span>
+            <div>
+              <div class="t" data-lang="es">Favoritos — entrada principal</div><div class="t hidden" data-lang="en">Favorites — main entry point</div>
+              <p class="d" data-lang="es">Los contactos más usados aparecen primero, reduciendo el esfuerzo cognitivo para encontrar destinatarios.</p>
+              <p class="d hidden" data-lang="en">The most-used contacts appear first, reducing the cognitive effort needed to find recipients.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">02</span>
+            <div>
+              <div class="t" data-lang="es">Gestión de contactos</div><div class="t hidden" data-lang="en">Contact management</div>
+              <p class="d" data-lang="es">UI clara para alta, baja y modificación, con confirmaciones que reducen el miedo a eliminar contactos.</p>
+              <p class="d hidden" data-lang="en">A clear UI for adding, removing and editing contacts, with confirmations that reduce the fear of deleting them.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">03</span>
+            <div>
+              <div class="t" data-lang="es">Últimas transferencias</div><div class="t hidden" data-lang="en">Recent transfers</div>
+              <p class="d" data-lang="es">Repetir una transferencia es fácil y seguro, con labels descriptivos que dejan clara la identidad del destinatario.</p>
+              <p class="d hidden" data-lang="en">Repeating a transfer is easy and safe, with descriptive labels that keep the recipient's identity clear.</p>
+            </div>
+          </div>
+          <div class="rf-highlight" data-reveal>
+            <span class="n">04</span>
+            <div>
+              <div class="t" data-lang="es">Transferencias programadas</div><div class="t hidden" data-lang="en">Scheduled transfers</div>
+              <p class="d" data-lang="es">Visibilidad directa y control de las próximas transferencias, con acceso para editar o cancelar.</p>
+              <p class="d hidden" data-lang="en">Direct visibility and control over upcoming transfers, with the ability to edit or cancel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL CASE -->
+    <section class="rf-fullcase">
+      <a href="../../AgendaDeTransferencias.html">
+        <span data-lang="es">Ver caso completo</span><span data-lang="en" class="hidden">View full case study</span> <span>→</span>
+      </a>
+    </section>
+
+    <!-- NEXT -->
+    <section class="rf-next">
+      <a href="pix.html" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;width:100%;">
+        <div>
+          <div class="tag" data-lang="es">Siguiente caso</div>
+          <div class="tag hidden" data-lang="en">Next case</div>
+          <div class="title">Habilitando pagos PIX en una billetera digital</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+  </main>
+</div>
+
+<script src="../../js/i18n.js"></script>
+<script>
+(function () {
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  var saved = localStorage.getItem(THEME_KEY);
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  var progress = document.querySelector('[data-progress]');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight || 1;
+    progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduced) {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
+</body>
+</html>
