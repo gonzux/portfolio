@@ -124,6 +124,9 @@ section{padding:80px 32px;border-top:1px solid var(--line);}
 .rf-metrics-grid .cell{border-top:1px solid var(--line2);padding-top:16px;}
 .rf-metrics-grid .num{font-family:'Instrument Serif',serif;font-size:clamp(36px,4.6vw,64px);line-height:1;letter-spacing:-.01em;color:var(--accent);}
 .rf-metrics-grid .lbl{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--muted);max-width:220px;}
+.rf-metrics-grid.wide-labels{grid-template-columns:repeat(2,1fr);}
+.rf-metrics-grid.wide-labels .lbl{max-width:420px;}
+@media (max-width:640px){.rf-metrics-grid.wide-labels{grid-template-columns:1fr;}}
 
 /* highlights */
 .rf-highlights{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;max-width:1200px;}
