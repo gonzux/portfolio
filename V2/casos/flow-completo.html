@@ -19,9 +19,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body { font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  body { font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; transition: background-color .3s ease, color .3s ease; }
   h1, h2, h3 { font-family: 'Instrument Serif', serif; letter-spacing: -.01em; }
   img { background-color: #f3f4f6; }
+
+  html[data-theme="dark"] body,
+  html[data-theme="dark"] .bg-white { background-color: #131311; }
+  html[data-theme="dark"] .bg-gray-50 { background-color: #1c1b18; }
+  html[data-theme="dark"] .bg-black { background-color: #0b0b0a; }
+  html[data-theme="dark"] .text-black { color: #f1eee7; }
+  html[data-theme="dark"] .text-gray-900 { color: #f1eee7; }
+  html[data-theme="dark"] .text-gray-800 { color: #d8d4ca; }
+  html[data-theme="dark"] .text-gray-700 { color: #b4b0a6; }
+  html[data-theme="dark"] .text-gray-600 { color: #b4b0a6; }
+  html[data-theme="dark"] .text-gray-500 { color: #8c897f; }
+  html[data-theme="dark"] .text-gray-400 { color: #6e6c64; }
+  html[data-theme="dark"] .text-gray-300 { color: #6e6c64; }
+  html[data-theme="dark"] .border-gray-200 { border-color: rgba(241,238,231,.14); }
+  html[data-theme="dark"] .border-black { border-color: #f1eee7; }
+  html[data-theme="dark"] .hover\:border-black:hover { border-color: #f1eee7; }
+  html[data-theme="dark"] .hover\:text-black:hover { color: #f1eee7; }
+  html[data-theme="dark"] img { background-color: #1c1b18; }
+  html[data-theme="dark"] .theme-toggle-dot { border-color: #f1eee7; background: linear-gradient(90deg, #f1eee7 50%, transparent 50%); }
 </style>
 </head>
 <body class="bg-white text-black">
@@ -37,6 +56,10 @@
       </a>
       <div class="flex items-center gap-3">
         <span class="text-xs uppercase tracking-wider text-gray-400">Gonzalo Felis</span>
+        <button id="theme-toggle" type="button" class="flex items-center gap-1.5 text-xs uppercase tracking-wider text-gray-600 border border-gray-200 rounded-full px-3 py-1 transition-colors">
+          <span class="theme-toggle-dot" style="width:10px;height:10px;border-radius:50%;border:1px solid #000;background:linear-gradient(90deg,#000 50%,transparent 50%);display:inline-block;"></span>
+          <span id="theme-label">DARK</span>
+        </button>
         <div class="flex items-center gap-1 text-xs uppercase tracking-wider">
           <button data-lang-btn="es" class="lang-btn px-2 py-1 rounded-full transition-colors">ES</button>
           <span class="text-gray-300">/</span>
@@ -403,5 +426,22 @@
 
 </div>
 <script src="../../js/i18n.js"></script>
+<script>
+(function () {
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  applyTheme(localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
 </body>
 </html>
