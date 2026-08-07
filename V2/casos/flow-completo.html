@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Webclient — Caso completo — Gonzalo Felis</title>
+<meta name="description" content="Caso completo: discovery, validación con test de usabilidad, arquitectura de información, sistema de diseño e interfaz final del cliente web de Flow.">
+<script id="lang-meta" type="application/json">
+{
+  "title": { "es": "Flow Webclient — Caso completo — Gonzalo Felis", "en": "Flow Webclient — Full Case Study — Gonzalo Felis" },
+  "description": {
+    "es": "Caso completo: discovery, validación con test de usabilidad, arquitectura de información, sistema de diseño e interfaz final del cliente web de Flow.",
+    "en": "Full case study: discovery, usability testing validation, information architecture, design system and final interface of the Flow web client."
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../case.css">
+<style>
+  .rf-principles{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px;}
+  .rf-principles span{font-size:13px;color:var(--ink2);border:1px solid var(--line2);padding:8px 16px;border-radius:100px;}
+  .rf-design-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1200px;}
+  .rf-design-pair figure{margin:0;}
+  .rf-design-pair img{width:100%;display:block;border-radius:12px;border:1px solid var(--line);}
+  .rf-design-pair figcaption{margin-top:12px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--label);}
+  @media (max-width:900px){.rf-design-pair{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="rf-root" data-root>
+  <div class="rf-progress" data-progress></div>
+
+  <header class="rf-hdr">
+    <a href="../index.html#top" class="rf-brand" aria-label="Ir al inicio">
+      <span class="rf-avatar"><img src="../../img/profile/gonzalo-felis-bw.jpg" alt="Gonzalo Felis"></span>
+      <span class="rf-brand-name">Gonzalo Felis<span style="color:var(--accent);">.</span></span>
+    </a>
+    <nav class="rf-nav">
+      <a href="../index.html#work" class="rf-navlink" data-lang="es">Trabajo</a>
+      <a href="../index.html#work" class="rf-navlink hidden" data-lang="en">Work</a>
+      <a href="../index.html#about" class="rf-navlink" data-lang="es">Perfil</a>
+      <a href="../index.html#about" class="rf-navlink hidden" data-lang="en">About</a>
+      <button id="theme-toggle" class="rf-theme-btn" title="Theme" type="button">
+        <span class="rf-theme-dot"></span><span id="theme-label">DARK</span>
+      </button>
+      <div class="rf-lang">
+        <button data-lang-btn="es" class="lang-btn">ES</button>
+        <button data-lang-btn="en" class="lang-btn">EN</button>
+      </div>
+      <a href="../index.html#contact" class="rf-cta" data-lang="es">Contacto</a>
+      <a href="../index.html#contact" class="rf-cta hidden" data-lang="en">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="rf-case-hero">
+      <div class="rf-case-field" style="background:linear-gradient(135deg,#ece0ef,#eee9df);"></div>
+      <div class="rf-case-field" style="background:radial-gradient(80% 80% at 70% 20%,rgba(150,90,200,.26),transparent 60%);"></div>
+      <div class="rf-case-fade"></div>
+      <div class="rf-case-scrim"></div>
+      <div class="rf-case-hero-inner">
+        <a href="flow.html" class="rf-back">
+          <span>←</span><span data-lang="es">Volver al caso resumido</span><span data-lang="en" class="hidden">Back to summary</span>
+        </a>
+        <div class="rf-case-eyebrow">
+          <span class="lbl" data-lang="es">Caso completo — Telecom Argentina</span>
+          <span class="lbl hidden" data-lang="en">Full case study — Telecom Argentina</span>
+        </div>
+        <h1 data-reveal>Flow Webclient</h1>
+        <p data-reveal data-lang="es">Diseño del cliente web de Flow: ver TV en vivo, guía de programación y contenido on demand desde cualquier computadora, sin instalar nada.</p>
+        <p data-reveal data-lang="en" class="hidden">Design of the Flow web client: watch live TV, browse the programming guide, and stream on-demand content from any computer, without installing anything.</p>
+      </div>
+    </section>
+
+    <!-- META -->
+    <section>
+      <div class="rf-meta-grid">
+        <div data-reveal><div class="k" data-lang="es">Rol</div><div class="k hidden" data-lang="en">Role</div><div class="v">UX/UI Designer</div></div>
+        <div data-reveal><div class="k" data-lang="es">Duración</div><div class="k hidden" data-lang="en">Duration</div><div class="v" data-lang="es">6 meses</div><div class="v hidden" data-lang="en">6 months</div></div>
+        <div data-reveal><div class="k" data-lang="es">Herramientas</div><div class="k hidden" data-lang="en">Tools</div><div class="v">Adobe XD</div></div>
+        <div data-reveal><div class="k" data-lang="es">Plataforma</div><div class="k hidden" data-lang="en">Platform</div><div class="v">Web · TV</div></div>
+      </div>
+    </section>
+
+    <!-- CONTEXTO -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Contexto</div><div class="label hidden" data-lang="en">Context</div>
+            <h3 data-lang="es">Ver Flow desde cualquier computadora</h3>
+            <h3 class="hidden" data-lang="en">Watching Flow from any computer</h3>
+          </div>
+          <div>
+            <div class="body" data-lang="es">Las personas usuarias pueden acceder desde cualquier computadora sin necesidad de instalar ningún archivo, y disfrutar de sus series o películas favoritas directamente desde el navegador.</div>
+            <div class="body hidden" data-lang="en">People can access it from any computer without installing a single file, and enjoy their favorite shows and movies directly from the browser.</div>
+            <div class="rf-principles" data-lang="es"><span>Simple</span><span>Escalable</span><span>Perdurable</span><span>Personalizada</span><span>Consistente</span></div>
+            <div class="rf-principles hidden" data-lang="en"><span>Simple</span><span>Scalable</span><span>Durable</span><span>Personalized</span><span>Consistent</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOVERY -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label">Discovery</div>
+            <h3 data-lang="es">Investigación de usuarios</h3>
+            <h3 class="hidden" data-lang="en">User research</h3>
+          </div>
+          <div class="body" data-lang="es">Comenzamos con una entrevista y una encuesta para obtener información de las personas usuarias. De acuerdo con nuestras hipótesis, quienes utilizaban algún tipo de reproductor en web estaban acostumbrados a tener un menú horizontal en la parte superior que agilizara la navegación. También surgieron nuevas funcionalidades a resolver: acceso a los canales anteriores, posibilidad de ver la grilla sin que tape el contenido, distintos perfiles y un mini reproductor.</div>
+          <div class="body hidden" data-lang="en">We started with an interview and a survey to gather information from users. According to our hypotheses, people who used some kind of web player were used to having a horizontal menu at the top that sped up navigation. New features to address also emerged: access to previously watched channels, the ability to view the guide without it covering the content, multiple profiles, and a mini player.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALIDACIÓN -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Validación</div><div class="label hidden" data-lang="en">Validation</div>
+            <h3 data-lang="es">Prueba de usabilidad</h3>
+            <h3 class="hidden" data-lang="en">Usability testing</h3>
+          </div>
+          <div class="body" data-lang="es">Hicimos pruebas de usabilidad con 6 personas usuarias —tamaño de muestra habitual en tests de usabilidad, ya que a partir de la quinta o sexta persona los patrones de comportamiento empiezan a repetirse—. Con mapas de calor identificamos estos hallazgos entre el grupo:</div>
+          <div class="body hidden" data-lang="en">We ran usability tests with 6 users — a typical sample size for usability testing, since behavior patterns tend to start repeating from the fifth or sixth person onward. Using heatmaps, we identified these findings across the group:</div>
+        </div>
+      </div>
+    </section>
+    <section style="padding-top:0;">
+      <div class="rf-metrics-grid wide-labels">
+        <div class="cell" data-reveal><div class="num">01</div><div class="lbl" data-lang="es">Parte del grupo utilizó el ícono de mostrar la contraseña, en especial cuando el navegador guardaba una contraseña desactualizada.</div><div class="lbl hidden" data-lang="en">Part of the group used the show-password icon, especially when the browser had an outdated saved password.</div></div>
+        <div class="cell" data-reveal><div class="num">02</div><div class="lbl" data-lang="es">El mapa de calor mostró mayor concentración de clicks en el espacio de los CTA donde se muestra el texto, específicamente sobre "Ingresar".</div><div class="lbl hidden" data-lang="en">The heatmap showed a higher concentration of clicks on the text area of the CTAs, specifically on "Ingresar" (Sign in).</div></div>
+        <div class="cell" data-reveal><div class="num">03</div><div class="lbl" data-lang="es">Buena parte del grupo prefirió guiarse con el menú "Guía de TV" antes que con el botón "Ocultar Guía".</div><div class="lbl hidden" data-lang="en">Most of the group preferred to navigate using the "Guía de TV" (TV Guide) menu item rather than the "Ocultar Guía" (Hide Guide) button.</div></div>
+        <div class="cell" data-reveal><div class="num">04</div><div class="lbl" data-lang="es">Una parte del grupo esperaba que el logo de Flow los devolviera a un estado previo, o lo usó para recargar la página de inicio.</div><div class="lbl hidden" data-lang="en">Some of the group expected the Flow logo to take them back to a previous state, or used it to reload the home page.</div></div>
+      </div>
+    </section>
+
+    <!-- HEATMAPS -->
+    <section class="rf-flowshots">
+      <div class="tag" data-lang="es" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);margin-bottom:24px;">Mapas de calor</div>
+      <div class="tag hidden" data-lang="en" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);margin-bottom:24px;">Heatmaps</div>
+      <div class="rf-flowshots-grid">
+        <figure data-reveal>
+          <img src="../../img/flow/heatmap-login.png" alt="Mapa de calor de la pantalla de login">
+          <figcaption data-lang="es">Login — clicks concentrados en el CTA "Ingresar" y en el ícono de mostrar contraseña.</figcaption>
+          <figcaption class="hidden" data-lang="en">Login — clicks concentrated on the "Ingresar" (Sign in) CTA and the show-password icon.</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/flow/heatmap-guia.png" alt="Mapa de calor de la navegación superior y guía de TV">
+          <figcaption data-lang="es">Navegación superior — concentración de clicks en el logo y en "Guía de TV".</figcaption>
+          <figcaption class="hidden" data-lang="en">Top navigation — clicks concentrated on the logo and on "Guía de TV" (TV Guide).</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/flow/heatmap-banner.png" alt="Mapa de calor del banner destacado y la grilla de TV en vivo">
+          <figcaption data-lang="es">Banner destacado — clicks distribuidos entre el CTA principal y los thumbnails de TV en vivo.</figcaption>
+          <figcaption class="hidden" data-lang="en">Featured banner — clicks distributed between the main CTA and the live TV thumbnails.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ARQUITECTURA -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Arquitectura de información</div><div class="label hidden" data-lang="en">Information architecture</div>
+            <h3 data-lang="es">Puntos débiles</h3>
+            <h3 class="hidden" data-lang="en">Weak points</h3>
+          </div>
+          <div class="body" data-lang="es">De acuerdo con los datos obtenidos, encontramos puntos débiles que necesitaban una atención especial. Optimizamos la arquitectura de información para ayudar a los usuarios a navegar y encontrar lo que necesitan. Al representar todo el proceso pudimos identificar cómo navega el usuario y si eso satisface sus necesidades.</div>
+          <div class="body hidden" data-lang="en">Based on the data we gathered, we found weak points that needed special attention. We optimized the information architecture to help users navigate and find what they need. By mapping out the entire process, we were able to identify how users navigate and whether that met their needs.</div>
+        </div>
+      </div>
+    </section>
+    <section class="rf-wide">
+      <div class="frame" data-reveal><img src="../../img/flow/arquitectura-flujo.jpg" alt="Diagrama de arquitectura de información y flujo de pantallas de Flow"></div>
+    </section>
+
+    <!-- SISTEMA DE DISEÑO -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Sistema de diseño</div><div class="label hidden" data-lang="en">Design system</div>
+            <h3 data-lang="es">Consistencia para escalar</h3>
+            <h3 class="hidden" data-lang="en">Consistency to scale</h3>
+          </div>
+          <div class="body" data-lang="es">El principal beneficio de un sistema de diseño es ahorrar tiempo en las iteraciones y los cambios mediante el uso de componentes prefabricados, manteniendo la consistencia del conjunto del producto. Siempre creamos los conceptos básicos en el sistema de diseño y luego los completamos paso a paso en las pantallas.</div>
+          <div class="body hidden" data-lang="en">The main benefit of a design system is saving time on iterations and changes by using prebuilt components, while keeping the whole product consistent. We always build the basic concepts in the design system first, then complete them step by step on the actual screens.</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="rf-design-pair">
+        <figure data-reveal>
+          <img src="../../img/flow/sistema-diseno.jpg" alt="Paleta cromática, perfiles, iconografía y estilos de botones del sistema de diseño de Flow">
+          <figcaption data-lang="es">Fundamentos: paleta cromática, perfiles, iconografía y estilos de botones.</figcaption>
+          <figcaption class="hidden" data-lang="en">Foundations: color palette, profiles, iconography and button styles.</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="../../img/flow/sistema-diseno-2.jpg" alt="Botones DIP, compartir en RRSS, alquileres, grabaciones, filtros, guía EPG, cast y reproductor">
+          <figcaption data-lang="es">Componentes de producto: botones DIP, compartir, alquileres, grabaciones, filtros, EPG, cast y reproductor.</figcaption>
+          <figcaption class="hidden" data-lang="en">Product components: PIP buttons, social sharing, rentals, recordings, filters, EPG, cast and the player.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- LA INTERFAZ -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">La interfaz para la persona usuaria</div><div class="label hidden" data-lang="en">The interface for the user</div>
+            <h3 data-lang="es">Simple, mínima y consistente</h3>
+            <h3 class="hidden" data-lang="en">Simple, minimal and consistent</h3>
+          </div>
+          <div class="body" data-lang="es">La clave principal para diseñar la interfaz fue la consistencia, manteniéndola simple, mínima y sencilla de utilizar.</div>
+          <div class="body hidden" data-lang="en">The main key to designing the interface was consistency, keeping it simple, minimal and easy to use.</div>
+        </div>
+      </div>
+    </section>
+    <section class="rf-web-shots" style="padding-top:20px !important;">
+      <div class="stack">
+        <div data-reveal><img src="../../img/flow/perfil-selector.png" alt="Pantalla de selección de perfil"></div>
+        <div data-reveal><img src="../../img/flow/guia-tv.png" alt="Guía de TV con grilla de programación por horario"></div>
+        <div data-reveal><img src="../../img/flow/reproductor-vivo.png" alt="Reproductor de TV en vivo con lista de canales"></div>
+        <div data-reveal><img src="../../img/flow/home-detalle.png" alt="Home con contenido destacado y pantalla de detalle"></div>
+      </div>
+    </section>
+
+    <!-- APRENDIZAJES -->
+    <section>
+      <div class="rf-sections">
+        <div class="rf-section-row" data-reveal>
+          <div>
+            <div class="label" data-lang="es">Aprendizajes</div><div class="label hidden" data-lang="en">Learnings</div>
+            <h3 data-lang="es">Un MVP para aprender rápido</h3>
+            <h3 class="hidden" data-lang="en">An MVP to learn fast</h3>
+          </div>
+          <div class="body" data-lang="es">Uno de los primeros trabajos 100% in-house, con un equipo que se estaba armando, con foco en el producto y un objetivo bien claro: tener un MVP en 6 meses que nos permitiera lanzar con la menor cantidad de características posibles, aprender y extraer información relevante de ese período de prueba —a través de métricas de interacción— y luego actuar en base a esos datos.</div>
+          <div class="body hidden" data-lang="en">One of the first 100% in-house projects, with a team that was still being formed, focused on the product and with a clear purpose: to have an MVP within 6 months that would let us launch with the smallest possible feature set, learn and extract relevant information from that trial period — through interaction metrics — and then act on that data.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="rf-next">
+      <a href="ibm-hsbc.html" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;width:100%;">
+        <div>
+          <div class="tag" data-lang="es">Siguiente caso</div>
+          <div class="tag hidden" data-lang="en">Next case</div>
+          <div class="title">Banca Empresas</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+  </main>
+</div>
+
+<script src="../../js/i18n.js"></script>
+<script>
+(function () {
+  var THEME_KEY = 'portfolio-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    label.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+    localStorage.setItem(THEME_KEY, theme);
+  }
+  var saved = localStorage.getItem(THEME_KEY);
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  var progress = document.querySelector('[data-progress]');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight || 1;
+    progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduced) {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
+</body>
+</html>
